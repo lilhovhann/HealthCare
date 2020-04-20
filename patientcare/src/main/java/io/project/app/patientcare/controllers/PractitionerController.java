@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package io.project.app.converter.controllers;
+package io.project.app.patientcare.controllers;
 
-import io.project.app.converter.services.PractitionerService;
+import io.project.app.patientcare.services.PractitionerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

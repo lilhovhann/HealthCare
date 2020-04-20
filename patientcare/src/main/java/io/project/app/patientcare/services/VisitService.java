@@ -1,5 +1,5 @@
-package io.project.app.converter.services;
-import io.project.app.converter.models.Visit;
+package io.project.app.patientcare.services;
+import io.project.app.patientcare.models.Visit;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

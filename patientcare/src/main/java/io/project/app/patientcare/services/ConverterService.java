@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package io.project.app.converter.services;
+package io.project.app.patientcare.services;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

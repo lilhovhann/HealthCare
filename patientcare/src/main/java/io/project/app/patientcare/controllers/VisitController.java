@@ -1,6 +1,6 @@
-package io.project.app.converter.controllers;
+package io.project.app.patientcare.controllers;
 
-import io.project.app.converter.services.VisitService;
+import io.project.app.patientcare.services.VisitService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

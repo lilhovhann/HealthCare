@@ -1,4 +1,4 @@
-package io.project.app.converter;
+package io.project.app.patientcare;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package io.project.app.converter.models;
+package io.project.app.patientcare.models;
 
 import java.io.Serializable;
 import java.util.Date;

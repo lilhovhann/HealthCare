@@ -1,7 +1,7 @@
-package io.project.app.converter.services;
+package io.project.app.patientcare.services;
 
-import io.project.app.converter.models.Patient;
-import io.project.app.converter.models.Practitioner;
+import io.project.app.patientcare.models.Patient;
+import io.project.app.patientcare.models.Practitioner;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
