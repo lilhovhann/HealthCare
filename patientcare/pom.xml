@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>io.project.app</groupId>
-	<artifactId>converter</artifactId>
+	<artifactId>patientcare</artifactId>
 	<version>1.0</version>
-	<name>converter</name>
-	<description>converter</description>
+	<name>patientcare</name>
+	<description>patientcare</description>
 
 	<properties>
 		<java.version>1.8</java.version>
