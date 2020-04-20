@@ -1,7 +1,6 @@
 package io.project.app.patientcare.controllers;
 import io.project.app.patientcare.models.Patient;
 import io.project.app.patientcare.services.PatientService;
-import java.util.ArrayList;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

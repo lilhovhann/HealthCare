@@ -10,10 +10,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories("io.project.app.patientcare.repositories") 
 @ComponentScan(basePackages = {"io.project"})
 @EntityScan("io.project.app.patientcare.models")
-public class ConverterApplication {
+public class PatientcareApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ConverterApplication.class, args);
+		SpringApplication.run(PatientcareApplication.class, args);
 	}
 
 }

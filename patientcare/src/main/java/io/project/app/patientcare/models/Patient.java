@@ -75,7 +75,6 @@ public class Patient implements Serializable {
     
 
     @Column(name = "patientRegisterDate")
-    @Temporal(javax.persistence.TemporalType.DATE)
     private Date patientRegisterDate;
 
   

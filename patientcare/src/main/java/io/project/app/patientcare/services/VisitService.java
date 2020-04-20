@@ -20,7 +20,7 @@ public class VisitService {
     @Autowired
     private PatientService patientService;
     
-    public void createVisit(Long patientId, String practitionerId){
+    public void createVisit(Long patientId, Long practitionerId){
         practitionerService.getPractitionerById(practitionerId);
         patientService.getPatientById(patientId);
         Visit newVisit = new Visit();
