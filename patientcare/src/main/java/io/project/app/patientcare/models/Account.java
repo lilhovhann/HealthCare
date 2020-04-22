@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 import javax.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,7 +30,7 @@ import lombok.ToString;
 
 @Entity
 @Table(name = "patient")
-public class Patient implements Serializable {
+public class Account implements Serializable {
     
     private static final long serialVersionUID = 5005662345607157416L;
     @Id
@@ -37,6 +38,18 @@ public class Patient implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Long id;
+    
+    @Size(max = 50)
+    @Column(name = "email")
+    private String email;
+            
+    @Size(max = 50)
+    @Column(name = "password")
+    private String password;
+
+    @Size(max = 50)
+    @Column(name = "accountType")
+    private String accountType;
     
     @Size(max = 50)
     @Column(name = "firstname")
@@ -49,19 +62,9 @@ public class Patient implements Serializable {
     @Size(max = 50)
     @Column(name = "gender")
     private String gender;
-    
-    @Size(max = 50)
-    @Column(name = "healthStatus")
-    private String healthStatus;
-    
-    private boolean active;
-    
-    @Size(max = 50)
-    @Column(name = "martialStatus")
-    private String martialStatus;
-    
-    
+   
     @Column(name = "birthdate")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date birthdate;
     
     @Size(max = 50)
@@ -73,9 +76,24 @@ public class Patient implements Serializable {
     private Integer status;
     
 
-    @Column(name = "patientRegisterDate")
-    private Date patientRegisterDate;
+    @Column(name = "registerDate")
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date registerDate;  
 
-  
+    public Account(String phone, String hashPassword, Long id, String firstname, String lastname, String accountType, Date date, int status) {
+        this.phone = phone;
+        this.password = hashPassword;
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.accountType = accountType;
+        this.registerDate = date;
+        this.status = status;
+        
+        
+    }
+
+   
+
     
 }

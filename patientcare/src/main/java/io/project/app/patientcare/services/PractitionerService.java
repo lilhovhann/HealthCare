@@ -34,7 +34,7 @@ public class PractitionerService {
         }
         log.info("Update practitioner with id "+ practitioner.getId());
         Practitioner updatedPractitioner = practitionerRepository.save(practitioner);
-        return practitioner;
+        return updatedPractitioner;
     }
     
     public Practitioner getPractitionerById(Long practitionerId){

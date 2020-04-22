@@ -2,7 +2,6 @@ package io.project.app.patientcare.services;
 
 import io.project.app.patientcare.models.Patient;
 import io.project.app.patientcare.repositories.PatientRepository;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
