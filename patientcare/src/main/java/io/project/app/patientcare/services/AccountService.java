@@ -6,7 +6,6 @@ import io.project.app.patientcare.utils.CommonConstants;
 import io.project.app.patientcare.models.LoginRequest;
 import io.project.app.patientcare.utils.PasswordHashUtil;
 import java.util.Date;
-import java.util.List;
 import java.util.Optional;
 import javax.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
@@ -39,7 +38,7 @@ public class AccountService {
         
         final Account createNewAccount = new Account(account.getPhone(),
                 PasswordHashUtil.hashPassword(account.getPassword()),
-                account.getId(),
+                //account.getId(),
                 account.getFirstname(),
                 account.getLastname(),
                 account.getAccountType(),
@@ -50,7 +49,7 @@ public class AccountService {
         return Optional.ofNullable(createNewAccount);
     }
     
-    public Optional <Account> login(LoginRequest login, HttpServletRequest request){
+    public Optional <Account> login(LoginRequest login){
             log.info("user" + login.getPhone());
             
             final Optional <Account> existingUser = accountRepository.findByPhoneAndPassword(login.getPhone(), PasswordHashUtil.hashPassword(login.getPassword()));

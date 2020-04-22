@@ -29,7 +29,7 @@ import lombok.ToString;
  */
 
 @Entity
-@Table(name = "patient")
+@Table(name = "account")
 public class Account implements Serializable {
     
     private static final long serialVersionUID = 5005662345607157416L;
@@ -80,10 +80,10 @@ public class Account implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date registerDate;  
 
-    public Account(String phone, String hashPassword, Long id, String firstname, String lastname, String accountType, Date date, int status) {
+    public Account(String phone, String hashPassword, String firstname, String lastname, String accountType, Date date, int status) {
         this.phone = phone;
         this.password = hashPassword;
-        this.id = id;
+        //this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.accountType = accountType;

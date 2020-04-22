@@ -30,8 +30,7 @@ import lombok.ToString;
  * @author lilith
  */
 
-@Entity
-@Table(name = "login")
+
 public class LoginRequest implements Serializable {
     
     private static final long serialVersionUID = 5005662345607157416L;
@@ -39,13 +38,10 @@ public class LoginRequest implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-  
-    @Size(max = 50)
-    @Column(name = "password")
+    @Column(name = "id")
+    private Long id;
+     
     private String password;
-    
-    @Size(max = 50)
-    @Column(name = "phone")
     private String phone;
        
 
