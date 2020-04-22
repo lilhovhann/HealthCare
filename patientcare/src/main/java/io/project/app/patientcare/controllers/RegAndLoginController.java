@@ -44,18 +44,18 @@ public class RegAndLoginController {
         return ResponseEntity.status(HttpStatus.OK).body(savedAccount);
     }
     
-//    @PostMapping(path = "/login", produces = MediaType.APPLICATION_JSON_VALUE)
-//    public ResponseEntity<?> login(@RequestBody LoginRequest login) {
-//        log.info("Login account");
-//        
-//        if(login.getPhone() == null || login.getPassword() == null){
-//            log.error("Could not login account");
-//            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("You must fill phone and password fields");
-//        }
-//        
-//        Optional<Account> loginnedAccount = accountService.login(login);
-//        return ResponseEntity.status(HttpStatus.OK).body(loginnedAccount);
-//    }
+    @PostMapping(path = "/login", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> login(@RequestBody LoginRequest login) {
+        log.info("Login account");
+        
+        if(login.getPhone() == null || login.getPassword() == null){
+            log.error("Could not login account");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("You must fill phone and password fields");
+        }
+        
+        Optional<Account> loginnedAccount = accountService.login(login);
+        return ResponseEntity.status(HttpStatus.OK).body(loginnedAccount);
+    }
     
 
 }

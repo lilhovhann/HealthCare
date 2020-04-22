@@ -38,7 +38,6 @@ public class AccountService {
         
         final Account createNewAccount = new Account(account.getPhone(),
                 PasswordHashUtil.hashPassword(account.getPassword()),
-                //account.getId(),
                 account.getFirstname(),
                 account.getLastname(),
                 account.getAccountType(),

@@ -83,7 +83,6 @@ public class Account implements Serializable {
     public Account(String phone, String hashPassword, String firstname, String lastname, String accountType, Date date, int status) {
         this.phone = phone;
         this.password = hashPassword;
-        //this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.accountType = accountType;
