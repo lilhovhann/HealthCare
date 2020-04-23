@@ -3,11 +3,10 @@ package io.project.app.patientcare.services;
 import io.project.app.patientcare.models.Account;
 import io.project.app.patientcare.repositories.AccountRepository;
 import io.project.app.patientcare.utils.CommonConstants;
-import io.project.app.patientcare.models.LoginRequest;
+import io.project.app.patientcare.models.Login;
 import io.project.app.patientcare.utils.PasswordHashUtil;
 import java.util.Date;
 import java.util.Optional;
-import javax.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,19 +35,25 @@ public class AccountService {
             return Optional.empty();
         }
         
+//        Optional <Account> alreadyExistingUser = accountRepository.findByPhoneAndPassword(account.getPhone(), PasswordHashUtil.hashPassword(account.getPassword()));
+//            if (alreadyExistingUser.isPresent()) {
+//                log.info("user already have account");
+//                return Optional.ofNullable(alreadyExistingUser.get());
+//            }
+        
         final Account createNewAccount = new Account(account.getPhone(),
                 PasswordHashUtil.hashPassword(account.getPassword()),
                 account.getFirstname(),
                 account.getLastname(),
                 account.getAccountType(),
-                new Date(System.currentTimeMillis()), CommonConstants.ACTIVATED);
+                new Date(System.currentTimeMillis()));
         
         final Account savedAccount = accountRepository.save(createNewAccount);
         
         return Optional.ofNullable(createNewAccount);
     }
     
-    public Optional <Account> login(LoginRequest login){
+    public Optional <Account> login(Login login){
             log.info("user" + login.getPhone());
             
             final Optional <Account> existingUser = accountRepository.findByPhoneAndPassword(login.getPhone(), PasswordHashUtil.hashPassword(login.getPassword()));

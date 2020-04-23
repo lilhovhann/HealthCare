@@ -64,35 +64,24 @@ public class Account implements Serializable {
     private String gender;
    
     @Column(name = "birthdate")
-    @Temporal(javax.persistence.TemporalType.DATE)
     private Date birthdate;
     
     @Size(max = 50)
     @Column(name = "phone")
     private String phone;
-    
-
-    @Column(name = "status")
-    private Integer status;
-    
 
     @Column(name = "registerDate")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date registerDate;  
 
-    public Account(String phone, String hashPassword, String firstname, String lastname, String accountType, Date date, int status) {
+    public Account(String phone, String hashPassword, String firstname, String lastname, String accountType, Date date) {
         this.phone = phone;
         this.password = hashPassword;
         this.firstname = firstname;
         this.lastname = lastname;
         this.accountType = accountType;
         this.registerDate = date;
-        this.status = status;
-        
-        
     }
 
-   
 
-    
 }
