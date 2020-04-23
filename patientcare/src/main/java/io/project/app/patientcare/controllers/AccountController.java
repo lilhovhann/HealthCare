@@ -42,15 +42,7 @@ public class AccountController {
         }
         
         Optional<Account> savedAccount = accountService.createAccount(account);
-        
-//        if(account.getAccountType() == "patient"){
-//            log.info("redirecting");
-//            URI location = new URI("/profile");
-//            return ResponseEntity.created(location).body(savedAccount);
-//     
-//        }
-   
-        return ResponseEntity.status(HttpStatus.OK).body(savedAccount);
+        return ResponseEntity.status(HttpStatus.OK).body(savedAccount.get());
     }
     
     @PostMapping(path = "/login", produces = MediaType.APPLICATION_JSON_VALUE)

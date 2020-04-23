@@ -83,5 +83,9 @@ public class Account implements Serializable {
         this.registerDate = date;
     }
 
+//    public Account(Patient patient, Practitioner toPractitioner, String visitReason, Date visitDate) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+
 
 }
