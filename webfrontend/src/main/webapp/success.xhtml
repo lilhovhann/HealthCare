@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+        </f:facet>
+        <title>Registration Success</title>
+        <style type="text/css">
+            .ui-growl{
+                left:600px;
+            }
+        </style>
+    </h:head>
+    <h:body styleClass="containerLogin">
+
+        <div class="logo-container">
+            Registration was Success
+        </div>
+        <div class="ui-g">
+            <div class="ui-g-4"></div>
+            <div class="ui-g-12 ui-lg-4" style="text-align:center;padding-bottom:70px;">
+                <div class="ui-g-12" style="color:#fff;margin-bottom:25px;">
+                    <h1 style="font-weight:bold;">Check your e-mail and confirm registration and Sign In</h1>
+                </div>
+                <p:button id="errorButton" value="Main page" outcome="/index"></p:button>
+            </div>
+            <div class="ui-g-4"></div>
+        </div>
+        <style type="text/css">
+            html {height: 100%;}
+            .ui-button-text, .ui-button-text-only .ui-button-text{padding:8px !important; transition:none !important;}
+        </style>
+        <h:outputStylesheet name="css/layout-#{guestPreferences.theme}.css" library="icarus-layout"/>
+    </h:body>
+</html>

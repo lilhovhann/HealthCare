@@ -55,6 +55,5 @@ public class PatientService {
     public List<Patient> findAllSavedPatients(){
         log.info("find all patients, return Array List or List");
         return (List<Patient>) patientRepository.findAll();
-      
     }
 }

@@ -1,7 +1,9 @@
 package io.project.app.patientcare.services;
 
 
+import io.project.app.patientcare.models.Account;
 import io.project.app.patientcare.models.Visit;
+import io.project.app.patientcare.repositories.AccountRepository;
 import io.project.app.patientcare.repositories.VisitRepository;
 
 import java.util.Optional;
@@ -22,12 +24,29 @@ public class VisitService {
     @Autowired
     private VisitRepository visitRepository;
     
+    @Autowired
+    private AccountRepository accountRepository;
+    
+
+    Long patientId;
+   
     public Optional<Visit> createVisit(Visit visit){
         log.info("service: create visit");
         
+        Optional<Account> findAccountByPhone = accountRepository.findByPhone(visit.getPatientPhone());
+        log.info("findaccount by phone ");
+         
+        if(findAccountByPhone.isPresent()){
+                 patientId =  findAccountByPhone.get().getId();
+                 log.info("patient id is "+patientId);
+            }else{
+             log.info("the phone isn't registered");
+         }
+              visit.setPatientId(patientId);
         
         final Visit createNewVisit = new Visit(visit.getVisitDate(),
-                visit.getPatientId(), 
+                visit.getPatientPhone(),
+                visit.getPatientId(),
                 visit.getPractitionerId(), 
                 visit.getVisitReason());
         

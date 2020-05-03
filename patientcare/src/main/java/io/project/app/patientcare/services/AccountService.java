@@ -6,6 +6,7 @@ import io.project.app.patientcare.utils.CommonConstants;
 import io.project.app.patientcare.models.Login;
 import io.project.app.patientcare.utils.PasswordHashUtil;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,16 @@ public class AccountService {
 
     @Autowired
     private AccountRepository accountRepository;
+//    
+//    private static void getEmployees()
+//{
+//    final String uri = "http://localhost:8080/springrestexample/employees.xml";
+//      
+//    RestTemplate restTemplate = new RestTemplate();
+//    String result = restTemplate.getForObject(uri, String.class);
+//     
+//    System.out.println(result);
+//}
 
     public Optional<Account> createAccount(Account account) {
         log.info("AccountService: creating account");
@@ -59,5 +70,10 @@ public class AccountService {
         }
 
         return Optional.empty();
+    }
+    
+    public List<Account> findAllSavedAccounts(){
+        log.info("find all patients, return Array List or List");
+        return (List<Account>) accountRepository.findAll();
     }
 }

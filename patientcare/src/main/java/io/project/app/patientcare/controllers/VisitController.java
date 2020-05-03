@@ -44,7 +44,8 @@ public class VisitController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("You must fill practitioner id");
         }
       
-        Optional<Visit> savedVisit = visitService.createVisit(visit);
+        Optional<Visit> savedVisit =  visitService.createVisit(visit);
+        
         return ResponseEntity.status(HttpStatus.OK).body(savedVisit.get());
     }
     

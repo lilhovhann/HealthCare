@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"    
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"     
+      xmlns:jsf="http://xmlns.jcp.org/jsf"         
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"   
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:form prependId="false">
+        <p:dialog header="#{i18n.signin}" widgetVar="lgn" modal="true" width="600" height="300">
+            <ui:include src="/WEB-INF/includes/login.xhtml"/>
+        </p:dialog>   
+        <p:dialog header="#{i18n.signup}" widgetVar="rgn" modal="true" width="600" height="500">
+            <ui:include src="/WEB-INF/includes/register.xhtml"/>
+        </p:dialog>   
+    </h:form>
+
+</html>
