@@ -21,9 +21,9 @@ import lombok.ToString;
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class LoginRequest implements Serializable{
-    
-    private String email;
+public class LoginRequest implements Serializable {
+
+    private String phone;
     private String password;
-    
+
 }

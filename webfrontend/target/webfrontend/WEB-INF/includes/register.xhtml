@@ -8,71 +8,75 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
 
-   
-    <h:form id="registerForm"  rendered="#{sessionContext.user.id == null}">
-            <p:growl/>
-            <ui:remove>
-                <div class="logo-container">
-                    <h:graphicImage name="images/logo.svg" id="PageLogo" library="icarus-layout"/>
-                </div>        
-            </ui:remove>
-            <div class="ui-g">
-                <f:event listener = "#{loginBean.validatePassword}" type="postValidate"/>
-             
-                <p:panel header="Registration" styleClass="panel-login">
-                    
-                    <div class="ui-g-12" style="padding-top:35px;">                        
-                        <p:inputText  value="#{loginBean.user.firstname}" id="firstname" placeholder="#{i18n.firstname}" style="width:60%;" required="true" requiredMessage="#{i18n.mandatory}">                         
-                            <f:validateLength maximum="100"/>                            
-                        </p:inputText>     
-                    </div>                    
-                    <div class="ui-g-12" style="padding-top:10px;">                        
-                        <p:inputText  value="#{loginBean.user.lastname}" id="lastname" placeholder="#{i18n.lastname}" style="width:60%;" required="true" requiredMessage="#{i18n.mandatory}">                         
-                            <f:validateLength maximum="100"/>                            
-                        </p:inputText>     
-                    </div>
-                    <div class="ui-g-12" style="padding-top:10px;">                        
-                        <p:inputText value="#{loginBean.user.phone}" id="phone" placeholder="#Phone" style="width:60%;" required="true" requiredMessage="#{i18n.mandatory}">
-                                            
-                            <f:validateLength maximum="100"/>                            
-                        </p:inputText>     
-                    </div>
-                     <div class="ui-g-12" style="padding-top:10px;">
-                        <p:password  id="password" style="width:60%;" placeholder="#{i18n.password}" required="true" requiredMessage="#{i18n.mandatory}" >                            
-                            <f:validateLength minimum="6" maximum="20"/>    
-                        </p:password>
-                    </div>
-                    <div class="ui-g-12" style="padding-top:10px;">
-                        <p:password  id="confirmPassword" style="width:60%;" placeholder="#{i18n.confirmPassword}" required="true" requiredMessage="#{i18n.mandatory}" >                            
-                            <f:validateLength minimum="6" maximum="20"/>    
-                        </p:password>
-                    </div>
-                          
-                           
-               <div class="ui-g-12" style="padding-top:10px;">                   
-                    <p:selectOneMenu id="equipment" value="#{loginBean.user.accountType}" required="true" caseSensitive="true" style="width:56%;">                           
-                        <f:selectItems value="#{loginBean.accountList}" var="list" itemLabel="#{list.key}"  itemValue="#{list.value}"/>
-                    </p:selectOneMenu>
+
+    <h:form id="registerForm">
+        <p:growl/>
+      
+        <div class="ui-g">
+        
+
+            <p:panel header="Registration" styleClass="panel-login">
+
+                <div class="ui-g-12" style="padding-top:35px;">                        
+                    <p:inputText  value="#{registerBean.account.firstname}" id="firstname" placeholder="#{i18n.firstname}" style="width:60%;" required="true" requiredMessage="#{i18n.mandatory}">                         
+                        <f:validateLength maximum="100"/>                            
+                    </p:inputText>     
+                </div>                    
+                <div class="ui-g-12" style="padding-top:10px;">                        
+                    <p:inputText  value="#{registerBean.account.lastname}" id="lastname" placeholder="#{i18n.lastname}" style="width:60%;" required="true" requiredMessage="#{i18n.mandatory}">                         
+                        <f:validateLength maximum="100"/>                            
+                    </p:inputText>     
                 </div>
+                <div class="ui-g-12" style="padding-top:10px;">                        
+                    <p:inputText value="#{registerBean.account.phone}" id="phone" placeholder="#Phone" style="width:60%;" required="true" requiredMessage="#{i18n.mandatory}">
+
+                        <f:validateLength maximum="100"/>                            
+                    </p:inputText>     
+                </div>
+
+                <div class="ui-g-12" style="padding-top:10px;">                        
+                    <p:inputText value="#{registerBean.account.email}" id="email" placeholder="#Email" style="width:60%;" required="true" requiredMessage="#{i18n.mandatory}">
+
+                        <f:validateLength maximum="100"/>                            
+                    </p:inputText>     
+                </div>
+                
+                <div class="ui-g-12" style="padding-top:10px;">                        
+                    <p:inputText value="#{registerBean.account.accountType}" id="accountType" placeholder="#accountType" style="width:60%;" required="true" requiredMessage="#{i18n.mandatory}">
+
+                        <f:validateLength maximum="100"/>                            
+                    </p:inputText>     
+                </div>
+
+                <div class="ui-g-12" style="padding-top:10px;">                        
+                    <p:inputText value="#{registerBean.account.gender}" id="gender" placeholder="#Gender" style="width:60%;" required="true" requiredMessage="#{i18n.mandatory}">
+
+                        <f:validateLength maximum="100"/>                            
+                    </p:inputText>     
+                </div>
+
+                <div class="ui-g-12" style="padding-top:10px;">                        
+                    <p:password value="#{registerBean.account.password}" id="password" placeholder="#Password" style="width:60%;" required="true" requiredMessage="#{i18n.mandatory}">
+
+                        <f:validateLength maximum="100"/>                            
+                    </p:password>     
+                </div>
+
+
                 <div class="ui-g-2"></div>                   
                 <div class="ui-g-2"></div>
-                    <p:commandButton  ajax="true" action="#{loginBean.registerUser()}" update="registerForm" value="#{i18n.signup}"  />
-                    
-                </p:panel>
-                <ui:remove>
-                    <div class="ui-g-12 footer-login">
-                        <p:button outcome="/index" value="#{i18n.mainpage}"/>   
-                        <p:button outcome="/login" value="#{i18n.signin}"/>   
-                    </div>
-                </ui:remove>
-            </div>
-            <style type="text/css">
-                html {height: 100%;}
-                .ui-button-text, .ui-button-text-only .ui-button-text{padding:8px !important; transition:none !important;}
-                .ui-panel .ui-panel-title {font-size: 17px;}
-            </style>
-            <h:outputStylesheet name="css/layout-#{guestPreferences.theme}.css" library="icarus-layout" />
-        </h:form>
-   
+                <p:commandButton   action="#{registerBean.doRegister()}"  value="#{i18n.signup}"  />
+
+            </p:panel>
+           
+        </div>
+        <style type="text/css">
+            html {height: 100%;}
+            .ui-button-text, .ui-button-text-only .ui-button-text{padding:8px !important; transition:none !important;}
+            .ui-panel .ui-panel-title {font-size: 17px;}
+        </style>
+        <h:outputStylesheet name="css/layout-#{guestPreferences.theme}.css" library="icarus-layout" />
+    </h:form>
+
 
 </html>

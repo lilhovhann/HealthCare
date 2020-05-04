@@ -6,13 +6,9 @@
       xmlns:jsf="http://xmlns.jcp.org/jsf"         
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"   
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html">   
 
-   
-
-  
-
-        <h:form id="loginForm" rendered="#{sessionContext.user.id == null}">
+        <h:form id="loginForm" >
             <p:growl/>
             <ui:remove>
                 <div class="logo-container">
@@ -21,16 +17,16 @@
             </ui:remove>           
 
             <div class="ui-g">
-                <p:panel header="#{i18n.signin}" styleClass="panel-login">
+                <p:panel header="#{i18n.signin}" rendered="#{sessonController.account.id == null}" styleClass="panel-login">
                     <div class="ui-g-12" style="padding-top:35px;">                        
-                        <p:inputText id="email" placeholder="#{i18n.email}" style="width:60%;" required="true" requiredMessage="#{i18n.mandatory}">
+                        <p:inputText id="phone" placeholder="#{i18n.phone}" style="width:60%;" value="#{loginBean.loginRequest.phone}" required="true" requiredMessage="#{i18n.mandatory}">
                             
                             <f:validateRequired/>
                             <f:validateLength maximum="100"/>                            
                         </p:inputText>     
                     </div>
                     <div class="ui-g-12" style="padding-top:10px;">
-                        <p:password  id="passwd" style="width:60%;" placeholder="#{i18n.password}" required="true" requiredMessage="#{i18n.mandatory}" >
+                        <p:password  id="passwd" style="width:60%;" placeholder="#{i18n.password}" value="#{loginBean.loginRequest.password}" required="true" requiredMessage="#{i18n.mandatory}" >
                             <f:validateRequired/>
                             <f:validateLength maximum="50"/> 
                         </p:password>
@@ -46,7 +42,7 @@
                         </div>
                     </div>
                     <div class="ui-g-2"></div>
-                    <p:commandButton  ajax="true" action="profile" update="loginForm" value="#{i18n.signin}"  />
+                    <p:commandButton  action="#{loginBean.doLogin()}"  value="#{i18n.signin}"  />
                 </p:panel>
                 <ui:remove>
                     <div class="ui-g-12 footer-login">

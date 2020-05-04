@@ -11,8 +11,10 @@
 
 
     <h:form id="menuformleft">           
-        <pi:menu widgetVar="IcarusMenu">
+        <pi:menu widgetVar="IcarusMenu" rendered="#{sessonController.account.id !=  null}">
+            
             <p:menuitem id="im_dashboard" value="Dashboard" icon="fa fa-home" outcome="/pages/dashboard"/> 
+            
             <p:submenu id="apik" label="API Overview" icon="fa fa-book">
                 <p:menuitem id="ap1" value="API access key" icon="fa fa-square-o" outcome="/pages/api/key" />
                 <p:menuitem id="ap2" value="API response" icon="fa fa-square-o" outcome="/pages/api/response"/>
@@ -32,6 +34,15 @@
                 <p:menuitem id="vupdate" value="Update" icon="fa fa-square-o" outcome="/pages/video/update" />
                 <p:menuitem id="vdelete" value="Delete" icon="fa fa-square-o" outcome="/pages/video/delete" />
             </p:submenu>
-        </pi:menu>  
+
+
+            <p:submenu id="sys" label="System" icon="fa fa-book">
+                <p:menuitem id="logout" value="Log out" ajax="false" action="#{logoutBean.doLogout}" icon="fa fa-square-o"  />
+            </p:submenu>
+
+
+        </pi:menu> 
+
+
     </h:form>
 </ui:composition>

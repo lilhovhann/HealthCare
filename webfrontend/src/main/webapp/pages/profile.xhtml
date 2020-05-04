@@ -22,10 +22,14 @@
                 <p:growl/>
                 <div class="ui-g ui-fluid">
                     <div class="ui-g-12 ui-lg-6">
-                        <h:form id="updateprofile">
+                        <h:form id="updateprofile" rendered="#{sessonController.account.id != null}">
                             <div class="card">
                                 <h1>Profile update</h1>
-                                
+                              Firstname:  #{sessonController.account.firstname}
+                              <br/>
+                              Lastname  #{sessonController.account.lastname}
+                              <br/>
+                              Email  #{sessonController.account.email}
                             </div>
                         </h:form>
                     </div>
