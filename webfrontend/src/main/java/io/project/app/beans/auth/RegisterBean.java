@@ -7,6 +7,7 @@ package io.project.app.beans.auth;
 
 import io.project.app.dto.AccountDTO;
 import io.project.app.unicorn.AuthClient;
+import io.project.app.usercontext.SessonController;
 import java.io.Serializable;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
@@ -14,29 +15,35 @@ import javax.inject.Inject;
 
 /**
  *
- * @author armena
+ * @author lilith
  */
 @Named(value = "registerBean")
 @ViewScoped
-public class RegisterBean implements Serializable{
-    
+public class RegisterBean implements Serializable {
+
     @Inject
     private AuthClient authClient;
-    
+
     private AccountDTO account = new AccountDTO();
+    
+    @Inject
+    private SessonController sessonController;
 
     /**
      * Creates a new instance of RegisterBean
      */
     public RegisterBean() {
     }
-    
-    
-    public String doRegister(){
+
+    public String doRegister() {
         System.out.println("Start Register");
-        authClient.userRegistration(account);
-        
-        return "success";
+
+        AccountDTO userRegistration = authClient.userRegistration(account);
+        if (userRegistration.getId() != null) {
+            sessonController.setAccount(userRegistration);
+            return "profile";
+        }
+        return "error";
     }
 
     public AccountDTO getAccount() {
@@ -47,8 +54,4 @@ public class RegisterBean implements Serializable{
         this.account = account;
     }
 
-   
-    
-    
-    
 }

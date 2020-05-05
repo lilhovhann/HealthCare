@@ -16,7 +16,7 @@ import javax.inject.Inject;
 
 /**
  *
- * @author armena
+ * @author lilith
  */
 @Named(value = "loginBean")
 @ViewScoped

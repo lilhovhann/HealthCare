@@ -12,7 +12,7 @@ import javax.inject.Named;
 
 /**
  *
- * @author armena
+ * @author lilith
  */
 @SessionScoped
 @Named(value = "sessonController")
