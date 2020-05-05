@@ -22,10 +22,7 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 
-/**
- *
- * @author lilith
- */
+
 
 @Entity
 @Table(name = "practitioner")
