@@ -1,4 +1,2 @@
-*.java linguist-detectable=true
-*.html linguist-vendored=false
-*.xml linguist-detectable=false
-*.css linguist-detectable=false
+* linguist-vendored
+*.java linguist-vendored=false
