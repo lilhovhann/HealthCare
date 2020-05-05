@@ -1,0 +1,50 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
+    
+    <id>theme</id>
+    <formats>
+        <format>jar</format>
+    </formats>
+    
+    <includeBaseDirectory>false</includeBaseDirectory>
+    
+    <fileSets>
+        <fileSet>
+            <directory>${basedir}/src/main/webapp/resources/primefaces-icarus</directory>
+            <outputDirectory>/META-INF/resources/primefaces-icarus</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>${basedir}/src/main/webapp/resources/primefaces-icarus-orange</directory>
+            <outputDirectory>/META-INF/resources/primefaces-icarus-orange</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>${basedir}/src/main/webapp/resources/primefaces-icarus-blue</directory>
+            <outputDirectory>/META-INF/resources/primefaces-icarus-blue</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>${basedir}/src/main/webapp/resources/primefaces-icarus-green</directory>
+            <outputDirectory>/META-INF/resources/primefaces-icarus-green</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>${basedir}/src/main/webapp/resources/primefaces-icarus-red</directory>
+            <outputDirectory>/META-INF/resources/primefaces-icarus-red</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>${basedir}/src/main/webapp/WEB-INF</directory>
+            <outputDirectory>/META-INF/</outputDirectory>
+            <includes>
+                <include>faces-config.xml</include>
+                <include>primefaces-icarus.taglib.xml</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>${basedir}/target/classes</directory>
+            <outputDirectory>/</outputDirectory>
+            <includes>
+                <include>org/primefaces/icarus/component/menu/*</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+    
+</assembly>

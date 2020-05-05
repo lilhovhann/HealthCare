@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"    
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"     
+      xmlns:jsf="http://xmlns.jcp.org/jsf"         
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"   
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">   
+
+    <f:view contracts="default" encoding="UTF-8" transient="false">
+        <ui:composition template="/template.xhtml">  
+            <ui:define name="head">
+
+            </ui:define>
+            <ui:define name="content">
+                <div class="ui-g">
+                    <div class="ui-g-12">
+                        <div class="card">
+                            <h1>Update Video</h1>
+                            <p>A search result contains information about a VQuick video, channel, or playlist that matches the search parameters specified in an API request.
+                                While a search result points to a uniquely identifiable resource, like a video, it does not have its own persistent data.</p>
+                            <h1 style="margin-top:30px">Methods</h1>   
+                            <p>The API supports the following methods for search:</p>
+
+                            <strong>GET https://www.marketplace.com/video/v1/search</strong>
+                            <div class="card">
+
+                                <ul>
+                                    <li> Returns a collection of search results that match the query parameters specified in the API request. </li>
+                                    <li>By default, a search result set identifies matching video, channel, and playlist resources, but you can also configure queries to only retrieve a specific type of resource. </li>
+                                    <li> Try it now.</li>
+                                </ul>
+
+                            </div>
+                            <h1>Usage</h1>
+                            <p>This example retrieves the first 25 search results associated with the keyword surfing.
+                                By default, the type parameter does not specify a value, which means the response could include videos, playlists, and channels.</p>
+
+                            <h1>Response</h1>
+                            <p>If successful, this method returns a response body with the following structure:</p>
+
+                            <pre>
+                                <code>
+{
+  "kind": "youtube#searchListResponse",
+  "etag": etag,
+  "nextPageToken": string,
+  "prevPageToken": string,
+  "regionCode": string,
+  "pageInfo": {
+    "totalResults": integer,
+    "resultsPerPage": integer
+  },
+  "items": [
+    search Resource
+  ]
+}
+                                   </code>
+                            </pre>
+
+                            <h1>Request examples</h1>
+                            <p:tabView orientation="left" style="margin-bottom:40px">
+                                <p:tab title="Curl">
+                                    <h:panelGrid columns="2" cellpadding="10">
+                                        # curl URL:
+                                        <h4>
+                                            curl -i -G -d "q=surfing&amp;maxResults=25&amp;amp;part=snippet&amp;key={YOUR_API_KEY}"
+                                            https://www.marketplace.com/video/v1/search
+                                        </h4>
+                                        <br/>
+                                        # HTTP URL:
+                                        <h4>
+
+                                            GET  https://www.marketplace.com/video/v1/search?q=surfing&amp;maxResults=25&amp;part=snippet&amp;key={YOUR_API_KEY}
+                                        </h4>
+                                    </h:panelGrid>
+                                </p:tab>
+                                <p:tab title="JavaScript">
+                                    <h:panelGrid columns="2" cellpadding="10">
+                                        <pre name="code">
+                                <code>
+<!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6</pre></td><td><pre style="margin: 0; line-height: 125%">buildApiRequest(<span style="color: #4070a0">&#39;GET&#39;</span>,
+                <span style="color: #4070a0">&#39;/youtube/v3/search&#39;</span>,
+                {<span style="color: #4070a0">&#39;maxResults&#39;</span><span style="color: #666666">:</span> <span style="color: #4070a0">&#39;25&#39;</span>,
+                 <span style="color: #4070a0">&#39;part&#39;</span><span style="color: #666666">:</span> <span style="color: #4070a0">&#39;snippet&#39;</span>,
+                 <span style="color: #4070a0">&#39;q&#39;</span><span style="color: #666666">:</span> <span style="color: #4070a0">&#39;surfing&#39;</span>,
+                 <span style="color: #4070a0">&#39;type&#39;</span><span style="color: #666666">:</span> <span style="color: #4070a0">&#39;&#39;</span>});
+                                                                </pre></td></tr></table></div>
+
+                                            </code>
+                                        </pre>
+                                    </h:panelGrid>
+                                </p:tab>
+                                <p:tab title="Java">
+                                    <h:panelGrid columns="2" cellpadding="10">
+                                        <!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007020; font-weight: bold">public</span> <span style="color: #007020; font-weight: bold">static</span> <span style="color: #902000">void</span> <span style="color: #06287e">main</span><span style="color: #666666">(</span>String<span style="color: #666666">[]</span> args<span style="color: #666666">)</span> <span style="color: #007020; font-weight: bold">throws</span> IOException <span style="color: #666666">{</span>
+    YouTube service <span style="color: #666666">=</span> getYouTubeService<span style="color: #666666">();</span>
+    <span style="color: #007020; font-weight: bold">try</span> <span style="color: #666666">{</span>
+        HashMap<span style="color: #666666">&lt;</span>String<span style="color: #666666">,</span> String<span style="color: #666666">&gt;</span> parameters <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> HashMap<span style="color: #666666">&lt;&gt;();</span>
+        parameters<span style="color: #666666">.</span><span style="color: #4070a0">put</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;part&quot;</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;snippet&quot;</span><span style="color: #666666">);</span>
+        parameters<span style="color: #666666">.</span><span style="color: #4070a0">put</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;maxResults&quot;</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;25&quot;</span><span style="color: #666666">);</span>
+        parameters<span style="color: #666666">.</span><span style="color: #4070a0">put</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;q&quot;</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;surfing&quot;</span><span style="color: #666666">);</span>
+        parameters<span style="color: #666666">.</span><span style="color: #4070a0">put</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;type&quot;</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;&quot;</span><span style="color: #666666">);</span>
+
+        YouTube<span style="color: #666666">.</span><span style="color: #4070a0">Search</span><span style="color: #666666">.</span><span style="color: #4070a0">List</span> searchListByKeywordRequest <span style="color: #666666">=</span> youtube<span style="color: #666666">.</span><span style="color: #4070a0">search</span><span style="color: #666666">().</span><span style="color: #4070a0">list</span><span style="color: #666666">(</span>parameters<span style="color: #666666">.</span><span style="color: #4070a0">get</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;part&quot;</span><span style="color: #666666">).</span><span style="color: #4070a0">toString</span><span style="color: #666666">());</span>
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>parameters<span style="color: #666666">.</span><span style="color: #4070a0">containsKey</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;maxResults&quot;</span><span style="color: #666666">))</span> <span style="color: #666666">{</span>
+            searchListByKeywordRequest<span style="color: #666666">.</span><span style="color: #4070a0">setMaxResults</span><span style="color: #666666">(</span>Long<span style="color: #666666">.</span><span style="color: #4070a0">parseLong</span><span style="color: #666666">(</span>parameters<span style="color: #666666">.</span><span style="color: #4070a0">get</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;maxResults&quot;</span><span style="color: #666666">).</span><span style="color: #4070a0">toString</span><span style="color: #666666">()));</span>
+        <span style="color: #666666">}</span>
+
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>parameters<span style="color: #666666">.</span><span style="color: #4070a0">containsKey</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;q&quot;</span><span style="color: #666666">)</span> <span style="color: #666666">&amp;&amp;</span> parameters<span style="color: #666666">.</span><span style="color: #4070a0">get</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;q&quot;</span><span style="color: #666666">)</span> <span style="color: #666666">!=</span> <span style="color: #4070a0">&quot;&quot;</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            searchListByKeywordRequest<span style="color: #666666">.</span><span style="color: #4070a0">setQ</span><span style="color: #666666">(</span>parameters<span style="color: #666666">.</span><span style="color: #4070a0">get</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;q&quot;</span><span style="color: #666666">).</span><span style="color: #4070a0">toString</span><span style="color: #666666">());</span>
+        <span style="color: #666666">}</span>
+
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>parameters<span style="color: #666666">.</span><span style="color: #4070a0">containsKey</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;type&quot;</span><span style="color: #666666">)</span> <span style="color: #666666">&amp;&amp;</span> parameters<span style="color: #666666">.</span><span style="color: #4070a0">get</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;type&quot;</span><span style="color: #666666">)</span> <span style="color: #666666">!=</span> <span style="color: #4070a0">&quot;&quot;</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            searchListByKeywordRequest<span style="color: #666666">.</span><span style="color: #4070a0">setType</span><span style="color: #666666">(</span>parameters<span style="color: #666666">.</span><span style="color: #4070a0">get</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;type&quot;</span><span style="color: #666666">).</span><span style="color: #4070a0">toString</span><span style="color: #666666">());</span>
+        <span style="color: #666666">}</span>
+
+        SearchListResponse response <span style="color: #666666">=</span> searchListByKeywordRequest<span style="color: #666666">.</span><span style="color: #4070a0">execute</span><span style="color: #666666">();</span>
+        System<span style="color: #666666">.</span><span style="color: #4070a0">out</span><span style="color: #666666">.</span><span style="color: #4070a0">println</span><span style="color: #666666">(</span>response<span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+<span style="color: #666666">}</span>
+                                            </pre></div>
+
+                                    </h:panelGrid>
+                                </p:tab>
+                            </p:tabView>
+                        </div>
+
+                    </div>
+                </div>
+            </ui:define>
+
+
+        </ui:composition>
+    </f:view>
+</html>
