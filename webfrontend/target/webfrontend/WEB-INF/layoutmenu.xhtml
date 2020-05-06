@@ -19,16 +19,15 @@
             
            
             
-            <p:submenu id="im_default1" label="Video API" icon="fa fa-book">
-                <p:menuitem id="vverview" value="Overview" icon="fa fa-square-o" outcome="/pages/video/overview" />
-                <p:menuitem id="vlist" value="List" icon="fa fa-square-o" outcome="/pages/video/list" />
-                <p:menuitem id="vinsert" value="Insert" icon="fa fa-square-o" outcome="/pages/video/insert" />
-                <p:menuitem id="vupdate" value="Update" icon="fa fa-square-o" outcome="/pages/video/update" />
-                <p:menuitem id="vdelete" value="Delete" icon="fa fa-square-o" outcome="/pages/video/delete" />
+            <p:submenu id="im_default1" label="Appointments" icon="fa fa-book">
+                <p:menuitem id="vlist" value="List" icon="fa fa-pencil fa-fw" outcome="/pages/video/list" />
+                <p:menuitem id="vinsert" value="Insert" icon="fa fa-pencil fa-fw" outcome="/pages/video/insert" />
+                <p:menuitem id="vupdate" value="Update" icon="fa fa-pencil fa-fw" outcome="/pages/video/update" />
+                <p:menuitem id="vdelete" value="Delete" icon="fa fa-pencil fa-fw" outcome="/pages/video/delete" />
             </p:submenu>
 
-            <p:submenu id="sys" label="System" icon="fa fa-book">
-                <p:menuitem id="logout" value="Log out" ajax="false" action="#{logoutBean.doLogout}" icon="fa fa-square-o"  />
+            <p:submenu id="sys" label="Settings" icon="fa fa-cog fa-fw">
+                <p:menuitem icon="fa fa-sign-out" id="logout" value="Log out" ajax="false" action="#{logoutBean.doLogout}"/>
             </p:submenu>
 
 
