@@ -43,10 +43,12 @@ public class AccountService {
             return Optional.empty();
         }
 
-        final Account createNewAccount = new Account(account.getPhone(),
-                PasswordHashUtil.hashPassword(account.getPassword()),
+        final Account createNewAccount = new Account(
                 account.getFirstname(),
                 account.getLastname(),
+                account.getPhone(),
+                account.getEmail(),
+                PasswordHashUtil.hashPassword(account.getPassword()),
                 account.getAccountType(),
                 new Date(System.currentTimeMillis()));
 

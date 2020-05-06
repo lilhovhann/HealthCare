@@ -11,64 +11,66 @@
 
     <h:form id="registerForm">
         <p:growl/>
-      
+
         <div class="ui-g">
-        
+
 
             <p:panel header="Registration" styleClass="panel-login">
 
+
+
                 <div class="ui-g-12" style="padding-top:35px;">                        
                     <p:inputText  value="#{registerBean.account.firstname}" id="firstname" placeholder="#{i18n.firstname}" style="width:60%;" required="true" requiredMessage="#{i18n.mandatory}">                         
-                        <f:validateLength maximum="100"/>                            
+                        <f:validateLength maximum="100"/>  
+                       
                     </p:inputText>     
                 </div>                    
                 <div class="ui-g-12" style="padding-top:10px;">                        
                     <p:inputText  value="#{registerBean.account.lastname}" id="lastname" placeholder="#{i18n.lastname}" style="width:60%;" required="true" requiredMessage="#{i18n.mandatory}">                         
-                        <f:validateLength maximum="100"/>                            
+                        <f:validateLength maximum="100"/> 
+                        <f:validateRequired />
                     </p:inputText>     
                 </div>
                 <div class="ui-g-12" style="padding-top:10px;">                        
-                    <p:inputText value="#{registerBean.account.phone}" id="phone" placeholder="#Phone" style="width:60%;" required="true" requiredMessage="#{i18n.mandatory}">
+                    <p:inputText value="#{registerBean.account.phone}" id="phone" placeholder="Phone" style="width:60%;" required="true" requiredMessage="#{i18n.mandatory}">
 
-                        <f:validateLength maximum="100"/>                            
-                    </p:inputText>     
-                </div>
-
-                <div class="ui-g-12" style="padding-top:10px;">                        
-                    <p:inputText value="#{registerBean.account.email}" id="email" placeholder="#Email" style="width:60%;" required="true" requiredMessage="#{i18n.mandatory}">
-
-                        <f:validateLength maximum="100"/>                            
-                    </p:inputText>     
-                </div>
-                
-                <div class="ui-g-12" style="padding-top:10px;">                        
-                    <p:inputText value="#{registerBean.account.accountType}" id="accountType" placeholder="#accountType" style="width:60%;" required="true" requiredMessage="#{i18n.mandatory}">
-
-                        <f:validateLength maximum="100"/>                            
+                        <f:validateLength maximum="100"/>  
+                      
                     </p:inputText>     
                 </div>
 
                 <div class="ui-g-12" style="padding-top:10px;">                        
-                    <p:inputText value="#{registerBean.account.gender}" id="gender" placeholder="#Gender" style="width:60%;" required="true" requiredMessage="#{i18n.mandatory}">
+                    <p:inputText value="#{registerBean.account.email}" id="email" placeholder="Email" style="width:60%;" required="true" requiredMessage="#{i18n.mandatory}">
 
-                        <f:validateLength maximum="100"/>                            
+                        <f:validateLength maximum="100"/>
+                      
                     </p:inputText>     
                 </div>
 
-                <div class="ui-g-12" style="padding-top:10px;">                        
-                    <p:password value="#{registerBean.account.password}" id="password" placeholder="#Password" style="width:60%;" required="true" requiredMessage="#{i18n.mandatory}">
 
-                        <f:validateLength maximum="100"/>                            
+
+                <div class="ui-g-12" style="padding-top:10px;">                        
+                    <p:password value="#{registerBean.account.password}" id="password" placeholder="Password" style="width:60%;" required="true" requiredMessage="#{i18n.mandatory}">
+
+                        <f:validateLength maximum="100"/>    
+                                             
                     </p:password>     
                 </div>
 
+                <div class="ui-g-12" style="padding-top:10px;" required="true"> 
+                    <p:selectOneMenu  value="#{registerBean.account.accountType}" id="accountType"  style="width:55%">
 
-                <div class="ui-g-2"></div>                   
-                <div class="ui-g-2"></div>
-                <p:commandButton   action="#{registerBean.doRegister()}"  value="#{i18n.signup}"  />
+                        <f:selectItem itemValue="Patient" itemLabel="Patient" />
+                        <f:selectItem itemValue="Practitioner" itemLabel="Practitoner"  />
 
+                    </p:selectOneMenu>
+                </div>
+
+                <div class="ui-g-12" style="padding-top:10px; margin-left:98px;">
+                    <p:commandButton  class="ui-g-12" action="#{registerBean.doRegister()}"  value="#{i18n.signup}" style="width:60%;" />
+                </div>
             </p:panel>
-           
+
         </div>
         <style type="text/css">
             html {height: 100%;}

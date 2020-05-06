@@ -14,19 +14,11 @@
         <pi:menu widgetVar="IcarusMenu" rendered="#{sessonController.account.id !=  null}">
             
             <p:menuitem id="im_dashboard" value="Dashboard" icon="fa fa-home" outcome="/pages/dashboard"/> 
+            <p:menuitem id="lim_dashboard" value="Profile" icon="fa fa-user" outcome="/pages/profile"/> 
             
-            <p:submenu id="apik" label="API Overview" icon="fa fa-book">
-                <p:menuitem id="ap1" value="API access key" icon="fa fa-square-o" outcome="/pages/api/key" />
-                <p:menuitem id="ap2" value="API response" icon="fa fa-square-o" outcome="/pages/api/response"/>
-                <p:menuitem id="ap3" value="API endpoints" icon="fa fa-square-o" outcome="/pages/api/endpoints"/>
-                <p:menuitem id="ap4" value="HTTPS encryption" icon="fa fa-square-o" outcome="/pages/api/encrypt"/>
-                <p:menuitem id="ap5" value="API response properties" icon="fa fa-square-o" outcome="/pages/api/properties"/>
-                <p:menuitem id="ap6" value="API Error codes" icon="fa fa-square-o" outcome="/pages/api/error"/>
-            </p:submenu>
-            <p:submenu id="im_default" label="Search API" icon="fa fa-book">
-                <p:menuitem id="soverview" value="Overview" icon="fa fa-square-o" outcome="/pages/search/overview" />
-                <p:menuitem id="slist" value="List" icon="fa fa-square-o" outcome="/pages/search/list"/>
-            </p:submenu>
+            
+           
+            
             <p:submenu id="im_default1" label="Video API" icon="fa fa-book">
                 <p:menuitem id="vverview" value="Overview" icon="fa fa-square-o" outcome="/pages/video/overview" />
                 <p:menuitem id="vlist" value="List" icon="fa fa-square-o" outcome="/pages/video/list" />
@@ -34,7 +26,6 @@
                 <p:menuitem id="vupdate" value="Update" icon="fa fa-square-o" outcome="/pages/video/update" />
                 <p:menuitem id="vdelete" value="Delete" icon="fa fa-square-o" outcome="/pages/video/delete" />
             </p:submenu>
-
 
             <p:submenu id="sys" label="System" icon="fa fa-book">
                 <p:menuitem id="logout" value="Log out" ajax="false" action="#{logoutBean.doLogout}" icon="fa fa-square-o"  />

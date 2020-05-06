@@ -40,6 +40,18 @@ public class Account implements Serializable {
     private Long id;
     
     @Size(max = 50)
+    @Column(name = "firstname")
+    private String firstname;
+    
+    @Size(max = 50)
+    @Column(name = "lastname")
+    private String lastname; 
+    
+    @Size(max = 50)
+    @Column(name = "phone")
+    private String phone;
+    
+    @Size(max = 50)
     @Column(name = "email")
     private String email;
             
@@ -50,42 +62,18 @@ public class Account implements Serializable {
     @Size(max = 50)
     @Column(name = "accountType")
     private String accountType;
-    
-    @Size(max = 50)
-    @Column(name = "firstname")
-    private String firstname;
-    
-    @Size(max = 50)
-    @Column(name = "lastname")
-    private String lastname;
-    
-    @Size(max = 50)
-    @Column(name = "gender")
-    private String gender;
-   
-    @Column(name = "birthdate")
-    private Date birthdate;
-    
-    @Size(max = 50)
-    @Column(name = "phone")
-    private String phone;
 
     @Column(name = "registerDate")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date registerDate;  
 
-    public Account(String phone, String hashPassword, String firstname, String lastname, String accountType, Date date) {
-        this.phone = phone;
-        this.password = hashPassword;
+    public Account(String firstname, String lastname, String phone, String email, String hashPassword, String accountType, Date date) {
         this.firstname = firstname;
         this.lastname = lastname;
+        this.phone = phone;
+        this.email = email;
+        this.password = hashPassword;
         this.accountType = accountType;
         this.registerDate = date;
     }
-
-//    public Account(Patient patient, Practitioner toPractitioner, String visitReason, Date visitDate) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-
-
 }

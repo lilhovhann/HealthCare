@@ -21,15 +21,19 @@
             <ui:define name="content">
                 <p:growl/>
                 <div class="ui-g ui-fluid">
-                    <div class="ui-g-12 ui-lg-6">
+                    <div class="ui-g-12 ui-lg-12">
                         <h:form id="updateprofile" rendered="#{sessonController.account.id != null}">
                             <div class="card">
-                                <h1>Profile update</h1>
+                                <h1>My Profile </h1>
                               Firstname:  #{sessonController.account.firstname}
                               <br/>
-                              Lastname  #{sessonController.account.lastname}
+                              Lastname:  #{sessonController.account.lastname}
+                              <br/>
+                              Phone: #{sessonController.account.phone}
                               <br/>
                               Email  #{sessonController.account.email}
+                              <br/>
+                              I am  #{sessonController.account.accountType}
                             </div>
                         </h:form>
                     </div>

@@ -11,28 +11,21 @@ public class AccountDTO implements Serializable {
 
     private Long id;
 
+    private String firstname;
+
+    private String lastname;
+
+    private String phone;
+    
     private String email;
 
     private String password;
 
     private String accountType;
 
-    private String firstname;
-
-    private String lastname;
-
-    private String gender;
-
-    private Date birthdate;
-
-    private String phone;
-    
     ///List<String> friendsList = new ArrayList<>();
-
     public AccountDTO() {
     }
-    
-    
 
     public Long getId() {
         return id;
@@ -82,21 +75,6 @@ public class AccountDTO implements Serializable {
         this.lastname = lastname;
     }
 
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public Date getBirthdate() {
-        return birthdate;
-    }
-
-    public void setBirthdate(Date birthdate) {
-        this.birthdate = birthdate;
-    }
 
     public String getPhone() {
         return phone;

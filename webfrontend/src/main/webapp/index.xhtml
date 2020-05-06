@@ -9,20 +9,19 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <h:head>
+        <title>Digital Healthcare</title>
         <f:facet name="first">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
-            <meta name="apple-mobile-web-app-capable" content="yes" />
+
+            <link rel="shortcut icon" type="image/png" href="#{request.contextPath}/resources/icarus-layout/images/t.png" />
         </f:facet>
-        <title>Welcome to To Social Network</title>
+
     </h:head>
     <h:body>
         <div id="landing-page-wrapper">
             <div id="landing-top-bar">
                 <div class="landing-container">
                     <div class="landing-logo">
-                        <h:graphicImage name="images/logo.svg" id="logo1" library="icarus-layout" />
+                        <h:graphicImage name="images/heart.png" id="logo1" library="icarus-layout" />
                     </div>
                     <a id="landing-menubar-button" href="#">
                         <i class="fa fa-bars" aria-hidden="true"></i>
@@ -37,14 +36,7 @@
                                     </div>
                                 </a>
                             </li>
-                            <li class="sidebar-menuitem">
-                                <a href="index.xhtml#landing-slogan" class="menuLink">
-                                    <div class="tablet-view">
-                                        <span class="menu-text">About</span>
-                                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                    </div>
-                                </a>
-                            </li>
+
                             <li class="sidebar-menuitem">
                                 <a href="index.xhtml#landing-feature" class="menuLink">
                                     <div class="tablet-view">
@@ -53,30 +45,7 @@
                                     </div>
                                 </a>
                             </li>
-                            <li class="sidebar-menuitem">
-                                <a href="index.xhtml#landing-promotion" class="menuLink">
-                                    <div class="tablet-view">
-                                        <span class="menu-text">Infrastructure</span>
-                                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="sidebar-menuitem">
-                                <a href="index.xhtml#landing-pricing" class="menuLink">
-                                    <div class="tablet-view">
-                                        <span class="menu-text">Our market</span>
-                                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="sidebar-menuitem">
-                                <a href="index.xhtml#landing-video" class="menuLink">
-                                    <div class="tablet-view">
-                                        <span class="menu-text">SocNet</span>
-                                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                    </div>
-                                </a>
-                            </li>
+                            
                             <li class="sidebar-menuitem">
                                 <a href="index.xhtml#landing-video" class="menuLink">
                                     <div class="tablet-view">
@@ -93,10 +62,8 @@
                             <li><a href="">Home</a></li>
                             <li><a class="nav" href="index.xhtml#landing-slogan">About</a></li>
                             <li><a href="index.xhtml#landing-feature">Services</a></li>
-                            <li><a href="index.xhtml#landing-promotion">Infrastructure</a></li>
-                            <li><a href="index.xhtml#landing-pricing">Pricing</a></li>
-                            <li><a href="index.xhtml#landing-video">SocNet</a></li>
-                            <li><a href="index.xhtml#landing-video">Contacts</a></li>
+                        
+                            <li><a href="#">Contacts</a></li>
                             <p:dialog header="#{i18n.signin}"  widgetVar="lgn" modal="true" width="600" height="300">
                                 <ui:include src="/WEB-INF/includes/login.xhtml"/>
                             </p:dialog>   
@@ -110,13 +77,12 @@
                     </div>
                 </div>
             </div>
-            <div id="landing-slogan">
-                <div class="landing-container slogan-container">
-                    <h1>Easy Net</h1>
+            <div style="text-align: center;">
+                <div class="landing-container slogan-container" style="padding-top: 30px;">
+                    <h1>Digital Healthcare</h1>
                     <p>
-                        You can use this page as a promotion page template for your application. <br/>
-                        So your web application and promotion website of application will work in <br/>
-                        complete harmony.
+                         This is the TUMO Labs project with Healthcare Innovation Center - HIC (www.hic.am) 
+                         
                     </p>
                     <h:form> 
                         <p:commandButton id="joinus" onclick="PF('rgn').show()"  type="button" styleClass="aqua-button" value="Join us"/>                     
@@ -132,87 +98,76 @@
                         <div class="ui-g-3 ui-sm-12 ui-md-6 ui-lg-3 centerText">
                             <i class="fa fa-cube fa-feature" aria-hidden="true"></i>
                             <h2>Fast</h2>
-                            <p>
+<!--                            <p>
                                 Vitae potenti ante praesent <br/>
                                 a dui eget nibh eu quam <br/>
                                 accumsan porttitor tincidunt 
-                            </p>
+                            </p>-->
                         </div>
                         <div class="ui-g-3 ui-sm-12 ui-md-6 ui-lg-3 centerText">
                             <i class="fa fa-leaf fa-feature" aria-hidden="true"></i>
-                            <h2>Intelegent</h2>
-                            <p>
+                            <h2>Smart</h2>
+<!--                            <p>
                                 Vitae potenti ante praesent <br/>
                                 a dui eget nibh eu quam <br/>
                                 accumsan porttitor tincidunt 
-                            </p>
+                            </p>-->
                         </div>
                         <div class="ui-g-3 ui-sm-12 ui-md-6 ui-lg-3 centerText">
                             <i class="fa fa-magic fa-feature" aria-hidden="true"></i>
-                            <h2>Well Organized</h2>
-                            <p>
+                            <h2>Patient Oriented</h2>
+<!--                            <p>
                                 Vitae potenti ante praesent <br/>
                                 a dui eget nibh eu quam <br/>
                                 accumsan porttitor tincidunt 
-                            </p>
+                            </p>-->
                         </div>
                         <div class="ui-g-3 ui-sm-12 ui-md-6 ui-lg-3 centerText">
                             <i class="fa fa-sitemap fa-feature" aria-hidden="true"></i>
-                            <h2>Up to Date</h2>
-                            <p>
+                            <h2>Innovative</h2>
+<!--                            <p>
                                 Vitae potenti ante praesent <br/>
                                 a dui eget nibh eu quam <br/>
                                 accumsan porttitor tincidunt 
-                            </p>
+                            </p>-->
                         </div>
                     </div>
                 </div>
             </div>
-         
-           
-            <div id="landing-video">
-                <div class="landing-container">
-                    <h2>Earn Much More with Easy Shipper!</h2>
-                    <p>Partnership or temporary organization perfectly designed</p>
-                    <div id="video">
-                        <iframe src="https://www.youtube.com/embed/6ZZvy1ooJRA" frameborder="0"></iframe>
-                    </div>
-                </div>
-            </div>
+
+
+            
             <div id="landing-footer">
                 <div class="landing-container">
                     <div class="footer-container">
                         <div class="ui-g">
                             <div class="ui-g-12">
-                                <h:graphicImage name="images/logo.svg" id="logo" library="icarus-layout" />
+                                <h:graphicImage name="images/dark.png" id="logo" style="width:80px; height:80px;" library="icarus-layout" />
                                 <div class="icarus">
-                                    <h2>Shipper</h2>
+                                    <h2>About</h2>
                                 </div>
                             </div>
                             <div class="ui-g-12">
-                                <p style="display:inline-block;">Ut enim ad minim veniam, quis nostrud <br/>
-                                    exercitation ullamco. Qui officia deserunt <br/>
-                                    mollit anim id est laborum.
+                                <p style="display:inline-block;"> This is the TUMO Labs project with   <br/>
+                                    Healthcare Innovation Center - HIC  <br/>
+                                    m(www.hic.am)
                                 </p>
                                 <div class="footer-nav">
                                     <ul class="nav">
                                         <li><a href="#">Home</a></li>
-                                        <li><a href="promotion-page.xhtml#landing-slogan">Slogan</a></li>
-                                        <li><a href="promotion-page.xhtml#landing-feature">Features</a></li>
+                                        <li><a href="promotion-page.xhtml#landing-slogan">About</a></li>
+                                        <li><a href="promotion-page.xhtml#landing-feature">Services</a></li>
                                     </ul>
-                                    <ul class="nav">
-                                        <li><a href="promotion-page.xhtml#landing-promotion">Promotion</a></li>
-                                        <li><a href="promotion-page.xhtml#landing-pricing">Pricing</a></li>
-                                        <li><a href="promotion-page.xhtml#landing-video">Our Video</a></li>
-                                    </ul>
+                                    
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="ui-g">
                         <div class="ui-g-12">
-                            <p id="copy">2019. All rights reserved </p>
+                            <p id="copy">2020. TUMO || Digital Healthcare Workshop </p>
                             <div class="footer-icons">
+                       
                                 <i class="fa fa-facebook-official" aria-hidden="true"></i>
                                 <i class="fa fa-twitter-square" aria-hidden="true"></i>
                             </div>
