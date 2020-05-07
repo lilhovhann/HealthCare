@@ -98,27 +98,27 @@ public class AuthClient implements Serializable {
     
     
 
-//    public User getUserByPhone(String phone) {
-//        LOG.info("Find user by phone " + phone);
-//        User model = new User();
-//        long startTime = System.currentTimeMillis();
-//        try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
-//            HttpGet request = new HttpGet("http://localhost:5550/api/v2/users/find/user/email?email=" + phone);
-//            request.addHeader("charset", "UTF-8");
-//            CloseableHttpResponse response = httpClient.execute(request);
-//            response.addHeader("content-type", "application/json;charset=UTF-8");
-//            try (CloseableHttpResponse httpResponse = httpClient.execute(request)) {
-//                if (httpResponse.getStatusLine().getStatusCode() == 200) {
-//                    model = GsonConverter.fromJson(EntityUtils.toString(httpResponse.getEntity()), User.class);
-//                }
-//            }
-//            long elapsedTime = System.currentTimeMillis() - startTime;
-//            LOG.info("Find user by email request/response time in milliseconds: " + elapsedTime);
-//        } catch (IOException e) {
-//            LOG.error("Exception caught.", e);
-//        }
-//        return model;
-//    }
+    public AccountDTO getUserByAccountType(String accountType) {
+        LOG.info("Find user by phone " + accountType);
+        AccountDTO model = new AccountDTO();
+        long startTime = System.currentTimeMillis();
+        try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
+            HttpGet request = new HttpGet("http://localhost:5550/api/v2/join/find/type" + accountType);
+            request.addHeader("charset", "UTF-8");
+            CloseableHttpResponse response = httpClient.execute(request);
+            response.addHeader("content-type", "application/json;charset=UTF-8");
+            try (CloseableHttpResponse httpResponse = httpClient.execute(request)) {
+                if (httpResponse.getStatusLine().getStatusCode() == 200) {
+                    model = GsonConverter.fromJson(EntityUtils.toString(httpResponse.getEntity()), AccountDTO.class);
+                }
+            }
+            long elapsedTime = System.currentTimeMillis() - startTime;
+            LOG.info("Find user by email request/response time in milliseconds: " + elapsedTime);
+        } catch (IOException e) {
+            LOG.error("Exception caught.", e);
+        }
+        return model;
+    }
 
 //    public User getUserById(String userId) {
 //        LOG.info("Find user by id " + userId);

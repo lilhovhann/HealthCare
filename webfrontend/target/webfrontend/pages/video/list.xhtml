@@ -16,60 +16,27 @@
             </ui:define>
             <ui:define name="content">
                 
-                <div class="ui-g ui-fluid">
-                    <div class="ui-g-12 ui-lg-12">
-                        <h:form  rendered="#{sessonController.account.id != null}">
-                            <div class="card">
-                                <h1>Practitoner </h1>
-                                Firstname:  #{registerBean.account.firstname} 
-                              <br/>
-                              Lastname:  #{sessonController.account.lastname}
-                              <br/>
-                              Phone: #{sessonController.account.phone}
-                              <br/>
-                              Email  #{sessonController.account.email}
-                              <br/>
-                              I am  #{sessonController.account.accountType}
-                            </div>
-                        </h:form>
+                
+                    <div class="ui-g ui-fluid">
+                        <div class="ui-g-12 ui-lg-12">
+                            <h:form>
+                                <div class="card">
+                                    <h1>Practitoner </h1>
+                                    Firstname:  #{viewDataBean.account.firstname} 
+                                  <br/>
+                                  Lastname:  #{viewDataBean.account.lastname}
+                                  <br/>
+                                  Phone: #{viewDataBean.account.phone}
+                                  <br/>
+                                    Email  #{viewDataBean.account.email}
+                                  <br/>
+                                 
+                                </div>
+                            </h:form>
+                        </div>
                     </div>
-                </div>
-                 <div class="ui-g ui-fluid">
-                    <div class="ui-g-12 ui-lg-12">
-                        <h:form  rendered="#{sessonController.account.id != null}">
-                            <div class="card">
-                                <h1>My Profile </h1>
-                              Firstname:  #{sessonController.account.firstname} 
-                              <br/>
-                              Lastname:  #{sessonController.account.lastname}
-                              <br/>
-                              Phone: #{sessonController.account.phone}
-                              <br/>
-                              Email  #{sessonController.account.email}
-                              <br/>
-                              I am  #{sessonController.account.accountType}
-                            </div>
-                        </h:form>
-                    </div>
-                </div>
-                 <div class="ui-g ui-fluid">
-                    <div class="ui-g-12 ui-lg-12">
-                        <h:form  rendered="#{sessonController.account.id != null}">
-                            <div class="card">
-                                <h1>My Profile </h1>
-                              Firstname:  #{sessonController.account.firstname} 
-                              <br/>
-                              Lastname:  #{sessonController.account.lastname}
-                              <br/>
-                              Phone: #{sessonController.account.phone}
-                              <br/>
-                              Email  #{sessonController.account.email}
-                              <br/>
-                              I am  #{sessonController.account.accountType}
-                            </div>
-                        </h:form>
-                    </div>
-                </div>
+                
+                
                
             </ui:define>
 

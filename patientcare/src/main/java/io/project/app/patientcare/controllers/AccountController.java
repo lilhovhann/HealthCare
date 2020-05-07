@@ -3,6 +3,7 @@ package io.project.app.patientcare.controllers;
 import io.project.app.patientcare.models.Account;
 import io.project.app.patientcare.models.Login;
 import io.project.app.patientcare.models.Patient;
+import io.project.app.patientcare.models.Practitioner;
 
 import io.project.app.patientcare.services.AccountService;
 import java.util.List;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import org.springframework.web.bind.annotation.RestController;
 
@@ -65,6 +67,16 @@ public class AccountController {
         
         return ResponseEntity.status(HttpStatus.OK).body(loginnedAccount);
     }
+    
+    @GetMapping(path = "/find/type", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> findbyType (@RequestParam String type){
+        log.info("find account by type");
+        
+        Optional <List<Account>> findAccountByType = accountService.findAllByAccountType(type);
+        
+        return ResponseEntity.status(HttpStatus.OK).body(findAccountByType);
+    }
+    
     
     @GetMapping(path = "/account", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> findAll(){

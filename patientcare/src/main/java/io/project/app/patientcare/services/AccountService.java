@@ -74,6 +74,16 @@ public class AccountService {
         return Optional.empty();
     }
     
+    public Optional <List<Account>> findAllByAccountType (String accountType){
+        log.info("find accounts by type");
+        Optional<List<Account>> findByType = accountRepository.findAllByAccountType(accountType);
+        if(findByType != null){
+            return findByType;
+        }
+        return Optional.empty();
+       
+    }
+    
     public List<Account> findAllSavedAccounts(){
         log.info("find all patients, return Array List or List");
         return (List<Account>) accountRepository.findAll();
