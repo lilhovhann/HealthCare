@@ -6,6 +6,7 @@ import io.project.app.dto.AccountDTO;
 import io.project.app.util.GsonConverter;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.List;
 import java.util.PropertyResourceBundle;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
@@ -98,9 +99,10 @@ public class AuthClient implements Serializable {
     
     
 
-    public AccountDTO getUserByAccountType(String accountType) {
+    public List<AccountDTO> getUserByAccountType(String accountType) {
         LOG.info("Find user by phone " + accountType);
         AccountDTO model = new AccountDTO();
+        List<AccountDTO> newmodel = null;
         long startTime = System.currentTimeMillis();
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
             HttpGet request = new HttpGet("http://localhost:5550/api/v2/join/find/type" + accountType);
@@ -109,7 +111,7 @@ public class AuthClient implements Serializable {
             response.addHeader("content-type", "application/json;charset=UTF-8");
             try (CloseableHttpResponse httpResponse = httpClient.execute(request)) {
                 if (httpResponse.getStatusLine().getStatusCode() == 200) {
-                    model = GsonConverter.fromJson(EntityUtils.toString(httpResponse.getEntity()), AccountDTO.class);
+                    newmodel = GsonConverter.fromJson(EntityUtils.toString(httpResponse.getEntity()), List.class);
                 }
             }
             long elapsedTime = System.currentTimeMillis() - startTime;
@@ -117,7 +119,7 @@ public class AuthClient implements Serializable {
         } catch (IOException e) {
             LOG.error("Exception caught.", e);
         }
-        return model;
+       return newmodel;
     }
 
 //    public User getUserById(String userId) {

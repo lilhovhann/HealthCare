@@ -9,6 +9,8 @@ import io.project.app.dto.AccountDTO;
 import io.project.app.unicorn.AuthClient;
 
 import java.io.Serializable;
+import java.util.AbstractList;
+import java.util.List;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
@@ -30,14 +32,16 @@ public class ViewDataBean implements Serializable {
     public ViewDataBean() {
     }
 
-    public AccountDTO viewAccount() {
+    public List<AccountDTO> viewAccount() {
         System.out.println("start viewing account");
-        AccountDTO viewAcc = authClient.getUserByAccountType("Practitioner");
+        List<AccountDTO> viewAcc = authClient.getUserByAccountType("Practitioner");
        
-            return viewAcc;
+        return viewAcc;
     }
+
     
-    public AccountDTO getAccount() {
+    
+     public AccountDTO getAccount() {
         return account;
     }
 
