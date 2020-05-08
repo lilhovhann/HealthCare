@@ -1,7 +1,7 @@
 package io.project.app.patientcare;
 
-import io.project.app.patientcare.models.Patient;
-import io.project.app.patientcare.services.PatientService;
+import io.project.app.patientcare.models.Account;
+import io.project.app.patientcare.services.AccountService;
 import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;

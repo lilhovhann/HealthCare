@@ -2,11 +2,10 @@ package io.project.app.patientcare.controllers;
 
 import io.project.app.patientcare.models.Visit;
 import io.project.app.patientcare.models.Account;
-import io.project.app.patientcare.models.Practitioner;
+
 
 import io.project.app.patientcare.services.AccountService;
-import io.project.app.patientcare.services.PatientService;
-import io.project.app.patientcare.services.PractitionerService;
+
 import io.project.app.patientcare.services.VisitService;
 import java.util.Optional;
 
