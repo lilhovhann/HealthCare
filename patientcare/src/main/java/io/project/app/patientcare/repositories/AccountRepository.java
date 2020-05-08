@@ -15,4 +15,6 @@ public interface AccountRepository  extends CrudRepository<Account, String>{
     Optional <Account> findByPhone(String phone);
     Optional <Account> findByPhoneAndPassword(String phone, String password);
     Optional <List<Account>> findAllByAccountType (String accountType);
+
+    public void deleteById(Long accountId);
 }   

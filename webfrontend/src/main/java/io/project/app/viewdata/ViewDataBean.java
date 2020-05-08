@@ -47,6 +47,6 @@ public class ViewDataBean implements Serializable {
 
     public void setAccount(AccountDTO account) {
         this.account = account;
-    }
+    }   
 
 }

@@ -34,7 +34,7 @@ public class PatientService {
         }
         log.info("Update patient with id "+ patient.getId());
         Patient updatedPatient = patientRepository.save(patient);
-        return patient;
+        return updatedPatient;
     }
     
     public Patient getPatientById(Long patientId){
