@@ -32,6 +32,12 @@
                     </p:inputText>     
                 </div>
                 <div class="ui-g-12" style="padding-top:10px;">                        
+                    <p:inputText  value="#{registerBean.account.middlename}" id="middlename" placeholder="middle name" style="width:60%;" required="true" requiredMessage="#{i18n.mandatory}">                         
+                        <f:validateLength maximum="100"/> 
+                        <f:validateRequired />
+                    </p:inputText>     
+                </div>
+                <div class="ui-g-12" style="padding-top:10px;">                        
                     <p:inputText value="#{registerBean.account.phone}" id="phone" placeholder="Phone" style="width:60%;" required="true" requiredMessage="#{i18n.mandatory}">
 
                         <f:validateLength maximum="100"/>  
@@ -57,14 +63,14 @@
                     </p:password>     
                 </div>
 
-                <div class="ui-g-12" style="padding-top:10px;" required="true"> 
+<!--                <div class="ui-g-12" style="padding-top:10px;" required="true"> 
                     <p:selectOneMenu  value="#{registerBean.account.accountType}" id="accountType"  style="width:55%">
 
                         <f:selectItem itemValue="Patient" itemLabel="Patient" />
                         <f:selectItem itemValue="Practitioner" itemLabel="Practitoner"  />
 
                     </p:selectOneMenu>
-                </div>
+                </div>-->
 
                 <div class="ui-g-12" style="padding-top:10px; margin-left:98px;">
                     <p:commandButton  class="ui-g-12" action="#{registerBean.doRegister()}"  value="#{i18n.signup}" style="width:60%;" />

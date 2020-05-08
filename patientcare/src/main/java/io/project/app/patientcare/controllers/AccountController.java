@@ -63,14 +63,14 @@ public class AccountController {
         return ResponseEntity.status(HttpStatus.OK).body(loginnedAccount);
     }
 
-    @GetMapping(path = "/find/type", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> findbyType(@RequestParam String type) {
-        log.info("find account by type");
-
-        Optional<List<Account>> findAccountByType = accountService.findAllByAccountType(type);
-
-        return ResponseEntity.status(HttpStatus.OK).body(findAccountByType);
-    }
+//    @GetMapping(path = "/find/type", produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseEntity<?> findbyType(@RequestParam String type) {
+//        log.info("find account by type");
+//
+//        Optional<List<Account>> findAccountByType = accountService.findAllByAccountType(type);
+//
+//        return ResponseEntity.status(HttpStatus.OK).body(findAccountByType);
+//    }
 
     @PostMapping(path = "/account/update", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> update(@RequestBody Account account) {

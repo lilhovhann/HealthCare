@@ -46,10 +46,11 @@ public class AccountService {
         final Account createNewAccount = new Account(
                 account.getFirstname(),
                 account.getLastname(),
+                account.getMiddlename(),
                 account.getPhone(),
                 account.getEmail(),
                 PasswordHashUtil.hashPassword(account.getPassword()),
-                account.getAccountType(),
+                
                 new Date(System.currentTimeMillis()));
 
         final Account savedAccount = accountRepository.save(createNewAccount);
@@ -74,15 +75,15 @@ public class AccountService {
         return Optional.empty();
     }
     
-    public Optional <List<Account>> findAllByAccountType (String accountType){
-        log.info("find accounts by type");
-        Optional<List<Account>> findByType = accountRepository.findAllByAccountType(accountType);
-        if(findByType != null){
-            return findByType;
-        }
-        return Optional.empty();
-       
-    }
+//    public Optional <List<Account>> findAllByAccountType (String accountType){
+//        log.info("find accounts by type");
+//        Optional<List<Account>> findByType = accountRepository.findAllByAccountType(accountType);
+//        if(findByType != null){
+//            return findByType;
+//        }
+//        return Optional.empty();
+//       
+//    }
     
     
      public Account updateAccount(Account account){

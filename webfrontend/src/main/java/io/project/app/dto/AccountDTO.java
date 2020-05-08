@@ -14,6 +14,8 @@ public class AccountDTO implements Serializable {
     private String firstname;
 
     private String lastname;
+    
+    private String middlename;
 
     private String phone;
     
@@ -21,7 +23,7 @@ public class AccountDTO implements Serializable {
 
     private String password;
 
-    private String accountType;
+  
 
     ///List<String> friendsList = new ArrayList<>();
     public AccountDTO() {
@@ -51,12 +53,12 @@ public class AccountDTO implements Serializable {
         this.password = password;
     }
 
-    public String getAccountType() {
-        return accountType;
+    public String getMiddlename() {
+        return middlename;
     }
 
-    public void setAccountType(String accountType) {
-        this.accountType = accountType;
+    public void setMiddlename(String middlename) {
+        this.middlename = middlename;
     }
 
     public String getFirstname() {
