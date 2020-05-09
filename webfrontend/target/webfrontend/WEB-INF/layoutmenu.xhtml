@@ -17,21 +17,10 @@
             <p:menuitem id="lim_dashboard" value="Profile" icon="fa fa-user" outcome="/pages/profile"/> 
             
             <p:submenu id="lxim_default1" label="Registration" icon="fa fa-book">
-                <p:menuitem id="newPatient" value="New Patient" icon="fa fa-pencil fa-fw" outcome="/pages/video/list" />
-                <p:menuitem id="listOfPatients" value="List of Patients" icon="fa fa-pencil fa-fw" outcome="/pages/video/insert" />
-                <p:menuitem id="vupdatev" value="Update" icon="fa fa-pencil fa-fw" outcome="/pages/video/update" />
-                <p:menuitem id="vdeletev" value="Delete" icon="fa fa-pencil fa-fw" outcome="/pages/video/delete" />
+                <p:menuitem id="newPatient" value="Register Patient" icon="fa fa-pencil fa-fw" outcome="/pages/registration/delete" />
+                <p:menuitem id="listOfPatients" value="List of Patients" icon="fa fa-pencil fa-fw" outcome="/pages/registration/list" />
             </p:submenu>
 
-           
-
-            
-            <p:submenu id="im_default1" label="Appointments" icon="fa fa-book">
-                <p:menuitem id="vlist" value="List" icon="fa fa-pencil fa-fw" outcome="/pages/video/list" />
-                <p:menuitem id="vinsert" value="Insert" icon="fa fa-pencil fa-fw" outcome="/pages/video/insert" />
-                <p:menuitem id="vupdate" value="Update" icon="fa fa-pencil fa-fw" outcome="/pages/video/update" />
-                <p:menuitem id="vdelete" value="Delete" icon="fa fa-pencil fa-fw" outcome="/pages/video/delete" />
-            </p:submenu>
 
             <p:submenu id="sys" label="Settings" icon="fa fa-cog fa-fw">
                 <p:menuitem icon="fa fa-sign-out" id="logout" value="Log out" ajax="false" action="#{logoutBean.doLogout}"/>
