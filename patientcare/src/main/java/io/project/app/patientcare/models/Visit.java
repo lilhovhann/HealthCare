@@ -1,22 +1,14 @@
 package io.project.app.patientcare.models;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 import io.project.app.patientcare.models.Account;
-
-import javax.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @AllArgsConstructor
@@ -28,39 +20,25 @@ import lombok.ToString;
  *
  * @author lilith
  */
-@Entity
-@Table(name = "visit")
+
+@Document("account")
 public class Visit implements Serializable {
 
     private static final long serialVersionUID = 5005662345607157416L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "visitId")
-    private Long visitId;
+    private String visitId;
 
-    @Size(max = 50)
-    @Column(name = "visitDate")
     private String visitDate;
 
-    @Size(max = 50)
-    @Column(name = "patientPhone")
     private String patientPhone;
 
-    @Column(name = "patientId")
-    private Long patientId;
+    private String patientId;
     
-
-    @Size(max = 50)
-    @Column(name = "practitionerId")
     private String practitionerId;
 
-    //private Practitioner toPractitioner = new Practitioner();
-    @Size(max = 50)
-    @Column(name = "firstname")
     private String visitReason;
 
-    public Visit(String visitDate, String patientPhone, Long patientId, String practitionerId, String visitReason) {
+    public Visit(String visitDate, String patientPhone, String patientId, String practitionerId, String visitReason) {
         this.visitDate = visitDate;
         this.patientPhone = patientPhone;
         this.patientId = patientId;

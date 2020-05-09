@@ -28,7 +28,7 @@ public class VisitService {
     private AccountRepository accountRepository;
     
 
-    Long patientId;
+    String patientId;
    
     public Optional<Visit> createVisit(Visit visit){
         log.info("service: create visit");

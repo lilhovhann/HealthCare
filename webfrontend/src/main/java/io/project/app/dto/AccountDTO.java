@@ -9,7 +9,7 @@ public class AccountDTO implements Serializable {
 
     private static final long serialVersionUID = 5005662345607157416L;
 
-    private Long id;
+    private String id;
 
     private String firstname;
 
@@ -29,11 +29,11 @@ public class AccountDTO implements Serializable {
     public AccountDTO() {
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
