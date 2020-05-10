@@ -22,16 +22,7 @@ public class AccountService {
 
     @Autowired
     private AccountRepository accountRepository;
-//    
-//    private static void getEmployees()
-//{
-//    final String uri = "http://localhost:8080/springrestexample/employees.xml";
-//      
-//    RestTemplate restTemplate = new RestTemplate();
-//    String result = restTemplate.getForObject(uri, String.class);
-//     
-//    System.out.println(result);
-//}
+
 
     public Optional<Account> createAccount(Account account) {
         log.info("AccountService: creating account");
@@ -57,6 +48,12 @@ public class AccountService {
 
         return Optional.ofNullable(createNewAccount);
     }
+    
+    
+    
+    
+    
+    
 
     public Optional<Account> login(Login login) {
         log.info("user" + login.getPhone());
@@ -75,16 +72,11 @@ public class AccountService {
         return Optional.empty();
     }
     
-//    public Optional <List<Account>> findAllByAccountType (String accountType){
-//        log.info("find accounts by type");
-//        Optional<List<Account>> findByType = accountRepository.findAllByAccountType(accountType);
-//        if(findByType != null){
-//            return findByType;
-//        }
-//        return Optional.empty();
-//       
-//    }
     
+    
+    
+    
+
     
      public Account updateAccount(Account account){
         log.info("Creating Patient");
@@ -97,12 +89,19 @@ public class AccountService {
         return updatedAccount;
     }
     
+     
+     
 
     
     public void removeAccount(Long accountId) {
         log.info("find patient with id and delete");
         accountRepository.deleteById(accountId);
     }
+    
+    
+    
+    
+    
     
     public List<Account> findAllSavedAccounts(){
         log.info("find all patients, return Array List or List");

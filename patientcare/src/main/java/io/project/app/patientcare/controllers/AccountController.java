@@ -48,6 +48,13 @@ public class AccountController {
         Optional<Account> savedAccount = accountService.createAccount(account);
         return ResponseEntity.status(HttpStatus.OK).body(savedAccount.get());
     }
+    
+    
+    
+    
+    
+    
+    
 
     @PostMapping(path = "/login", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> login(@RequestBody Login login) {
@@ -63,14 +70,11 @@ public class AccountController {
         return ResponseEntity.status(HttpStatus.OK).body(loginnedAccount);
     }
 
-//    @GetMapping(path = "/find/type", produces = MediaType.APPLICATION_JSON_VALUE)
-//    public ResponseEntity<?> findbyType(@RequestParam String type) {
-//        log.info("find account by type");
-//
-//        Optional<List<Account>> findAccountByType = accountService.findAllByAccountType(type);
-//
-//        return ResponseEntity.status(HttpStatus.OK).body(findAccountByType);
-//    }
+    
+    
+    
+    
+    
 
     @PostMapping(path = "/account/update", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> update(@RequestBody Account account) {
@@ -84,6 +88,13 @@ public class AccountController {
         Account updatedAccount = accountService.updateAccount(account);
         return ResponseEntity.status(HttpStatus.OK).body(updatedAccount);
     }
+    
+    
+    
+    
+    
+    
+    
 
     @DeleteMapping(path = "/account/id", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> delete(@RequestParam Long id) {
@@ -97,6 +108,11 @@ public class AccountController {
         accountService.removeAccount(id);
         return ResponseEntity.status(HttpStatus.OK).body("Deleted account with id " + id);
     }
+    
+    
+    
+    
+    
 
     @GetMapping(path = "/account", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> findAll() {
