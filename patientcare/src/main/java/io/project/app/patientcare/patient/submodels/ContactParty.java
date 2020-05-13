@@ -3,12 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package io.project.app.patientcare.humanname;
+package io.project.app.patientcare.patient.submodels;
 
 /**
  *
- * @author gegham
+ * @author lilith
  */
-public class Use {
+public class ContactParty {
+    private String name;
     
+    private String gender;
+    
+    private String address;
 }

@@ -49,9 +49,6 @@ public class PatientController {
     }
     
 
-    
-    
-
     @PostMapping(path = "/patient/update", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> update(@RequestBody Patient patient) {
         log.info("update patient");
@@ -65,12 +62,7 @@ public class PatientController {
         return ResponseEntity.status(HttpStatus.OK).body(updatedPatient);
     }
     
-    
-    
-    
-    
-    
-    
+
 
     @DeleteMapping(path = "/patient/id", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> delete(@RequestParam String id) {
@@ -85,10 +77,7 @@ public class PatientController {
         return ResponseEntity.status(HttpStatus.OK).body("Deleted patient with id " + id);
     }
     
-    
-    
-    
-    
+ 
 
     @GetMapping(path = "/patient", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> findAll() {
