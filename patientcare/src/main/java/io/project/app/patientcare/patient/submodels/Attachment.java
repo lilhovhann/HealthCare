@@ -21,8 +21,6 @@ public class Attachment {
 //  "creation" : "<dateTime>" // Date attachment was first created
     
     
-    private String contentType;
-    
     private String url;
     
     private String size;

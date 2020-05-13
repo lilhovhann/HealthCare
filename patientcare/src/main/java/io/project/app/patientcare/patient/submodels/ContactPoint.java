@@ -18,14 +18,11 @@ public class ContactPoint {
 //  "period" : { Period } // Time period when the contact point was/is in use
     
     
-    private String system;
+    private enum system{phone, fax, email, pager, url, sms, other };
     
     private String value;
     
-    private String use;
+    private enum use{home, work, temp, old, mobile};
     
-    private String rank;
-    
-    private String period;
-    
+    Period period = new Period();   
 }

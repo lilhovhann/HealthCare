@@ -19,18 +19,18 @@ public class HumanName {
 //  "suffix" : ["<string>"], // Parts that come after the name
 //  "period" : { Period } // Time period when name was/is in use
     
-    private String use;
+    public enum use { usual, official, temp, nickname, anonymous, old, maiden}; 
     
     private String text;
     
     private String family;
     
-    private String given;
+    private String given[];
     
-    private String prefix;
+    private String prefix[];
     
-    private String suffix;
+    private String suffix[];
     
-    private String period;
+    Period period = new Period();
     
 }

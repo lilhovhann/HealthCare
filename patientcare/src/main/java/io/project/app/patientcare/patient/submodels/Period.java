@@ -5,15 +5,16 @@
  */
 package io.project.app.patientcare.patient.submodels;
 
+import java.util.Date;
+
 /**
  *
  * @author lilith
  */
-public class ContactParty {
+public class Period {
+//     "start" : "<dateTime>", // C? Starting time with inclusive boundary
+//      "end" : "<dateTime>"
     
-    private String name;
-    
-    private enum gender{male, female, other, unknown};
-    
-    private String address;
+    public Date start;
+    public Date end;
 }

@@ -41,7 +41,7 @@ public class Patient implements Serializable {
     
     ContactPoint telecom = new ContactPoint();
     
-    private String gender; //must be enum
+    private enum gender{male, female, other, unknown};
     
     private Date date;
   
@@ -55,26 +55,6 @@ public class Patient implements Serializable {
     
     ContactParty contactParty = new ContactParty();
     
-    private String language; //must be enum
-
-    public Patient(boolean active,HumanName name, String gender,ContactPoint telecom, Date date, boolean deceasedBoolean, Date deceasedDateTime, 
-            Address address, Attachment photo, ContactParty contactParty,String language) {
-        this.active = active;
-        this.name = name;
-        this.gender = gender;
-        this.telecom = telecom;
-        this.date = date;
-        this.deceasedBoolean = deceasedBoolean;
-        this.deceasedDateTime = deceasedDateTime;
-        this.address = address;
-        this.photo = photo;
-        this.contactParty = contactParty;
-        this.language = language;
-        
-        
-    }
-
-  
-
+    private enum language{armenian, english, russian};
    
 }

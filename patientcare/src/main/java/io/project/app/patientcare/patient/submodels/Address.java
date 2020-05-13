@@ -22,13 +22,13 @@ public class Address {
 //  "country" : "<string>", // Country (e.g. can be ISO 3166 2 or 3 letter code)
 //  "period" : { Period } // Time period when address was/is in use
     
-    private String use;
+    private enum use{home, work, temp, old, billing};
     
-    private String type;
+    private enum type{postal, physical, both};
     
     private String text;
     
-    private String line;
+    private String line[];
     
     private String city;
     
@@ -40,7 +40,7 @@ public class Address {
     
     private String country;
     
-    private String period;
+    Period period = new Period();
 }
 
 
