@@ -7,6 +7,8 @@ import io.project.app.patientcare.models.Login;
 import io.project.app.patientcare.models.Patient;
 import io.project.app.patientcare.repositories.PatientRepository;
 import io.project.app.patientcare.utils.PasswordHashUtil;
+
+import io.project.app.patientcare.patient.submodels.HumanName;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -24,6 +26,7 @@ public class PatientService {
 
     @Autowired
     private PatientRepository patientRepository;
+    
 
     public Optional<Patient> createPatient(Patient patient) {
         log.info("AccountService: creating account");
@@ -35,19 +38,9 @@ public class PatientService {
             return Optional.empty();
         }
 
-        final Patient createNewPatient = new Patient(
-                patient.getId(),
-                patient.getFirstname(),
-                patient.getLastname(),
-                patient.getPhone(),
-                patient.getEmail(),
-                patient.getMiddlename(),
-                new Date(System.currentTimeMillis())
-        );
+        final Patient savedPatient = patientRepository.save(patient);
 
-        final Patient savedPatient = patientRepository.save(createNewPatient);
-
-        return Optional.ofNullable(createNewPatient);
+        return Optional.ofNullable(patient);
     }
 
     public Patient updatePatient(Patient patient) {

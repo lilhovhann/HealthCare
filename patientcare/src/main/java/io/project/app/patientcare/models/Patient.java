@@ -1,5 +1,11 @@
 package io.project.app.patientcare.models;
 
+import io.project.app.patientcare.patient.submodels.Address;
+import io.project.app.patientcare.patient.submodels.Attachment;
+import io.project.app.patientcare.patient.submodels.ContactParty;
+import io.project.app.patientcare.patient.submodels.ContactPoint;
+import io.project.app.patientcare.patient.submodels.HumanName;
+
 import java.io.Serializable;
 import java.util.Date;
 import lombok.AllArgsConstructor;
@@ -29,19 +35,46 @@ public class Patient implements Serializable {
     @Id
     private String id;
     
-    private String firstname;
+    private boolean active;
     
-    private String lastname;
+    HumanName name = new HumanName();
+    
+    ContactPoint telecom = new ContactPoint();
+    
+    private String gender; //must be enum
+    
+    private Date date;
+  
+    private boolean deceasedBoolean;
+    
+    private Date deceasedDateTime;
+    
+    Address address = new Address();
+    
+    Attachment photo = new Attachment();
+    
+    ContactParty contactParty = new ContactParty();
+    
+    private String language; //must be enum
 
-    private String phone;
+    public Patient(boolean active,HumanName name, String gender,ContactPoint telecom, Date date, boolean deceasedBoolean, Date deceasedDateTime, 
+            Address address, Attachment photo, ContactParty contactParty,String language) {
+        this.active = active;
+        this.name = name;
+        this.gender = gender;
+        this.telecom = telecom;
+        this.date = date;
+        this.deceasedBoolean = deceasedBoolean;
+        this.deceasedDateTime = deceasedDateTime;
+        this.address = address;
+        this.photo = photo;
+        this.contactParty = contactParty;
+        this.language = language;
+        
+        
+    }
 
-    private String email;
+  
 
    
-
-    private String middlename;
-
-    private Date registerDate;
-
-    
 }
