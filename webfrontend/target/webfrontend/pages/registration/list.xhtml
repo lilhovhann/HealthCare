@@ -15,50 +15,7 @@
 
             </ui:define>
 
-            <ui:define name="content">
-                
-                <p:commandButton  action="#{viewDataBean.viewAccount()}"  value="show list of practitioners"  />
-                
-<!--                <p:dataTable var="account" value="#{viewDataBean.account}">
-                    <p:column headerText="firstname">
-                        <h:outputText value="#{viewDataBean.account.firstname}" />
-                    </p:column>
-
-                    <p:column headerText="lastname">
-                        <h:outputText value="#{viewDataBean.account.lastname}" />
-                    </p:column>
-
-                    <p:column headerText="phone">
-                        <h:outputText value="#{viewDataBean.account.phone}" />
-                    </p:column>
-
-                    <p:column headerText="email">
-                        <h:outputText value="#{viewDataBean.account.email}" />
-                    </p:column>
-                </p:dataTable>-->
-
-                                <div class="ui-g ui-fluid">
-                                    <div class="ui-g-12 ui-lg-12">
-                                        <h:form>
-                                            <div class="card">
-                                                <h1>Practitoner </h1>
-                                                Firstname:  #{viewDataBean.account.firstname} 
-                                                <br/>
-                                                Lastname:  #{viewDataBean.account.firstname}
-                                                <br/>
-                                                Phone: #{viewDataBean.account.phone}
-                                                <br/>
-                                                Email  #{viewDataBean.account.email}
-                                                <br/>
-                
-                                            </div>
-                                        </h:form>
-                                    </div>
-                                </div>
-
-
-
-            </ui:define>
+           
 
 
         </ui:composition>
