@@ -24,7 +24,7 @@ public class ContactPoint {
     
     private enum use{home, work, temp, old, mobile};
     
-    Period period = new Period();   
+     
 
     public String getValue() {
         return value;
@@ -34,13 +34,7 @@ public class ContactPoint {
         this.value = value;
     }
 
-    public Period getPeriod() {
-        return period;
-    }
-
-    public void setPeriod(Period period) {
-        this.period = period;
-    }
+   
     
     
 }

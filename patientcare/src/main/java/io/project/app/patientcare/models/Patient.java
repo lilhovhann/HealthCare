@@ -43,7 +43,7 @@ public class Patient implements Serializable {
     
     private enum gender{male, female, other, unknown};
     
-    private Date date;
+    private Date birthdate;
   
     private boolean deceasedBoolean;
     
@@ -56,5 +56,7 @@ public class Patient implements Serializable {
     ContactParty contactParty = new ContactParty();
     
     private enum language{armenian, english, russian};
+    
+    HumanName practitionerName = new HumanName();
    
 }

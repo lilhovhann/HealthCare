@@ -36,7 +36,7 @@ public class Address {
     
     private String country;
     
-    Period period = new Period();
+   
 
     public String getText() {
         return text;
@@ -94,13 +94,7 @@ public class Address {
         this.country = country;
     }
 
-    public Period getPeriod() {
-        return period;
-    }
-
-    public void setPeriod(Period period) {
-        this.period = period;
-    }
+ 
     
     
 }

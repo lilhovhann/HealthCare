@@ -24,13 +24,6 @@ public class HumanName {
     private String text;
     
     private String family;
-    
-    private String given[];
-    
-    private String prefix[];
-    
-    private String suffix[];
-    
-    Period period = new Period();
+  
     
 }

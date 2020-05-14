@@ -39,8 +39,7 @@ public class Address {
     private String postalCode;
     
     private String country;
-    
-    Period period = new Period();
+   
 }
 
 

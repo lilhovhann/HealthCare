@@ -24,14 +24,8 @@ public class HumanName {
     private String text;
     
     private String family;
+        
     
-    private String given[];
-    
-    private String prefix[];
-    
-    private String suffix[];
-    
-    Period period = new Period();
 
     public String getText() {
         return text;
@@ -49,37 +43,8 @@ public class HumanName {
         this.family = family;
     }
 
-    public String[] getGiven() {
-        return given;
-    }
 
-    public void setGiven(String[] given) {
-        this.given = given;
-    }
-
-    public String[] getPrefix() {
-        return prefix;
-    }
-
-    public void setPrefix(String[] prefix) {
-        this.prefix = prefix;
-    }
-
-    public String[] getSuffix() {
-        return suffix;
-    }
-
-    public void setSuffix(String[] suffix) {
-        this.suffix = suffix;
-    }
-
-    public Period getPeriod() {
-        return period;
-    }
-
-    public void setPeriod(Period period) {
-        this.period = period;
-    }
+  
     
     
     

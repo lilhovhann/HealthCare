@@ -23,6 +23,5 @@ public class ContactPoint {
     private String value;
     
     private enum use{home, work, temp, old, mobile};
-    
-    Period period = new Period();   
+  
 }
