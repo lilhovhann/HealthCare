@@ -32,7 +32,7 @@ public class PatientDTO implements Serializable {
     
     private enum gender{male, female, other, unknown};
     
-    private Date date;
+    private Date birthdate;
   
     private boolean deceasedBoolean;
     
@@ -45,6 +45,16 @@ public class PatientDTO implements Serializable {
     ContactParty contactParty = new ContactParty();
     
     private enum language{armenian, english, russian};
+    
+    HumanName practitionerName = new HumanName();
+
+    public HumanName getPractitionerName() {
+        return practitionerName;
+    }
+
+    public void setPractitionerName(HumanName practitionerName) {
+        this.practitionerName = practitionerName;
+    }
 
     public String getId() {
         return id;
@@ -79,11 +89,11 @@ public class PatientDTO implements Serializable {
     }
 
     public Date getDate() {
-        return date;
+        return birthdate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDate(Date birthdate) {
+        this.birthdate = birthdate;
     }
 
     public boolean isDeceasedBoolean() {
