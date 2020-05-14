@@ -25,6 +25,12 @@
                 <div class="ui-g ui-fluid">
                     <div class="ui-g-12 ui-lg-6">
                         <!-- Left Side -->
+                        
+                        <div class="card">
+                            <h1>Patient Status</h1>
+                            <p:inputSwitch onLabel="active" offLabel="passive"/>
+                        </div>
+                        
                         <div class="card">
                             <h1>Patient Name</h1>
                             <p:panelGrid columns="3" layout="grid" style="border:0px !important; background:none;" styleClass="ui-panelgrid-blank">
@@ -109,6 +115,26 @@
                                 <f:selectItem itemLabel="russian" itemValue="2" />
                                 <f:selectItem itemLabel="english" itemValue="3" />
                             </p:selectCheckboxMenu>
+                        </div>
+                        
+                       <div class="card">
+                            <h1>Deceased</h1>
+                            <p:outputLabel  value="Desease Status"/><br/><br/>
+                            <p:inputSwitch onLabel="yes" offLabel="no"/>
+                            <br/><br/>
+                            <p:outputLabel for="datetime" value="Datetime:" /><br/><br/>
+                            <p:calendar id="ddatetime" pattern="MM/dd/yyyy HH:mm:ss" />
+
+                        </div>
+                        
+                        <div class="card">
+                            <h1>Practitioner</h1>
+                            <p:panelGrid columns="3" layout="grid" style="border:0px !important; background:none;" styleClass="ui-panelgrid-blank">
+                                
+                                <p:inputText placeholder="Name"/>
+                                <p:inputText placeholder="Surname"/>
+
+                            </p:panelGrid>
                         </div>
 
                         <div class="card">
