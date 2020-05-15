@@ -4,7 +4,9 @@ import io.project.app.patientcare.patient.submodels.Address;
 import io.project.app.patientcare.patient.submodels.Attachment;
 import io.project.app.patientcare.patient.submodels.ContactParty;
 import io.project.app.patientcare.patient.submodels.ContactPoint;
+import io.project.app.patientcare.patient.submodels.Gender;
 import io.project.app.patientcare.patient.submodels.HumanName;
+import io.project.app.patientcare.patient.submodels.Language;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -41,7 +43,9 @@ public class Patient implements Serializable {
     
     ContactPoint telecom = new ContactPoint();
     
-    private enum gender{male, female, other, unknown};
+    public Gender[] getGenders() {
+        return Gender.values();
+    }
     
     private Date birthdate;
   
@@ -55,7 +59,9 @@ public class Patient implements Serializable {
     
     ContactParty contactParty = new ContactParty();
     
-    private enum language{armenian, english, russian};
+    public Language[] getLanguages() {
+        return Language.values();
+    }
     
     HumanName practitionerName = new HumanName();
    

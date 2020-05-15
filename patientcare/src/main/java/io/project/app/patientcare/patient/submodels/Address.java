@@ -22,9 +22,13 @@ public class Address {
 //  "country" : "<string>", // Country (e.g. can be ISO 3166 2 or 3 letter code)
 //  "period" : { Period } // Time period when address was/is in use
     
-    private enum use{home, work, temp, old, billing};
+    public AddressUse[] getAddressUses() {
+        return AddressUse.values();
+    }
     
-    private enum type{postal, physical, both};
+    public AddressType[] getAddressTypes() {
+        return AddressType.values();
+    }
     
     private String text;
     

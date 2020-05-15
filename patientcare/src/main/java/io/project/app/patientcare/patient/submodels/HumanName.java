@@ -19,7 +19,9 @@ public class HumanName {
 //  "suffix" : ["<string>"], // Parts that come after the name
 //  "period" : { Period } // Time period when name was/is in use
     
-    public enum use { usual, official, temp, nickname, anonymous, old, maiden}; 
+    public Use[] getUses() {
+        return Use.values();
+    }
     
     private String text;
     

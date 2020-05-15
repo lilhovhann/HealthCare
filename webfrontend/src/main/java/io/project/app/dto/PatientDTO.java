@@ -1,15 +1,18 @@
+
 package io.project.app.dto;
 
-import io.project.app.patient.submodels.Address;
-import io.project.app.patient.submodels.Attachment;
-import io.project.app.patient.submodels.ContactParty;
-import io.project.app.patient.submodels.ContactPoint;
-import io.project.app.patient.submodels.HumanName;
+import io.project.app.patientcare.patient.submodels.Address;
+import io.project.app.patientcare.patient.submodels.Attachment;
+import io.project.app.patientcare.patient.submodels.ContactParty;
+import io.project.app.patientcare.patient.submodels.ContactPoint;
+import io.project.app.patientcare.patient.submodels.Gender;
+import io.project.app.patientcare.patient.submodels.HumanName;
+import io.project.app.patientcare.patient.submodels.Language;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import javax.persistence.Id;
+
 
 /**
  *
@@ -21,7 +24,7 @@ public class PatientDTO implements Serializable {
 
     private static final long serialVersionUID = 5005662345607157416L;
     
-    @Id
+    
     private String id;
     
     private boolean active;
@@ -30,7 +33,9 @@ public class PatientDTO implements Serializable {
     
     ContactPoint telecom = new ContactPoint();
     
-    private enum gender{male, female, other, unknown};
+    public Gender[] getGenders() {
+        return Gender.values();
+    }
     
     private Date birthdate;
   
@@ -44,17 +49,11 @@ public class PatientDTO implements Serializable {
     
     ContactParty contactParty = new ContactParty();
     
-    private enum language{armenian, english, russian};
+    public Language[] getLanguages() {
+        return Language.values();
+    }
     
     HumanName practitionerName = new HumanName();
-
-    public HumanName getPractitionerName() {
-        return practitionerName;
-    }
-
-    public void setPractitionerName(HumanName practitionerName) {
-        this.practitionerName = practitionerName;
-    }
 
     public String getId() {
         return id;
@@ -88,11 +87,11 @@ public class PatientDTO implements Serializable {
         this.telecom = telecom;
     }
 
-    public Date getDate() {
+    public Date getBirthdate() {
         return birthdate;
     }
 
-    public void setDate(Date birthdate) {
+    public void setBirthdate(Date birthdate) {
         this.birthdate = birthdate;
     }
 
@@ -135,5 +134,14 @@ public class PatientDTO implements Serializable {
     public void setContactParty(ContactParty contactParty) {
         this.contactParty = contactParty;
     }
+
+    public HumanName getPractitionerName() {
+        return practitionerName;
+    }
+
+    public void setPractitionerName(HumanName practitionerName) {
+        this.practitionerName = practitionerName;
+    }
    
+    
 }

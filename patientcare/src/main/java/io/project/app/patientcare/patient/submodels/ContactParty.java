@@ -13,7 +13,9 @@ public class ContactParty {
     
     private String name;
     
-    private enum gender{male, female, other, unknown};
+     public Gender[] getGenders() {
+        return Gender.values();
+    }
     
     private String address;
 }

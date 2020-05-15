@@ -22,19 +22,39 @@
                 <p:growl/>
                 <div     class="ui-g ui-fluid">
                     <div class="ui-g-12 ui-lg-12">
+
+
+                        <p:dataTable var="car" value="#{sessonController.account}">
+                            <p:column headerText="Id">
+                                <h:outputText value="#{sessonController.account.firstname}" />
+                            </p:column><!--
+
+                            <p:column headerText="Year">
+                                <h:outputText value="#{sessonController.account.lastname}" />
+                            </p:column>
+
+                            <p:column headerText="Brand">
+                                <h:outputText value="#{sessonController.account.lastname}" />
+                            </p:column>
+
+                            <p:column headerText="Color">
+                                <h:outputText value="#{sessonController.account.lastname}" />
+                            </p:column>-->
+                        </p:dataTable>
+                        
                         <h:form id="updateprofile" rendered="#{sessonController.account.id != null}">
                             <div class="card">
                                 <h1>My Profile </h1>
-                              Firstname:  #{sessonController.account.firstname}
-                              <br/>
-                              Lastname:  #{sessonController.account.lastname}
-                              <br/>
-                              Middle Name: #{sessonController.account.middlename}
-                              
-                              <br/>
-                              Email:  #{sessonController.account.email}
-                              <br/>
-                              
+                                Firstname:  #{sessonController.account.firstname}
+                                <br/>
+                                Lastname:  #{sessonController.account.lastname}
+                                <br/>
+                                Middle Name: #{sessonController.account.middlename}
+
+                                <br/>
+                                Email:  #{sessonController.account.email}
+                                <br/>
+
                             </div>
                         </h:form>
                     </div>

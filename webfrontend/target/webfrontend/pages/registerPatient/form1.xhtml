@@ -35,7 +35,7 @@
                             <h1>Patient Name</h1>
                             <p:panelGrid columns="3" layout="grid" style="border:0px !important; background:none;" styleClass="ui-panelgrid-blank">
 
-                                <p:selectOneMenu id="lconsole"  style="margin-bottom:10px;">
+                                <p:selectOneMenu value="#{patientBean.patient.name.uses}" id="lconsole"  style="margin-bottom:10px;">
                                     <f:selectItem itemLabel="usual" itemValue="usual" />
                                     <f:selectItem itemLabel="official" itemValue="official" />
                                     <f:selectItem itemLabel="temp" itemValue="temp" />
@@ -45,8 +45,8 @@
                                     <f:selectItem itemLabel="maiden" itemValue="maiden"/>
                                 </p:selectOneMenu>
 
-                                <p:inputText placeholder="Name"/>
-                                <p:inputText placeholder="Surname"/>
+                                <p:inputText value="#{patientBean.patient.name.text}" placeholder="Name"/>
+                                <p:inputText value="#{patientBean.patient.name.family}" placeholder="Surname"/>
 
                             </p:panelGrid>
                         </div>
@@ -54,7 +54,7 @@
                         <div class="card">
                             <h1>Telecom</h1>
                             <p:panelGrid columns="3" layout="grid" style="border:0px !important; background:none;" styleClass="ui-panelgrid-blank">
-                                <p:selectOneMenu id="onsole"  style="margin-bottom:10px;">phone, fax, email, pager, url, sms, other 
+                                <p:selectOneMenu value="#{patientBean.patient.telecom.systems}" id="onsole"  style="margin-bottom:10px;"> 
                                     <f:selectItem itemLabel="phone" itemValue="phone" />
                                     <f:selectItem itemLabel="fax" itemValue="fax" />
                                     <f:selectItem itemLabel="email" itemValue="email" />
@@ -64,7 +64,8 @@
                                     <f:selectItem itemLabel="other" itemValue="other"/>
                                 </p:selectOneMenu>
                                 <p:inputText placeholder="Value"/>
-                                <p:selectOneMenu id="nsole" style="margin-bottom:10px;">
+                                
+                                <p:selectOneMenu value="#{patientBean.patient.telecom.contactPointUses}" id="nsole" style="margin-bottom:10px;">
                                     <f:selectItem itemLabel="home" itemValue="home" />
                                     <f:selectItem itemLabel="work" itemValue="work" />
                                     <f:selectItem itemLabel="temp" itemValue="temp" />
@@ -78,25 +79,37 @@
 
                         <div class="card">
                             <h1>Address</h1>
-                            <p:panelGrid columns="3" layout="grid" style="border:0px !important; background:none;" styleClass="ui-panelgrid-blank">
-                                <p:inputText placeholder="Use"/>
-                                <p:inputText placeholder="Type"/>
-                                <p:inputText placeholder="Text"/>
-                                <p:inputText placeholder="line"/>
-                                <p:inputText placeholder="city"/>
-                                <p:inputText placeholder="district"/>
-                                <p:inputText placeholder="state"/>
-                                <p:inputText placeholder="postalCode"/>
-                                <p:inputText placeholder="country"/>
+                            <p:panelGrid  columns="3" layout="grid" style="border:0px !important; background:none;" styleClass="ui-panelgrid-blank">
+                                <p:selectOneMenu value="#{patientBean.patient.address.addressUses}" id="sole" style="margin-bottom:10px;">
+                                    <f:selectItem itemLabel="home" itemValue="home" />
+                                    <f:selectItem itemLabel="work" itemValue="work" />
+                                    <f:selectItem itemLabel="temp" itemValue="temp" />
+                                    <f:selectItem itemLabel="old" itemValue="old"/>
+                                    <f:selectItem itemLabel="billing" itemValue="billing"/>
+                                </p:selectOneMenu>
+                                
+                                <p:selectOneMenu value="#{patientBean.patient.address.addressTypes}" id="ole" style="margin-bottom:10px;">
+                                    <f:selectItem itemLabel="postal" itemValue="postal" />
+                                    <f:selectItem itemLabel="physical" itemValue="physical" />
+                                    <f:selectItem itemLabel="both" itemValue="both" />
+                                </p:selectOneMenu>
+                                
+                                <p:inputText value="#{patientBean.patient.address.text}" placeholder="Text"/>
+                                <p:inputText value="#{patientBean.patient.address.line}" placeholder="line"/>
+                                <p:inputText value="#{patientBean.patient.address.city}" placeholder="city"/>
+                                <p:inputText value="#{patientBean.patient.address.district}" placeholder="district"/>
+                                <p:inputText value="#{patientBean.patient.address.state}" placeholder="state"/>
+                                <p:inputText value="#{patientBean.patient.address.postalCode}" placeholder="postalCode"/>
+                                <p:inputText value="#{patientBean.patient.address.country}" placeholder="country"/>
 
                             </p:panelGrid>
                         </div>
 
                         <div class="card">
                             <h1>Patient Gender</h1>
-                            <p:selectOneRadio layout="responsive" columns="4">
-                                <f:selectItem itemLabel="Female" itemValue="Female" />
+                            <p:selectOneRadio value="#{patientBean.patient.genders}" layout="responsive" columns="4">
                                 <f:selectItem itemLabel="Male" itemValue="Male" />
+                                <f:selectItem itemLabel="Female" itemValue="Female" />
                                 <f:selectItem itemLabel="Other" itemValue="Other" />
                                 <f:selectItem itemLabel="Unknown" itemValue="Unknown" />
                             </p:selectOneRadio>
@@ -105,7 +118,7 @@
                         <div class="card">
                             <h1>Patient Birthdate</h1>
                             <p:panelGrid columns="1" layout="grid" styleClass="ui-panelgrid-blank grid-pad" style="margin-top:10px">
-                                <p:outputLabel for="dmulti" value="Select Birthdate"/>
+                                <p:outputLabel  for="dmulti" />
                                 <p:calendar id="dmulti" pages="3" />
 
 
@@ -116,17 +129,17 @@
                             <h1>Contact Party </h1>
                             <p:panelGrid columns="2" layout="grid" style="border:0px !important; background:none;" styleClass="ui-panelgrid-blank">
 
-                                <p:inputText placeholder="Name"/>
-                                <p:inputText placeholder="Surname"/>
+                                <p:inputText value="#{patientBean.patient.contactParty.name}" placeholder="Name"/>
+                                <p:inputText  value="#{patientBean.patient.contactParty.address}" placeholder="Address"/>
 
 
 
                             </p:panelGrid>
 
                             <h3>Gender </h3>
-                            <p:selectOneRadio layout="responsive" columns="4">
-                                <f:selectItem itemLabel="Female" itemValue="Female" />
+                            <p:selectOneRadio value="#{patientBean.patient.contactParty.genders}" layout="responsive" columns="4">
                                 <f:selectItem itemLabel="Male" itemValue="Male" />
+                                <f:selectItem itemLabel="Female" itemValue="Female" />
                                 <f:selectItem itemLabel="Other" itemValue="Other" />
                                 <f:selectItem itemLabel="Unknown" itemValue="Unknown" />
                             </p:selectOneRadio>

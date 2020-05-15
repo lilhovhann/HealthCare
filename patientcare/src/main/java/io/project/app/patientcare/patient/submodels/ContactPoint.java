@@ -18,10 +18,14 @@ public class ContactPoint {
 //  "period" : { Period } // Time period when the contact point was/is in use
     
     
-    private enum system{phone, fax, email, pager, url, sms, other };
+    public System[] getSystems() {
+        return System.values();
+    }
     
     private String value;
     
-    private enum use{home, work, temp, old, mobile};
+     public ContactPointUse[] getContactPointUses() {
+        return ContactPointUse.values();
+    }
   
 }
