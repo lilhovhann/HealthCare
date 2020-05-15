@@ -169,8 +169,8 @@
                             <h1>Practitioner</h1>
                             <p:panelGrid columns="3" layout="grid" style="border:0px !important; background:none;" styleClass="ui-panelgrid-blank">
 
-                                <p:inputText placeholder="Name"/>
-                                <p:inputText placeholder="Surname"/>
+                                <p:inputText value="#{patientBean.patient.practitionerName.text}" placeholder="Name"/>
+                                <p:inputText value="#{patientBean.patient.practitionerName.family}" placeholder="Surname"/>
 
                             </p:panelGrid>
                         </div>
@@ -185,7 +185,7 @@
                                 <h:form>
                                     <p:panelGrid columns="1" layout="grid" styleClass="ui-panelgrid-blank grid-pad">
 
-                                        <p:commandButton type="button" value="SAVE" icon="fa fa-eyedropper Fs16 White" iconPos="right" />
+                                        <p:commandButton action="#{patientBean.doRegister()}" type="button" value="SAVE" icon="fa fa-eyedropper Fs16 White" iconPos="right" />
                                     </p:panelGrid>
                                 </h:form>
                             </div>

@@ -55,7 +55,7 @@ public class Patient implements Serializable {
     
     Address address = new Address();
     
-    Attachment photo = new Attachment();
+//    Attachment photo = new Attachment();
     
     ContactParty contactParty = new ContactParty();
     

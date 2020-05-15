@@ -26,6 +26,22 @@ public class HumanName {
     private String text;
     
     private String family;
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public String getFamily() {
+        return family;
+    }
+
+    public void setFamily(String family) {
+        this.family = family;
+    }
   
     
 }

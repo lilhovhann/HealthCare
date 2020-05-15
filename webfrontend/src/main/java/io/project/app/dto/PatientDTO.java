@@ -45,7 +45,7 @@ public class PatientDTO implements Serializable {
     
     Address address = new Address();
     
-    Attachment photo = new Attachment();
+    //Attachment photo = new Attachment();
     
     ContactParty contactParty = new ContactParty();
     
@@ -119,13 +119,13 @@ public class PatientDTO implements Serializable {
         this.address = address;
     }
 
-    public Attachment getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(Attachment photo) {
-        this.photo = photo;
-    }
+//    public Attachment getPhoto() {
+//        return photo;
+//    }
+//
+//    public void setPhoto(Attachment photo) {
+//        this.photo = photo;
+//    }
 
     public ContactParty getContactParty() {
         return contactParty;

@@ -15,7 +15,7 @@ public enum AddressUse {
         work("work", "work"), 
         temp("temp","temp"), 
         old("old","old"), 
-        billing("billing","maidbillingen");
+        billing("billing","billing");
         
         private final String key;
         private final String value;

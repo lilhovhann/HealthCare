@@ -27,5 +27,15 @@ public class ContactPoint {
      public ContactPointUse[] getContactPointUses() {
         return ContactPointUse.values();
     }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+     
+    
   
 }
