@@ -21,7 +21,7 @@ public enum Gender implements Serializable{
         private final String key;
         private final String value;
 
-    private Gender(String key, String value) {
+    Gender(String key, String value) {
         this.key = key;
         this.value = value;
     }

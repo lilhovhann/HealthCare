@@ -6,11 +6,13 @@
 package io.project.app.patientcare.patient.submodels;
 
 import java.io.Serializable;
+import javax.annotation.ManagedBean;
 
 /**
  *
  * @author lilith
  */
+@ManagedBean
 public class ContactPoint implements Serializable{
 //      // from Element: extension
 //  "system" : "<code>", // C? phone | fax | email | pager | url | sms | other
@@ -29,5 +31,15 @@ public class ContactPoint implements Serializable{
      public ContactPointUse[] getContactPointUses() {
         return ContactPointUse.values();
     }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+     
+    
   
 }

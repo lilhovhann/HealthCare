@@ -35,8 +35,8 @@
                             <h1>Patient Name</h1>
                             <p:panelGrid columns="3" layout="grid" style="border:0px !important; background:none;" styleClass="ui-panelgrid-blank">
 
-                                <p:selectOneMenu value="#{patientBean.patient.name.use}" id="lconsole"  style="margin-bottom:10px;">
-                                    <f:selectItems value="#{patientBean.patient.name.use}" />
+                                <p:selectOneMenu value="#{patientBean.patient.name}" id="lconsole"  style="margin-bottom:10px;">
+                                    <f:selectItems value="#{patientBean.patient.name.uses}" />
                                 </p:selectOneMenu>
 
                                 <p:inputText value="#{patientBean.patient.name.text}" placeholder="Name"/>
@@ -48,13 +48,13 @@
                         <div class="card">
                             <h1>Telecom</h1>
                             <p:panelGrid columns="3" layout="grid" style="border:0px !important; background:none;" styleClass="ui-panelgrid-blank">
-                                <p:selectOneMenu value="#{patientBean.patient.telecom.systems}" id="onsole"  style="margin-bottom:10px;"> 
+                                <p:selectOneMenu value="#{patientBean.patient.telecom}" id="onsole"  style="margin-bottom:10px;"> 
                                     <f:selectItems value="#{patientBean.patient.telecom.systems}" />
                                     
                                 </p:selectOneMenu>
                                 <p:inputText placeholder="Value"/>
 
-                                <p:selectOneMenu value="#{patientBean.patient.telecom.contactPointUses}" id="nsole" style="margin-bottom:10px;">
+                                <p:selectOneMenu value="#{patientBean.patient.telecom}" id="nsole" style="margin-bottom:10px;">
                                     <f:selectItems value="#{patientBean.patient.telecom.contactPointUses}" />
                                    
                                 </p:selectOneMenu>
@@ -65,12 +65,12 @@
                         <div class="card">
                             <h1>Address</h1>
                             <p:panelGrid  columns="3" layout="grid" style="border:0px !important; background:none;" styleClass="ui-panelgrid-blank">
-                                <p:selectOneMenu value="#{patientBean.patient.address.addressUses}" id="sole" style="margin-bottom:10px;">
+                                <p:selectOneMenu value="#{patientBean.patient.address}" id="sole" style="margin-bottom:10px;">
                                     <f:selectItems value="#{patientBean.patient.address.addressUses}" />
          
                                 </p:selectOneMenu>
 
-                                <p:selectOneMenu value="#{patientBean.patient.address.addressTypes}" id="ole" style="margin-bottom:10px;">
+                                <p:selectOneMenu value="#{patientBean.patient.address}" id="ole" style="margin-bottom:10px;">
                                     <f:selectItems value="#{patientBean.patient.address.addressTypes}" />
                                    
                                 </p:selectOneMenu>
@@ -88,7 +88,7 @@
 
                         <div class="card">
                             <h1>Patient Gender</h1>
-                            <p:selectOneRadio value="#{patientBean.patient.genders}" layout="responsive" columns="4">
+                            <p:selectOneRadio value="#{patientBean.patient}" layout="responsive" columns="4">
                                 <f:selectItems value="#{patientBean.patient.genders}" />
                                 
                             </p:selectOneRadio>
@@ -116,9 +116,8 @@
                             </p:panelGrid>
 
                             <h3>Gender </h3>
-                            <p:selectOneRadio value="#{patientBean.patient.contactParty.genders}" layout="responsive" columns="4">
+                            <p:selectOneRadio value="#{patientBean.patient.contactParty}" layout="responsive" columns="4">
                                 <f:selectItems value="#{patientBean.patient.contactParty.genders}" />
-                               
                             </p:selectOneRadio>
                         </div>
 

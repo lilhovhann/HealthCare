@@ -7,11 +7,13 @@ package io.project.app.patientcare.patient.submodels;
 import io.project.app.patientcare.patient.submodels.Use;
 
 import java.io.Serializable;
+import javax.annotation.ManagedBean;
 
 /**
  *
  * @author lilith
  */
+@ManagedBean
 public class HumanName{
 
     
@@ -26,7 +28,7 @@ public class HumanName{
      
     
     
-    public Use[] getUse() {
+    public Use[] getUses() {
         return Use.values();
     }
 

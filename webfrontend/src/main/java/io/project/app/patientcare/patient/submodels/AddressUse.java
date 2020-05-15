@@ -22,7 +22,7 @@ public enum AddressUse implements Serializable{
         private final String key;
         private final String value;
 
-    private AddressUse(String key, String value) {
+    AddressUse(String key, String value) {
         this.key = key;
         this.value = value;
     }

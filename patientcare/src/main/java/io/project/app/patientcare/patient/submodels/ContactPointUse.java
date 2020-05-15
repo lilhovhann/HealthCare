@@ -21,7 +21,7 @@ public enum ContactPointUse implements Serializable{
         private final String key;
         private final String value;
 
-    private ContactPointUse(String key, String value) {
+    ContactPointUse(String key, String value) {
         this.key = key;
         this.value = value;
     }

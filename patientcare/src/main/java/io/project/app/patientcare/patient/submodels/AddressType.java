@@ -20,7 +20,7 @@ public enum AddressType implements Serializable{
         private final String key;
         private final String value;
 
-    private AddressType(String key, String value) {
+    AddressType(String key, String value) {
         this.key = key;
         this.value = value;
     }

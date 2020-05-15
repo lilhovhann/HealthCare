@@ -21,7 +21,7 @@ public enum Language implements Serializable{
         private final String key;
         private final String value;
 
-    private Language(String key, String value) {
+    Language(String key, String value) {
         this.key = key;
         this.value = value;
     }

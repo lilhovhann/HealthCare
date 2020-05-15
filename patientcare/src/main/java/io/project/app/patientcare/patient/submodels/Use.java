@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @author lilith
  */
-public enum Use{
+public enum Use {
     
         usual("usual","usual"), 
         official("official", "official"), 
@@ -36,5 +36,6 @@ public enum Use{
     public String getValue() {
         return value;
     }
-        
+
+    
 }

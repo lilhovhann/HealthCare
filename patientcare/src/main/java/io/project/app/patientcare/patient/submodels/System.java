@@ -24,7 +24,7 @@ public enum System implements Serializable{
         private final String key;
         private final String value;
 
-    private System(String key, String value) {
+    System(String key, String value) {
         this.key = key;
         this.value = value;
     }
