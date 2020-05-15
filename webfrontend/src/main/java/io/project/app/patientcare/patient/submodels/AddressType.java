@@ -5,11 +5,13 @@
  */
 package io.project.app.patientcare.patient.submodels;
 
+import java.io.Serializable;
+
 /**
  *
  * @author lilith
  */
-public enum AddressType {
+public enum AddressType implements Serializable{
     
         postal("postal","postal"), 
         physical("physical", "physical"), 

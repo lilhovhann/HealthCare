@@ -5,11 +5,13 @@
  */
 package io.project.app.patientcare.patient.submodels;
 
+import java.io.Serializable;
+
 /**
  *
  * @author lilith
  */
-public enum Language {
+public enum Language implements Serializable{
     
         armenian("armenian","armenian"), 
         russian("russian", "russian"), 

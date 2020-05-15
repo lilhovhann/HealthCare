@@ -5,11 +5,13 @@
  */
 package io.project.app.patientcare.patient.submodels;
 
+import java.io.Serializable;
+
 /**
  *
  * @author lilith
  */
-public class ContactPoint {
+public class ContactPoint implements Serializable{
 //      // from Element: extension
 //  "system" : "<code>", // C? phone | fax | email | pager | url | sms | other
 //  "value" : "<string>", // The actual contact point details

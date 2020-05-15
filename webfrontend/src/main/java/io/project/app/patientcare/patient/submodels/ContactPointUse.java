@@ -5,11 +5,13 @@
  */
 package io.project.app.patientcare.patient.submodels;
 
+import java.io.Serializable;
+
 /**
  *
  * @author lilith
  */
-public enum ContactPointUse {
+public enum ContactPointUse implements Serializable{
 
         home("home","home"), 
         work("work", "work"), 

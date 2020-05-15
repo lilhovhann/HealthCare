@@ -5,11 +5,13 @@
  */
 package io.project.app.patientcare.patient.submodels;
 
+import java.io.Serializable;
+
 /**
  *
  * @author lilith
  */
-public enum Gender {
+public enum Gender implements Serializable{
     
         male("male","male"), 
         female("female", "female"), 

@@ -24,14 +24,13 @@ public class PatientDTO implements Serializable {
 
     private static final long serialVersionUID = 5005662345607157416L;
     
-    
     private String id;
     
     private boolean active;
     
-    HumanName name = new HumanName();
+    private HumanName name = new HumanName();
     
-    ContactPoint telecom = new ContactPoint();
+    private ContactPoint telecom = new ContactPoint();
     
     public Gender[] getGenders() {
         return Gender.values();
@@ -43,17 +42,17 @@ public class PatientDTO implements Serializable {
     
     private Date deceasedDateTime;
     
-    Address address = new Address();
+    private Address address = new Address();
     
     //Attachment photo = new Attachment();
     
-    ContactParty contactParty = new ContactParty();
+    private ContactParty contactParty = new ContactParty();
     
     public Language[] getLanguages() {
         return Language.values();
     }
     
-    HumanName practitionerName = new HumanName();
+    private HumanName practitionerName = new HumanName();
 
     public String getId() {
         return id;

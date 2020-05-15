@@ -5,11 +5,13 @@
  */
 package io.project.app.patientcare.patient.submodels;
 
+import java.io.Serializable;
+
 /**
  *
  * @author lilith
  */
-public class HumanName {
+public class HumanName implements Serializable{
 //     // from Element: extension
 //  "use" : "<code>", // usual | official | temp | nickname | anonymous | old | maiden
 //  "text" : "<string>", // Text representation of the full name

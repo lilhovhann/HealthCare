@@ -5,11 +5,13 @@
  */
 package io.project.app.patientcare.patient.submodels;
 
+import java.io.Serializable;
+
 /**
  *
  * @author lilith
  */
-public class Attachment {
+public class Attachment implements Serializable{
 //    // from Element: extension
 //  "contentType" : "<code>", // Mime type of the content, with charset etc.
 //  "language" : "<code>", // Human language of the content (BCP-47)

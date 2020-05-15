@@ -25,13 +25,10 @@ public class PatientBean implements Serializable {
     private PatientClient patientClient;
 
     private PatientDTO patient = new PatientDTO();
-    
-    @Inject
-    private SessonController sessonController;
 
-    /**
-     * Creates a new instance of RegisterBean
-     */
+//    @Inject
+//    private SessonController sessonController;
+
     public PatientBean() {
     }
 
@@ -40,8 +37,8 @@ public class PatientBean implements Serializable {
 
         PatientDTO patientRegistration = patientClient.Registration(patient);
         if (patientRegistration.getId() != null) {
-            sessonController.setPatient(patientRegistration);
-            return "success";
+//            sessonController.setPatient(patientRegistration);
+            return "profile";
         }
         return "error";
     }
@@ -53,7 +50,5 @@ public class PatientBean implements Serializable {
     public void setPatient(PatientDTO patient) {
         this.patient = patient;
     }
-
-    
 
 }

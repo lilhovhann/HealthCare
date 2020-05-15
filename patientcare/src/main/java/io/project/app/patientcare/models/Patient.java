@@ -39,9 +39,9 @@ public class Patient implements Serializable {
     
     private boolean active;
     
-    HumanName name = new HumanName();
+    private HumanName name = new HumanName();
     
-    ContactPoint telecom = new ContactPoint();
+    private ContactPoint telecom = new ContactPoint();
     
     public Gender[] getGenders() {
         return Gender.values();
@@ -53,16 +53,16 @@ public class Patient implements Serializable {
     
     private Date deceasedDateTime;
     
-    Address address = new Address();
+    private Address address = new Address();
     
 //    Attachment photo = new Attachment();
     
-    ContactParty contactParty = new ContactParty();
+    private ContactParty contactParty = new ContactParty();
     
     public Language[] getLanguages() {
         return Language.values();
     }
     
-    HumanName practitionerName = new HumanName();
+    private HumanName practitionerName = new HumanName();
    
 }

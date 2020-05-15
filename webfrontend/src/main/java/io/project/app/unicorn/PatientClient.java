@@ -13,6 +13,7 @@ import java.util.PropertyResourceBundle;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -24,8 +25,8 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
 
-@Named
-@SessionScoped
+
+@ViewScoped
 public class PatientClient implements Serializable {
 
     private static final long serialVersionUID = 1L;

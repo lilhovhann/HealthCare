@@ -5,11 +5,13 @@
  */
 package io.project.app.patientcare.patient.submodels;
 
+import java.io.Serializable;
+
 /**
  *
  * @author lilith
  */
-public class Address {
+public class Address implements Serializable{
 //     // from Element: extension
 //  "use" : "<code>", // home | work | temp | old | billing - purpose of this address
 //  "type" : "<code>", // postal | physical | both

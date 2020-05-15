@@ -5,11 +5,13 @@
  */
 package io.project.app.patientcare.patient.submodels;
 
+import java.io.Serializable;
+
 /**
  *
  * @author lilith
  */
-public enum Use {
+public enum Use{
     
         usual("usual","usual"), 
         official("official", "official"), 
@@ -22,7 +24,7 @@ public enum Use {
         private final String key;
         private final String value;
 
-    private Use(String key, String value) {
+    Use(String key, String value) {
         this.key = key;
         this.value = value;
     }

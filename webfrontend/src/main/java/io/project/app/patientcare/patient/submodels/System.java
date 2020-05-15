@@ -5,11 +5,13 @@
  */
 package io.project.app.patientcare.patient.submodels;
 
+import java.io.Serializable;
+
 /**
  *
  * @author lilith
  */
-public enum System {
+public enum System implements Serializable{
     
         phone("phone","phone"), 
         fax("fax", "fax"), 

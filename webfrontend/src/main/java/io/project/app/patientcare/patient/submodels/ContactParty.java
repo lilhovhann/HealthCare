@@ -5,11 +5,13 @@
  */
 package io.project.app.patientcare.patient.submodels;
 
+import java.io.Serializable;
+
 /**
  *
  * @author lilith
  */
-public class ContactParty {
+public class ContactParty implements Serializable{
     
     private String name;
     

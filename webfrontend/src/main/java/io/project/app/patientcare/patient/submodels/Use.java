@@ -5,6 +5,8 @@
  */
 package io.project.app.patientcare.patient.submodels;
 
+import java.io.Serializable;
+
 /**
  *
  * @author lilith
@@ -22,7 +24,7 @@ public enum Use {
         private final String key;
         private final String value;
 
-    private Use(String key, String value) {
+    Use(String key, String value) {
         this.key = key;
         this.value = value;
     }
@@ -34,5 +36,6 @@ public enum Use {
     public String getValue() {
         return value;
     }
-        
+
+    
 }
