@@ -20,23 +20,20 @@ public class PatientService {
     private PatientRepository patientRepository;
 
     public Optional<Patient> createPatient(Patient patient) {
-        patient.setId(null);
-        log.info("always new");
+     //tox save u udate nujn@ lini, ete id ka update kani
 
         final Patient savedPatient = patientRepository.save(patient);
 
         return Optional.ofNullable(savedPatient);
     }
 
-    public Patient updatePatient(Patient patient) {
-        log.info("Creating Patient");
-        if (patient.getId() == null) {
-            log.error("provide patient id for update");
-            return new Patient();
-        }
-        log.info("Update patient with id " + patient.getId());
-        Patient updatedPatient = patientRepository.save(patient);
-        return updatedPatient;
+   
+    
+     public Optional<Patient> findOne(String patientId) {
+         
+         return patientRepository.findById(patientId);
+       
+      
     }
 
     public void removePatient(String patientId) {

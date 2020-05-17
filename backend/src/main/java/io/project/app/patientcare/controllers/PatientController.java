@@ -37,26 +37,13 @@ public class PatientController {
 
     @PostMapping(path = "/creation", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> create(@RequestBody Patient patient) {
-        log.info("Create patient "+ patient.toString());
+        log.info("Create patient " + patient.toString());
 
         Optional<Patient> savedPatient = patientService.createPatient(patient);
         return ResponseEntity.status(HttpStatus.OK).body(savedPatient.get());
     }
 
-    @PostMapping(path = "/patient/update", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> update(@RequestBody Patient patient) {
-        log.info("update patient");
-
-        if (patient.getId() == null) {
-            log.error("Could not update patient");
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("You must fill patient id");
-        }
-
-        Patient updatedPatient = patientService.updatePatient(patient);
-        return ResponseEntity.status(HttpStatus.OK).body(updatedPatient);
-    }
-
-    @DeleteMapping(path = "/patient/id", produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(path = "/patient/delete/id", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> delete(@RequestParam String id) {
         log.info("delete patient");
 
@@ -76,6 +63,18 @@ public class PatientController {
         PatientApiResponse response = new PatientApiResponse();
         response.getPatientList().addAll(findAllSavedPatients);
         return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+
+    @GetMapping(path = "/find/one", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> one(@RequestParam String patientId) {
+        Optional<Patient> findOne = patientService.findOne(patientId);
+        PatientApiResponse response = new PatientApiResponse();
+        if (findOne.isPresent()) {
+            response.setPatient(findOne.get());
+            return ResponseEntity.status(HttpStatus.OK).body(response);
+        }
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+
     }
 
 }

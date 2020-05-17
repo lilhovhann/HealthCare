@@ -21,69 +21,77 @@
             </ui:define>
 
             <ui:define name="content">
-                
+
                 <h:form>
 
-                <div class="ui-g ui-fluid">
-                    <div class="ui-g-12 ui-lg-12">
-                        <!-- Left Side -->
+                    <div class="ui-g ui-fluid">
+                        <div class="ui-g-12 ui-lg-12">
+                            <!-- Left Side -->
 
-                        <div class="card">
-                            <h1>Patient Status</h1>
-                            <p:inputSwitch onLabel="active" offLabel="passive"/>
+                            <div class="card">
+                                <h1>Patient Status</h1>
+                                <p:inputSwitch onLabel="active" offLabel="passive"/>
+                            </div>
+
+                            <div class="card">
+                                <h1>Patient Name</h1>
+
+                                <p:outputLabel for="name" value="Patient name"/>
+                                <p:inputText id="name" value="#{patientBean.patient.name.text}"/>
+
+                            </div>
+
+                            <div class="card">
+                                <p:outputLabel for="gender" value="Gender"/>
+
+                                <p:selectOneMenu value="#{patientBean.patient.gender}" id="gender"  style="margin-bottom:10px;">
+                                    <f:selectItems value="#{patientBean.genders}" var="list" itemLabel="#{list.key}" itemValue="#{list.value}"/>
+                                </p:selectOneMenu>
+                            </div>
+
+
+                            <div class="card">
+                                <p:outputLabel for="birthdate" value="Birthdate"/>
+
+                                <p:calendar value="#{patientBean.patient.birthdate}" id="birthdate"/>
+                            </div>
+
+                            <div class="card">
+                                <p:outputLabel for="deceasedBoolean" value="DeceasedBoolean"/>
+
+                                <p:selectBooleanCheckbox value="#{patientBean.patient.deceasedBoolean}" id="deceasedBoolean"/>
+
+                                <br/>
+                                <p:outputLabel for="deceasedDateTime" value="DeceasedDateTime"/>
+
+                                <p:calendar value="#{patientBean.patient.deceasedDateTime}" id="deceasedDateTime"/>
+                            </div>
+                            <div class="card">
+                                <p:outputLabel for="language" value="Language"/>
+
+                                <p:selectOneMenu value="#{patientBean.patient.language}" id="language"  style="margin-bottom:10px;">
+                                    <f:selectItems value="#{patientBean.languageList}" var="list" itemLabel="#{list.key}" itemValue="#{list.value}"/>
+                                </p:selectOneMenu>
+                            </div>
+                            <div class="card">
+                                <p:outputLabel for="address" value="Address"/>
+
+                                <p:inputTextarea cols="20" rows="10" id="address" value="#{patientBean.patient.language}"/>
+
+                            </div>
+
+
+
+
+
+
+                            <p:commandButton  action="#{patientBean.doRegister()}"  value="save" style="width: 100px"/>
+
+
                         </div>
-
-                        <div class="card">
-                            <h1>Patient Name</h1>
-
-                            <p:outputLabel for="name" value="Patient name"/>
-                            <p:inputText id="name" value="#{patientBean.patient.name.text}"/>
-
-                            <p:outputLabel for="gender" value="Gender"/>
-
-                            <p:selectOneMenu value="#{patientBean.patient.gender}" id="gender"  style="margin-bottom:10px;">
-                                <f:selectItems value="#{patientBean.genders}" var="list" itemLabel="#{list.key}" itemValue="#{list.value}"/>
-                            </p:selectOneMenu>
-
-
-                            <p:outputLabel for="birthdate" value="Birthdate"/>
-
-                            <p:calendar value="#{patientBean.patient.birthdate}" id="birthdate"/>
-
-
-                            <p:outputLabel for="deceasedBoolean" value="DeceasedBoolean"/>
-
-                            <p:selectBooleanCheckbox value="#{patientBean.patient.deceasedBoolean}" id="deceasedBoolean"/>
-
-                            <br/>
-                            <p:outputLabel for="deceasedDateTime" value="DeceasedDateTime"/>
-
-                            <p:calendar value="#{patientBean.patient.deceasedDateTime}" id="deceasedDateTime"/>
-
-                            <p:outputLabel for="language" value="Language"/>
-
-                            <p:selectOneMenu value="#{patientBean.patient.language}" id="language"  style="margin-bottom:10px;">
-                                <f:selectItems value="#{patientBean.languageList}" var="list" itemLabel="#{list.key}" itemValue="#{list.value}"/>
-                            </p:selectOneMenu>
-
-                            <p:outputLabel for="address" value="Address"/>
-
-                            <p:inputTextarea cols="20" rows="10" id="address" value="#{patientBean.patient.language}"/>
-
-
-
-
-                        </div>
-
-
-
-                        <p:commandButton  action="#{patientBean.doRegister()}"  value="save" style="width: 100px"/>
-
-
                     </div>
-                </div>
-                    
-                    </h:form>
+
+                </h:form>
 
             </ui:define>
 

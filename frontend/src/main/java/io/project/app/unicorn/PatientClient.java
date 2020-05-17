@@ -85,6 +85,27 @@ public class PatientClient implements Serializable {
         }
         return model;
     }
+    
+     public PatientApiResponse getOnePatient(String patientId) {
+        PatientApiResponse model = new PatientApiResponse();
+        long startTime = System.currentTimeMillis();
+        try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
+            HttpGet request = new HttpGet("http://localhost:5550/api/v2/patients/find/one?patientId="+patientId);
+            request.addHeader("content-type", "application/json;charset=UTF-8");
+            request.addHeader("charset", "UTF-8");          
+            CloseableHttpResponse response = httpClient.execute(request);
+           
+            try (CloseableHttpResponse httpResponse = httpClient.execute(request)) {
+                model = GsonConverter.fromJson(EntityUtils.toString(httpResponse.getEntity()), PatientApiResponse.class);
+            }
+            long elapsedTime = System.currentTimeMillis() - startTime;
+            
+        } catch (IOException e) {
+            
+        }
+        return model;
+    }
+
 
     public PropertyResourceBundle getBundle() {
         FacesContext context = FacesContext.getCurrentInstance();
