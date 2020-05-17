@@ -1,13 +1,13 @@
 
 package io.project.app.dto;
 
-import io.project.app.patientcare.patient.submodels.Address;
-import io.project.app.patientcare.patient.submodels.Attachment;
-import io.project.app.patientcare.patient.submodels.ContactParty;
-import io.project.app.patientcare.patient.submodels.ContactPoint;
-import io.project.app.patientcare.patient.submodels.Gender;
-import io.project.app.patientcare.patient.submodels.HumanName;
-import io.project.app.patientcare.patient.submodels.Language;
+import io.project.app.patient.submodels.Address;
+import io.project.app.patient.submodels.Attachment;
+import io.project.app.patient.submodels.ContactParty;
+import io.project.app.patient.submodels.ContactPoint;
+import io.project.app.patiient.submodels.enums.Gender;
+import io.project.app.patient.submodels.HumanName;
+import io.project.app.patiient.submodels.enums.Language;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
