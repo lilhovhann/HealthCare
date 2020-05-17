@@ -67,10 +67,10 @@
                                 <h3>Phone</h3>
 
                                 <p:inputText value="#{patientBean.patient.phone}" placeholder="(+xxx)xx-xx-xx"/>
-                                
+
                                 <h3>Email</h3>
                                 <p:inputText value="#{patientBean.patient.email}" placeholder="yourEmail@gmail.com"/>
-                           
+
                             </div>
 
                             <div class="card">
@@ -85,24 +85,51 @@
                                 <p:calendar   value="#{patientBean.patient.deceasedDateTime}" id="deceasedDateTime" placeholder="mm/dd/yyyy"/>
                             </div>
                             <div class="card">
-                                <h3>Prefered Language for Communication</h3>
+                                <h1>Prefered Language for Communication</h1>
 
                                 <p:selectOneMenu value="#{patientBean.patient.language}" id="language"  style="margin-bottom:10px;">
                                     <f:selectItems value="#{patientBean.languageList}" var="list" itemLabel="#{list.key}" itemValue="#{list.value}"/>
                                 </p:selectOneMenu>
                             </div>
                             <div class="card">
-                                <p:outputLabel for="address" value="Address"/>
+                                <h1>Address</h1>
+                                <p:panelGrid columns="3" layout="grid" style="border:0px !important; background:none;" styleClass="ui-panelgrid-blank">
 
-                                <p:inputTextarea cols="20" rows="10" id="address" value="#{patientBean.patient.language}"/>
-
+                                    <p:inputText value="#{patientBean.patient.address.country}" placeholder="country"/>
+                                    <p:inputText value="#{patientBean.patient.address.city}" placeholder="city/town"/>
+                                    <p:inputText value="#{patientBean.patient.address.text}" placeholder="address"/>
+                                    <p:inputText value="#{patientBean.patient.address.postalCode}" placeholder="postal code"/>
+                                </p:panelGrid>
                             </div>
 
 
 
 
+                            <div class="card">
+                                <h1>Contact Party</h1>
+                                <p:panelGrid columns="3" layout="grid" style="border:0px !important; background:none;" styleClass="ui-panelgrid-blank">
 
+                                    <p:inputText value="#{patientBean.patient.contactParty.name}" placeholder="name"/>
+                                    <p:inputText value="#{patientBean.patient.contactParty.address}" placeholder="address"/>
+                                    <p:inputText value="#{patientBean.patient.contactParty.phone}" placeholder="phone"/>
+                                    <p:inputText value="#{patientBean.patient.contactParty.relationship}" placeholder="relationship with patient"/>
+                                </p:panelGrid>
+                            </div>
+                            
+                             <div class="card">
+                                <h1>Practitioner</h1>
+                                <p:panelGrid columns="3" layout="grid" style="border:0px !important; background:none;" styleClass="ui-panelgrid-blank">
 
+                                    <p:inputText value="#{patientBean.patient.practitionerName.text}" placeholder="name"/>
+                                    <p:inputText value="#{patientBean.patient.practitionerName.family}" placeholder="surname"/>
+                                    
+                                    
+                                    
+                                   
+                                </p:panelGrid>
+                            </div>
+
+                            
                             <p:commandButton  action="#{patientBean.doRegister()}"  value="save" style="width: 100px"/>
 
 

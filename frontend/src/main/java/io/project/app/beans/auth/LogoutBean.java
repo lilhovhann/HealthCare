@@ -33,13 +33,6 @@ public class LogoutBean implements Serializable {
         externalContext.getSessionMap().clear();
         HttpSession session = (HttpSession) externalContext.getSession(true);
         session.invalidate();
-
-//        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-//        HttpServletResponse response = (HttpServletResponse) externalContext.getResponse();
-//        Cookie cookie = new Cookie("JSESSIONID", "");
-//        cookie.setMaxAge(0);
-//        cookie.setPath("/");
-//        response.addCookie(cookie);
         
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
         ec.invalidateSession();

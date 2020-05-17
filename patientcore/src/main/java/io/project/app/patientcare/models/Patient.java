@@ -1,7 +1,7 @@
 package io.project.app.patientcare.models;
 
+import io.project.app.patientcare.patient.submodels.Address;
 import io.project.app.patientcare.patient.submodels.ContactParty;
-import io.project.app.patientcare.patient.submodels.ContactPoint;
 import io.project.app.patientcare.patient.submodels.HumanName;
 
 import java.io.Serializable;
@@ -46,13 +46,14 @@ public class Patient implements Serializable {
 
     private String language;
 
-    private String address ; //make simple now
-
     private String phone;
     
     private String email;
 
+    private Address address = new Address();
+    
 //    Attachment photo = new Attachment();
+    
     private ContactParty contactParty = new ContactParty();
 
     private HumanName practitionerName = new HumanName();

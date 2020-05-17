@@ -17,16 +17,12 @@
 
             <ui:define name="content">
 
-                <div class="ui-g ui-fluid">
-                    <div class="ui-g-12 ui-lg-12">
-                        <!-- Left Side -->
+       
 
-                        <div class="card">
+                        
                             <h1>Patient list</h1>
 
-                        </div>
-
-                        <div class="card">
+                        
                             <p:dataTable var="pp" value="#{patientBean.patientList}" rows="10"
                                          paginator="true"
                                          paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
@@ -61,12 +57,22 @@
                                 </p:column>
 
                                 <p:column headerText="address">
-                                    <h:outputText value="#{pp.address}" />
+                                    <h:outputText value="#{pp.address.country}" />
                                 </p:column>
 
                                 <p:column headerText="language">
                                     <h:outputText value="#{pp.language}" />
                                 </p:column>
+                                
+                                <p:column headerText="practitioner Name">
+                                    <h:outputText value="#{pp.practitionerName.text}" />
+                                </p:column>
+                                
+                                <p:column headerText="practitioner Surname">
+                                    <h:outputText value="#{pp.practitionerName.family}" />
+                                </p:column>
+                                
+                                
                                 <p:column headerText="View/Update">
                                     <h:outputLink value="#{request.contextPath}/pages/registerPatient/form1.jsf">
                                         <h:outputText value="#{i18n.update}"/>
@@ -77,10 +83,8 @@
                             </p:dataTable>
 
 
-                        </div> 
 
-                    </div>
-                </div>
+                
 
             </ui:define>
 

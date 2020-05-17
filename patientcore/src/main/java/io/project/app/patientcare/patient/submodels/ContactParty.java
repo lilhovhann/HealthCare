@@ -25,9 +25,12 @@ public class ContactParty implements Serializable{
     
     private String name;
     
-    private String gender;
-    
     private String address;
+    
+    private String phone;
+    
+    private String relationship;
+    
 
     
     

@@ -1,8 +1,6 @@
 package io.project.app.beans.auth;
 
 import io.project.app.patient.enums.AddressUse;
-import io.project.app.patient.enums.ContactPointSystem;
-import io.project.app.patient.enums.ContactPointUse;
 import io.project.app.patient.enums.Gender;
 import io.project.app.patient.enums.HumanNameUse;
 import io.project.app.patient.enums.Language;
@@ -68,13 +66,6 @@ public class PatientBean implements Serializable {
         return HumanNameUse.values();
     }
 
-    public ContactPointUse[] getContactPointUseList() {
-        return ContactPointUse.values();
-    }
-
-    public ContactPointSystem[] getContactPointSystemList() {
-        return ContactPointSystem.values();
-    }
 
     public AddressUse[] getAddressUseList() {
         return AddressUse.values();
