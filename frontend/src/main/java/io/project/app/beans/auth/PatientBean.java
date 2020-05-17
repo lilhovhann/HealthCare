@@ -1,21 +1,21 @@
 package io.project.app.beans.auth;
 
 import io.project.app.patient.enums.AddressUse;
+import io.project.app.patient.enums.ConsentStatus;
 import io.project.app.patient.enums.Gender;
 import io.project.app.patient.enums.HumanNameUse;
 import io.project.app.patient.enums.Language;
+import io.project.app.patient.enums.ProvisionType;
 import io.project.app.patientcare.models.Patient;
 import io.project.app.unicorn.PatientClient;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
-import org.primefaces.event.SelectEvent;
 
 /**
  *
@@ -29,6 +29,7 @@ public class PatientBean implements Serializable {
     private PatientClient patientClient;
 
     private Patient patient = new Patient(); // sa im  backendi nujn modelna
+    
 
     private String patientId;
 
@@ -69,6 +70,15 @@ public class PatientBean implements Serializable {
 
     public AddressUse[] getAddressUseList() {
         return AddressUse.values();
+    }
+    
+    
+    public ConsentStatus[] getConsentStatuseList(){
+        return ConsentStatus.values();
+    }
+    
+    public ProvisionType[] getProvisionTypeList(){
+        return ProvisionType.values();
     }
 
     public String doRegister() {

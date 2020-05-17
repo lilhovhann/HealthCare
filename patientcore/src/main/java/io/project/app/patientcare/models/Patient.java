@@ -1,6 +1,8 @@
 package io.project.app.patientcare.models;
 
+import io.project.app.patient.enums.ConsentStatus;
 import io.project.app.patientcare.patient.submodels.Address;
+import io.project.app.patientcare.patient.submodels.ConsentProvision;
 import io.project.app.patientcare.patient.submodels.ContactParty;
 import io.project.app.patientcare.patient.submodels.HumanName;
 
@@ -51,6 +53,10 @@ public class Patient implements Serializable {
     private String email;
 
     private Address address = new Address();
+    
+    private String status; //enum
+    
+    ConsentProvision provision = new ConsentProvision(); 
     
 //    Attachment photo = new Attachment();
     

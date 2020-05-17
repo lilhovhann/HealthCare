@@ -2,10 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:p="http://primefaces.org/ui"    
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:c="http://java.sun.com/jsp/jstl/core"     
-      xmlns:jsf="http://xmlns.jcp.org/jsf"         
-      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"   
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"                 
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:h="http://xmlns.jcp.org/jsf/html">  
 
@@ -115,21 +112,45 @@
                                     <p:inputText value="#{patientBean.patient.contactParty.relationship}" placeholder="relationship with patient"/>
                                 </p:panelGrid>
                             </div>
-                            
-                             <div class="card">
+
+                            <div class="card">
                                 <h1>Practitioner</h1>
                                 <p:panelGrid columns="3" layout="grid" style="border:0px !important; background:none;" styleClass="ui-panelgrid-blank">
 
                                     <p:inputText value="#{patientBean.patient.practitionerName.text}" placeholder="name"/>
                                     <p:inputText value="#{patientBean.patient.practitionerName.family}" placeholder="surname"/>
-                                    
-                                    
-                                    
-                                   
+
+
+
                                 </p:panelGrid>
                             </div>
 
-                            
+
+                            <div class="card">
+                                <h1>Consent </h1>
+
+                                <h3>Status</h3>
+                                <p:panelGrid columns="1" layout="grid" style="border:0px !important; background:none;" styleClass="ui-panelgrid-blank">
+                                    <p:selectOneMenu value="#{patientBean.patient.status}" id="status"  style="margin-bottom:10px;">
+                                        <f:selectItems value="#{patientBean.consentStatuseList}" var="list" itemLabel="#{list.key}" itemValue="#{list.value}"/>
+                                    </p:selectOneMenu>
+
+                                </p:panelGrid>
+                            </div>
+
+                            <div class="card">
+                                <h1>Provision Type</h1>
+                                <p:panelGrid columns="3" layout="grid" style="border:0px !important; background:none;" styleClass="ui-panelgrid-blank">
+                                    <p:selectOneMenu value="#{patientBean.patient.provision.type}" id="provision"  style="margin-bottom:10px;">
+                                        <f:selectItems value="#{patientBean.provisionTypeList}" var="Typelist" itemLabel="#{list.key}" itemValue="#{list.value}"/>
+                                    </p:selectOneMenu>
+                                    <p:calendar value="#{patientBean.patient.provision.period.startDate}"  placeholder="Start Date mm/dd/yyyy" />
+                                    <p:calendar value="#{patientBean.patient.provision.period.endDate}" placeholder="End Date mm/dd/yyyy" />
+                                   
+                               
+                                </p:panelGrid>
+                            </div>
+
                             <p:commandButton  action="#{patientBean.doRegister()}"  value="save" style="width: 100px"/>
 
 

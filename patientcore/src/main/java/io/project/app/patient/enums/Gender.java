@@ -5,7 +5,6 @@
  */
 package io.project.app.patient.enums;
 
-import java.io.Serializable;
 
 /**
  *

@@ -72,6 +72,18 @@
                                     <h:outputText value="#{pp.practitionerName.family}" />
                                 </p:column>
                                 
+                                <p:column headerText="Consent Status">
+                                    <h:outputText value="#{pp.status}" />
+                                </p:column>
+                                
+                                <p:column headerText="Consent start date">
+                                    <h:outputText value="#{pp.provision.period.startDate}" />
+                                </p:column>
+                                
+                                <p:column headerText="Consent end date">
+                                    <h:outputText value="#{pp.provision.period.endDate}" />
+                                </p:column>
+                                
                                 
                                 <p:column headerText="View/Update">
                                     <h:outputLink value="#{request.contextPath}/pages/registerPatient/form1.jsf">
