@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"    
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"     
+      xmlns:jsf="http://xmlns.jcp.org/jsf"         
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"   
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">   
+
+        <h:form id="loginForm" >
+            <p:growl/>
+            <ui:remove>
+                <div class="logo-container">
+                    <h:graphicImage name="images/heart.png" id="PageLogo" library="icarus-layout"/>
+                </div>
+            </ui:remove>           
+
+            <div class="ui-g">
+                <p:panel header="#{i18n.signin}" rendered="#{sessonController.account.id == null}" styleClass="panel-login">
+                    <div class="ui-g-12" style="padding-top:35px;">                        
+                        <p:inputText id="phone" placeholder="#{i18n.phone}" style="width:60%;" value="#{loginBean.loginRequest.phone}" required="true" requiredMessage="#{i18n.mandatory}">
+                            
+                            <f:validateRequired/>
+                            <f:validateLength maximum="100"/>                            
+                        </p:inputText>     
+                    </div>
+                    <div class="ui-g-12" style="padding-top:10px;">
+                        <p:password  id="passwd" style="width:60%;" placeholder="#{i18n.password}" value="#{loginBean.loginRequest.password}" required="true" requiredMessage="#{i18n.mandatory}" >
+                            <f:validateRequired/>
+                            <f:validateLength maximum="50"/> 
+                        </p:password>
+                    </div>
+                    <div class="ui-g-2"></div>
+                    <div class="ui-g-8 login-input-container">
+                        <div class="ui-g-12 ui-md-6 ui-lg-6">
+                            <h:selectBooleanCheckbox value="true"/> 
+                            <h:outputText value="Remember me" style="padding-left:5px;"/>
+                        </div>
+                        <div class="ui-g-12 ui-md-6 ui-lg-6">
+                            <p:link styleClass="link-decoration"  value="Forgot Password?"/>
+                        </div>
+                    </div>
+                    <div class="ui-g-2"></div>
+                    <p:commandButton  action="#{loginBean.doLogin()}"  value="#{i18n.signin}"  />
+                </p:panel>
+                <ui:remove>
+                    <div class="ui-g-12 footer-login">
+                        <p:button outcome="/index" value="#{i18n.mainpage}" />   
+                        <p:button outcome="/register" value="#{i18n.signup}" />   
+                    </div>
+                </ui:remove>
+            </div>
+            <style type="text/css">
+                html {height: 100%;}
+                .ui-button-text, .ui-button-text-only .ui-button-text{padding:8px !important; transition:none !important;}
+                .ui-panel .ui-panel-title {font-size: 17px;}
+            </style>
+            <h:outputStylesheet name="css/layout-#{guestPreferences.theme}.css" library="icarus-layout" />
+        </h:form>
+   
+
+</html>

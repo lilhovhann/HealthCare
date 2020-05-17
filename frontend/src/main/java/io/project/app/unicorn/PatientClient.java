@@ -7,8 +7,9 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.PropertyResourceBundle;
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.ApplicationScoped;
 import javax.faces.context.FacesContext;
-import javax.faces.view.ViewScoped;
+import javax.inject.Named;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
@@ -19,7 +20,8 @@ import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
 
 
-@ViewScoped
+@Named
+@ApplicationScoped
 public class PatientClient implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -38,12 +40,11 @@ public class PatientClient implements Serializable {
 
     @SuppressWarnings("unchecked")
     public Patient registration(Patient model) {
-        LOG.info("Start!!!!");
+        LOG.info("Start!!!!" + model.toString());
         Patient returnedModel = new Patient();
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
             LOG.info("PatientDTO Registration ");
-            HttpPost request = new HttpPost("http://localhost:5550/api/v2/join/creation");
-
+            HttpPost request = new HttpPost("http://localhost:5550/api/v2/patients/creation");
             String toJson = GsonConverter.toJson(model);
             StringEntity params = new StringEntity(toJson, "UTF-8");
             request.addHeader("content-type", "application/json;charset=UTF-8");
@@ -69,7 +70,7 @@ public class PatientClient implements Serializable {
         PatientApiResponse model = new PatientApiResponse();
         long startTime = System.currentTimeMillis();
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
-            HttpGet request = new HttpGet("http://localhost:5550/api/v2/join/creation/patient");
+            HttpGet request = new HttpGet("http://localhost:5550/api/v2/patients/find/all/list");
             request.addHeader("content-type", "application/json;charset=UTF-8");
             request.addHeader("charset", "UTF-8");          
             CloseableHttpResponse response = httpClient.execute(request);
@@ -90,6 +91,3 @@ public class PatientClient implements Serializable {
         return context.getApplication().evaluateExpressionGet(context, "#{i18n}", PropertyResourceBundle.class);
     }
 }
-
-// http://aspects.jcabi.com/annotation-cacheable.html
-// http://aspects.jcabi.com/example-weaving.html

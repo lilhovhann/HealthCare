@@ -1,7 +1,5 @@
 package io.project.app.patientcare.models;
 
-import io.project.app.patientcare.patient.submodels.Address;
-import io.project.app.patientcare.patient.submodels.Attachment;
 import io.project.app.patientcare.patient.submodels.ContactParty;
 import io.project.app.patientcare.patient.submodels.ContactPoint;
 import io.project.app.patientcare.patient.submodels.HumanName;

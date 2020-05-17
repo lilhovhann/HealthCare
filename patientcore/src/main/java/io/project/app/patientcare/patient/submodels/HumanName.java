@@ -6,8 +6,6 @@
 package io.project.app.patientcare.patient.submodels;
 
 
-import java.io.Serializable;
-import javax.annotation.ManagedBean;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

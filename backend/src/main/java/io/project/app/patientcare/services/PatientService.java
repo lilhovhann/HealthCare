@@ -1,15 +1,7 @@
 package io.project.app.patientcare.services;
 
-import io.project.app.patientcare.models.Account;
-import io.project.app.patientcare.repositories.AccountRepository;
-import io.project.app.patientcare.utils.CommonConstants;
-import io.project.app.patientcare.models.Login;
 import io.project.app.patientcare.models.Patient;
 import io.project.app.patientcare.repositories.PatientRepository;
-import io.project.app.patientcare.utils.PasswordHashUtil;
-
-import io.project.app.patientcare.patient.submodels.HumanName;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
@@ -26,21 +18,14 @@ public class PatientService {
 
     @Autowired
     private PatientRepository patientRepository;
-    
 
     public Optional<Patient> createPatient(Patient patient) {
-        log.info("AccountService: creating account");
-
-        Optional<Patient> findById = patientRepository.findById(patient.getId());
-
-        if (findById.isPresent()) {
-            log.error("patient with that id  already exists");
-            return Optional.empty();
-        }
+        patient.setId(null);
+        log.info("always new");
 
         final Patient savedPatient = patientRepository.save(patient);
 
-        return Optional.ofNullable(patient);
+        return Optional.ofNullable(savedPatient);
     }
 
     public Patient updatePatient(Patient patient) {
@@ -61,6 +46,6 @@ public class PatientService {
 
     public List<Patient> findAllSavedPatients() {
         log.info("find all patients, return Array List or List");
-        return (List<Patient>) patientRepository.findAll();
+        return patientRepository.findAll();
     }
 }

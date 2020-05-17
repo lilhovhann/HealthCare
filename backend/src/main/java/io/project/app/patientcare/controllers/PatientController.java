@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author lilith
  */
 @RestController
-@RequestMapping("/api/v2/join")
+@RequestMapping("/api/v2/patients")
 @Slf4j
 public class PatientController {
 
@@ -37,7 +37,7 @@ public class PatientController {
 
     @PostMapping(path = "/creation", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> create(@RequestBody Patient patient) {
-        log.info("Create patient");
+        log.info("Create patient "+ patient.toString());
 
         Optional<Patient> savedPatient = patientService.createPatient(patient);
         return ResponseEntity.status(HttpStatus.OK).body(savedPatient.get());
@@ -69,7 +69,7 @@ public class PatientController {
         return ResponseEntity.status(HttpStatus.OK).body("Deleted patient with id " + id);
     }
 
-    @GetMapping(path = "/patient", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/find/all/list", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> findAll() {
         List<Patient> findAllSavedPatients = patientService.findAllSavedPatients();
 

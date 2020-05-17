@@ -9,8 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 @Repository
-
 public interface PatientRepository extends MongoRepository<Patient, String> {
 
+    @Override
     public void deleteById(String patientId);
 }

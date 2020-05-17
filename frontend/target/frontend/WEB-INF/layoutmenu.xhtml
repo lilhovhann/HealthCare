@@ -1,0 +1,35 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:p="http://primefaces.org/ui"    
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"     
+    xmlns:jsf="http://xmlns.jcp.org/jsf"         
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"   
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:pi="http://primefaces.org/icarus">
+
+
+    <h:form id="menuformleft">           
+        <pi:menu widgetVar="IcarusMenu" rendered="#{sessonController.account.id !=  null}">
+            
+            <p:menuitem id="im_dashboard" value="Dashboard" icon="fa fa-home" outcome="/pages/dashboard"/> 
+            <p:menuitem id="lim_dashboard" value="Profile" icon="fa fa-user" outcome="/pages/profile"/> 
+            
+            <p:submenu id="lxim_default1" label="Registration" icon="fa fa-book">
+                <p:menuitem id="newPatient" value="Register Patient" icon="fa fa-pencil fa-fw" outcome="/pages/registerPatient/form1" />
+                <p:menuitem id="listOfPatients" value="List of Patients" icon="fa fa-pencil fa-fw" outcome="/pages/registration/list" />
+            </p:submenu>
+
+
+            <p:submenu id="sys" label="Settings" icon="fa fa-cog fa-fw">
+                <p:menuitem icon="fa fa-sign-out" id="logout" value="Log out" ajax="false" action="#{logoutBean.doLogout}"/>
+            </p:submenu>
+            
+
+
+        </pi:menu> 
+
+
+    </h:form>
+</ui:composition>

@@ -43,9 +43,10 @@ public class PatientBean implements Serializable {
         System.out.println("Start Register");
 
         Patient patientRegistration = patientClient.registration(patient);
+        
         if (patientRegistration.getId() != null) {
 //            sessonController.setPatient(patientRegistration);
-            return "profile";
+            return "patientlist";
         }
         return "error";
     }
