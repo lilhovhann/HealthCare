@@ -27,19 +27,17 @@
                         <p:dataTable var="car" value="#{sessonController.account}">
                             <p:column headerText="Id">
                                 <h:outputText value="#{sessonController.account.firstname}" />
-                            </p:column><!--
+                            </p:column>
 
-                            <p:column headerText="Year">
+                            <p:column headerText="lastname">
                                 <h:outputText value="#{sessonController.account.lastname}" />
                             </p:column>
 
-                            <p:column headerText="Brand">
-                                <h:outputText value="#{sessonController.account.lastname}" />
+                            <p:column headerText="email">
+                                <h:outputText value="#{sessonController.account.email}" />
                             </p:column>
 
-                            <p:column headerText="Color">
-                                <h:outputText value="#{sessonController.account.lastname}" />
-                            </p:column>-->
+                           
                         </p:dataTable>
                         
                         <h:form id="updateprofile" rendered="#{sessonController.account.id != null}">
@@ -48,9 +46,7 @@
                                 Firstname:  #{sessonController.account.firstname}
                                 <br/>
                                 Lastname:  #{sessonController.account.lastname}
-                                <br/>
-                                Middle Name: #{sessonController.account.middlename}
-
+                            
                                 <br/>
                                 Email:  #{sessonController.account.email}
                                 <br/>
