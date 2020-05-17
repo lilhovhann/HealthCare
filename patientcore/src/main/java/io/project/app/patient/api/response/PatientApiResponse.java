@@ -23,7 +23,6 @@ public class PatientApiResponse {
     
     
      List<Patient> patientList  = new ArrayList<>();
-     
      Patient patient = new Patient();
     
 }

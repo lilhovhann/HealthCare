@@ -14,11 +14,7 @@ import java.io.Serializable;
 public enum ContactPointSystem  {
 
     phone("phone", "phone"),
-    fax("fax", "fax"),
     email("email", "email"),
-    pager("pager", "pager"),
-    url("url", "url"),
-    sms("sms", "sms"),
     other("other", "other");
 
     private final String key;

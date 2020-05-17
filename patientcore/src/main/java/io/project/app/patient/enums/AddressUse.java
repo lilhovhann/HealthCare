@@ -14,10 +14,8 @@ package io.project.app.patient.enums;
 public enum AddressUse {
 
     home("home", "home"),
-    work("work", "work"),
-    temp("temp", "temp"),
-    old("old", "old"),
-    billing("billing", "billing");
+    temp("temp", "temp");
+    
 
     private final String key;
     private final String value;

@@ -36,7 +36,6 @@ public class HumanName{
     
     private String use;
     
-    
     private String text;
     
     private String family;

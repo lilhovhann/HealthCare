@@ -1,22 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package io.project.app.beans.auth;
 
+import io.project.app.patient.enums.AddressUse;
+import io.project.app.patient.enums.ContactPointSystem;
+import io.project.app.patient.enums.ContactPointUse;
 import io.project.app.patient.enums.Gender;
+import io.project.app.patient.enums.HumanNameUse;
 import io.project.app.patient.enums.Language;
 import io.project.app.patientcare.models.Patient;
 import io.project.app.unicorn.PatientClient;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
+import org.primefaces.event.SelectEvent;
 
 /**
  *
@@ -30,7 +31,7 @@ public class PatientBean implements Serializable {
     private PatientClient patientClient;
 
     private Patient patient = new Patient(); // sa im  backendi nujn modelna
-    
+
     private String patientId;
 
     public PatientBean() {
@@ -45,15 +46,16 @@ public class PatientBean implements Serializable {
         context = FacesContext.getCurrentInstance();
         externalContext = context.getExternalContext();
         patientId = this.getRequestParameter("patientId");
-        
-        if(patientId != null){
+
+        if (patientId != null) {
             //load patient from backend, for update
             //id ov load kani, klcni patient mech, vor@ frontic set get es anum
-           patient =  patientClient.getOnePatient(patientId).getPatient();
+            patient = patientClient.getOnePatient(patientId).getPatient();
         }
 
     }
 
+   
     public Gender[] getGenders() {
         return Gender.values();
     }
@@ -62,19 +64,32 @@ public class PatientBean implements Serializable {
         return Language.values();
     }
 
+    public HumanNameUse[] getHumanNameUseList() {
+        return HumanNameUse.values();
+    }
+
+    public ContactPointUse[] getContactPointUseList() {
+        return ContactPointUse.values();
+    }
+
+    public ContactPointSystem[] getContactPointSystemList() {
+        return ContactPointSystem.values();
+    }
+
+    public AddressUse[] getAddressUseList() {
+        return AddressUse.values();
+    }
+
     public String doRegister() {
         System.out.println("Start Register");
 
         Patient patientRegistration = patientClient.registration(patient);
-
         if (patientRegistration.getId() != null) {
-//            sessonController.setPatient(patientRegistration);
             return "patientlist";
         }
         return "error";
     }
-    
-    
+
     private String getRequestParameter(String paramName) {
         String returnValue = null;
         if (externalContext.getRequestParameterMap().containsKey(paramName)) {
@@ -103,5 +118,4 @@ public class PatientBean implements Serializable {
         this.patientId = patientId;
     }
 
-    
 }

@@ -48,7 +48,9 @@ public class Patient implements Serializable {
 
     private String address ; //make simple now
 
-    private ContactPoint telecom = new ContactPoint();
+    private String phone;
+    
+    private String email;
 
 //    Attachment photo = new Attachment();
     private ContactParty contactParty = new ContactParty();

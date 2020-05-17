@@ -13,13 +13,10 @@ import java.io.Serializable;
  */
 public enum HumanNameUse {
 
-    usual("usual", "usual"),
+   
     official("official", "official"),
-    temp("temp", "temp"),
-    nickname("nickname", "nickname"),
-    anonymous("anonymous", "anonymous"),
-    old("old", "old"),
-    maiden("maiden", "maiden");
+    anonymous("anonymous", "anonymous");
+    
 
     private final String key;
     private final String value;

@@ -13,10 +13,9 @@ import java.io.Serializable;
  */
 public enum ContactPointUse {
 
+    personal("personal", "personal"),
     home("home", "home"),
-    work("work", "work"),
-    old("old", "old"),
-    mobile("mobile", "mobile");
+    work("work", "work");
 
     private final String key;
     private final String value;
