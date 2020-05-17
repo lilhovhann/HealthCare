@@ -6,7 +6,8 @@
 package io.project.app.beans.auth;
 
 import io.project.app.api.requests.LoginRequest;
-import io.project.app.dto.AccountDTO;
+import io.project.app.patientcare.models.Account;
+
 import io.project.app.unicorn.AuthClient;
 import io.project.app.usercontext.SessonController;
 import java.io.Serializable;
@@ -38,7 +39,7 @@ public class LoginBean implements Serializable {
 
     public String doLogin() {
         System.out.println("Start login");
-        AccountDTO userLogin = authClient.userLogin(loginRequest);
+        Account userLogin = authClient.userLogin(loginRequest);
         if (userLogin.getId() != null) {
             sessonController.setAccount(userLogin);
             return "profile";

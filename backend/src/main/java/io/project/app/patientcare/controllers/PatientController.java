@@ -1,11 +1,8 @@
 package io.project.app.patientcare.controllers;
 
-import io.project.app.patientcare.models.Account;
-import io.project.app.patientcare.models.Login;
+import io.project.app.patient.api.response.PatientApiResponse;
 import io.project.app.patientcare.models.Patient;
 
-
-import io.project.app.patientcare.services.AccountService;
 import io.project.app.patientcare.services.PatientService;
 import java.util.List;
 
@@ -42,12 +39,9 @@ public class PatientController {
     public ResponseEntity<?> create(@RequestBody Patient patient) {
         log.info("Create patient");
 
-        
-
         Optional<Patient> savedPatient = patientService.createPatient(patient);
         return ResponseEntity.status(HttpStatus.OK).body(savedPatient.get());
     }
-    
 
     @PostMapping(path = "/patient/update", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> update(@RequestBody Patient patient) {
@@ -61,8 +55,6 @@ public class PatientController {
         Patient updatedPatient = patientService.updatePatient(patient);
         return ResponseEntity.status(HttpStatus.OK).body(updatedPatient);
     }
-    
-
 
     @DeleteMapping(path = "/patient/id", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> delete(@RequestParam String id) {
@@ -76,13 +68,14 @@ public class PatientController {
         patientService.removePatient(id);
         return ResponseEntity.status(HttpStatus.OK).body("Deleted patient with id " + id);
     }
-    
- 
 
     @GetMapping(path = "/patient", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> findAll() {
         List<Patient> findAllSavedPatients = patientService.findAllSavedPatients();
-        return ResponseEntity.status(HttpStatus.OK).body(findAllSavedPatients);
+
+        PatientApiResponse response = new PatientApiResponse();
+        response.getPatientList().addAll(findAllSavedPatients);
+        return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
 }

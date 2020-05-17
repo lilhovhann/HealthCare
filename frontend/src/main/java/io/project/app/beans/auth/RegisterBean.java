@@ -5,7 +5,7 @@
  */
 package io.project.app.beans.auth;
 
-import io.project.app.dto.AccountDTO;
+import io.project.app.patientcare.models.Account;
 import io.project.app.unicorn.AuthClient;
 import io.project.app.usercontext.SessonController;
 import java.io.Serializable;
@@ -24,7 +24,7 @@ public class RegisterBean implements Serializable {
     @Inject
     private AuthClient authClient;
 
-    private AccountDTO account = new AccountDTO();
+    private Account account = new Account();
     
     @Inject
     private SessonController sessonController;
@@ -38,7 +38,7 @@ public class RegisterBean implements Serializable {
     public String doRegister() {
         System.out.println("Start Register");
 
-        AccountDTO userRegistration = authClient.userRegistration(account);
+        Account userRegistration = authClient.userRegistration(account);
         if (userRegistration.getId() != null) {
             sessonController.setAccount(userRegistration);
             return "profile";
@@ -46,12 +46,14 @@ public class RegisterBean implements Serializable {
         return "error";
     }
 
-    public AccountDTO getAccount() {
+    public Account getAccount() {
         return account;
     }
 
-    public void setAccount(AccountDTO account) {
+    public void setAccount(Account account) {
         this.account = account;
     }
+
+  
 
 }

@@ -5,8 +5,8 @@
  */
 package io.project.app.usercontext;
 
-import io.project.app.dto.AccountDTO;
-import io.project.app.dto.PatientDTO;
+import io.project.app.patientcare.models.Account;
+import io.project.app.patientcare.models.Patient;
 import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
@@ -20,27 +20,26 @@ import javax.inject.Named;
 public class SessonController implements Serializable{
     
     
-    private AccountDTO account = new AccountDTO();
+    private Account account = new Account();
     
-    private PatientDTO patient = new PatientDTO();
+    private Patient patient = new Patient();
 
-    public PatientDTO getPatient() {
-        return patient;
-    }
-
-    public void setPatient(PatientDTO patient) {
-        this.patient = patient;
-    }
-    
-
-    public AccountDTO getAccount() {
+    public Account getAccount() {
         return account;
     }
 
-    public void setAccount(AccountDTO account) {
+    public void setAccount(Account account) {
         this.account = account;
+    }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
     
     
-    
+
 }

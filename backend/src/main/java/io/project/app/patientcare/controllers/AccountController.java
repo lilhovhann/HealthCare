@@ -3,7 +3,6 @@ package io.project.app.patientcare.controllers;
 import io.project.app.patientcare.models.Account;
 import io.project.app.patientcare.models.Login;
 
-
 import io.project.app.patientcare.services.AccountService;
 import java.util.List;
 
@@ -48,13 +47,6 @@ public class AccountController {
         Optional<Account> savedAccount = accountService.createAccount(account);
         return ResponseEntity.status(HttpStatus.OK).body(savedAccount.get());
     }
-    
-    
-    
-    
-    
-    
-    
 
     @PostMapping(path = "/login", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> login(@RequestBody Login login) {
@@ -70,12 +62,6 @@ public class AccountController {
         return ResponseEntity.status(HttpStatus.OK).body(loginnedAccount);
     }
 
-    
-    
-    
-    
-    
-
     @PostMapping(path = "/account/update", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> update(@RequestBody Account account) {
         log.info("update account");
@@ -88,13 +74,6 @@ public class AccountController {
         Account updatedAccount = accountService.updateAccount(account);
         return ResponseEntity.status(HttpStatus.OK).body(updatedAccount);
     }
-    
-    
-    
-    
-    
-    
-    
 
     @DeleteMapping(path = "/account/id", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> delete(@RequestParam Long id) {
@@ -108,11 +87,6 @@ public class AccountController {
         accountService.removeAccount(id);
         return ResponseEntity.status(HttpStatus.OK).body("Deleted account with id " + id);
     }
-    
-    
-    
-    
-    
 
     @GetMapping(path = "/account", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> findAll() {

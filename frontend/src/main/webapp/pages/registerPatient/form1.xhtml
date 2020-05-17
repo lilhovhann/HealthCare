@@ -33,126 +33,50 @@
 
                         <div class="card">
                             <h1>Patient Name</h1>
-                            <p:panelGrid columns="3" layout="grid" style="border:0px !important; background:none;" styleClass="ui-panelgrid-blank">
 
-                                <p:selectOneMenu value="#{patientBean.patient.name}" id="lconsole"  style="margin-bottom:10px;">
-                                    <f:selectItems value="#{patientBean.patient.name.uses}" />
-                                </p:selectOneMenu>
+                            <p:outputLabel for="name" value="Patient name"/>
+                            <p:inputText id="name" value="#{patientBean.patient.name.text}"/>
 
-                                <p:inputText value="#{patientBean.patient.name.text}" placeholder="Name"/>
-                                <p:inputText value="#{patientBean.patient.name.family}" placeholder="Surname"/>
+                            <p:outputLabel for="gender" value="Gender"/>
 
-                            </p:panelGrid>
-                        </div>
-
-                        <div class="card">
-                            <h1>Telecom</h1>
-                            <p:panelGrid columns="3" layout="grid" style="border:0px !important; background:none;" styleClass="ui-panelgrid-blank">
-                                <p:selectOneMenu value="#{patientBean.patient.telecom}" id="onsole"  style="margin-bottom:10px;"> 
-                                    <f:selectItems value="#{patientBean.patient.telecom.systems}" />
-                                    
-                                </p:selectOneMenu>
-                                <p:inputText placeholder="Value"/>
-
-                                <p:selectOneMenu value="#{patientBean.patient.telecom}" id="nsole" style="margin-bottom:10px;">
-                                    <f:selectItems value="#{patientBean.patient.telecom.contactPointUses}" />
-                                   
-                                </p:selectOneMenu>
-
-                            </p:panelGrid>
-                        </div>
-
-                        <div class="card">
-                            <h1>Address</h1>
-                            <p:panelGrid  columns="3" layout="grid" style="border:0px !important; background:none;" styleClass="ui-panelgrid-blank">
-                                <p:selectOneMenu value="#{patientBean.patient.address}" id="sole" style="margin-bottom:10px;">
-                                    <f:selectItems value="#{patientBean.patient.address.addressUses}" />
-         
-                                </p:selectOneMenu>
-
-                                <p:selectOneMenu value="#{patientBean.patient.address}" id="ole" style="margin-bottom:10px;">
-                                    <f:selectItems value="#{patientBean.patient.address.addressTypes}" />
-                                   
-                                </p:selectOneMenu>
-
-                                <p:inputText value="#{patientBean.patient.address.text}" placeholder="Text"/>
-                                <p:inputText value="#{patientBean.patient.address.line}" placeholder="line"/>
-                                <p:inputText value="#{patientBean.patient.address.city}" placeholder="city"/>
-                                <p:inputText value="#{patientBean.patient.address.district}" placeholder="district"/>
-                                <p:inputText value="#{patientBean.patient.address.state}" placeholder="state"/>
-                                <p:inputText value="#{patientBean.patient.address.postalCode}" placeholder="postalCode"/>
-                                <p:inputText value="#{patientBean.patient.address.country}" placeholder="country"/>
-
-                            </p:panelGrid>
-                        </div>
-
-                        <div class="card">
-                            <h1>Patient Gender</h1>
-                            <p:selectOneRadio value="#{patientBean.patient}" layout="responsive" columns="4">
-                                <f:selectItems value="#{patientBean.patient.genders}" />
-                                
-                            </p:selectOneRadio>
-                        </div>
-
-                        <div class="card">
-                            <h1>Patient Birthdate</h1>
-                            <p:panelGrid columns="1" layout="grid" styleClass="ui-panelgrid-blank grid-pad" style="margin-top:10px">
-                                <p:outputLabel  for="dmulti" />
-                                <p:calendar id="dmulti" pages="3" />
+                            <p:selectOneMenu value="#{patientBean.patient.gender}" id="gender"  style="margin-bottom:10px;">
+                                <f:selectItems value="#{patientBean.genders}" var="list" itemLabel="#{list.key}" itemValue="#{list.value}"/>
+                            </p:selectOneMenu>
 
 
-                            </p:panelGrid>
-                        </div>
+                            <p:outputLabel for="birthdate" value="Birthdate"/>
 
-                        <div class="card">
-                            <h1>Contact Party </h1>
-                            <p:panelGrid columns="2" layout="grid" style="border:0px !important; background:none;" styleClass="ui-panelgrid-blank">
+                            <p:calendar value="#{patientBean.patient.birthdate}" id="birthdate"/>
 
-                                <p:inputText value="#{patientBean.patient.contactParty.name}" placeholder="Name"/>
-                                <p:inputText  value="#{patientBean.patient.contactParty.address}" placeholder="Address"/>
+
+                            <p:outputLabel for="deceasedBoolean" value="DeceasedBoolean"/>
+
+                            <p:selectBooleanCheckbox value="#{patientBean.patient.deceasedBoolean}" id="deceasedBoolean"/>
+
+                            <p:outputLabel for="deceasedDateTime" value="DeceasedDateTime"/>
+
+                            <p:calendar value="#{patientBean.patient.deceasedDateTime}" id="deceasedDateTime"/>
+
+                            <p:outputLabel for="language" value="Language"/>
+
+                            <p:selectOneMenu value="#{patientBean.patient.language}" id="language"  style="margin-bottom:10px;">
+                                <f:selectItems value="#{patientBean.languageList}" var="list" itemLabel="#{list.key}" itemValue="#{list.value}"/>
+                            </p:selectOneMenu>
+
+                            <p:outputLabel for="address" value="Address"/>
+
+                            <p:inputTextarea cols="20" rows="10" id="address" value=#{patientBean.patient.language}/>
 
 
 
-                            </p:panelGrid>
-
-                            <h3>Gender </h3>
-                            <p:selectOneRadio value="#{patientBean.patient.contactParty}" layout="responsive" columns="4">
-                                <f:selectItems value="#{patientBean.patient.contactParty.genders}" />
-                            </p:selectOneRadio>
-                        </div>
-
-
-                        <div class="card">
-                            <h1>Prefered language</h1>
-                            <p:selectCheckboxMenu value="#{patientBean.patient.languages}" label="Select language" filter="true" filterMatchMode="startsWith">
-                                <f:selectItems value="#{patientBean.patient.languages}" />
-                               
-                            </p:selectCheckboxMenu>
-                        </div>
-
-                        <div class="card">
-                            <h1>Deceased</h1>
-                            <p:outputLabel  value="Desease Status"/><br/><br/>
-                            <p:inputSwitch value="#{patientBean.patient.deceasedBoolean}" onLabel="yes" offLabel="no"/>
-                            <br/><br/>
-                            <p:outputLabel value="#{patientBean.patient.deceasedDateTime}" for="ddatetime" /><br/><br/>
-                            <p:calendar id="ddatetime" pattern="MM/dd/yyyy HH:mm:ss" />
 
                         </div>
 
-                        <div class="card">
-                            <h1>Practitioner</h1>
-                            <p:panelGrid columns="3" layout="grid" style="border:0px !important; background:none;" styleClass="ui-panelgrid-blank">
 
-                                <p:inputText value="#{patientBean.patient.practitionerName.text}" placeholder="Name"/>
-                                <p:inputText value="#{patientBean.patient.practitionerName.family}" placeholder="Surname"/>
 
-                            </p:panelGrid>
-                        </div>
-                    
                         <p:commandButton  action="#{patientBean.doRegister()}"  value="save" style="margin-top: 20px;"/>
-                  
-                    
+
+
                     </div>
                 </div>
 

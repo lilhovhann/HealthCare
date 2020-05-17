@@ -11,11 +11,13 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @Repository
 
-public interface AccountRepository  extends MongoRepository<Account, String> { 
-    Optional <Account> findByEmailAndPassword(String email, String Password);
-    Optional <Account> findByPhone(String phone);
-    Optional <Account> findByPhoneAndPassword(String phone, String password);
-    
+public interface AccountRepository extends MongoRepository<Account, String> {
+
+    Optional<Account> findByEmailAndPassword(String email, String Password);
+
+    Optional<Account> findByPhone(String phone);
+
+    Optional<Account> findByPhoneAndPassword(String phone, String password);
 
     public void deleteById(Long accountId);
-}   
+}

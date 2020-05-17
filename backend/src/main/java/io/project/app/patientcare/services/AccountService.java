@@ -23,7 +23,6 @@ public class AccountService {
     @Autowired
     private AccountRepository accountRepository;
 
-
     public Optional<Account> createAccount(Account account) {
         log.info("AccountService: creating account");
 
@@ -41,19 +40,12 @@ public class AccountService {
                 account.getPhone(),
                 account.getEmail(),
                 PasswordHashUtil.hashPassword(account.getPassword()),
-                
                 new Date(System.currentTimeMillis()));
 
         final Account savedAccount = accountRepository.save(createNewAccount);
 
         return Optional.ofNullable(createNewAccount);
     }
-    
-    
-    
-    
-    
-    
 
     public Optional<Account> login(Login login) {
         log.info("user" + login.getPhone());
@@ -71,39 +63,24 @@ public class AccountService {
 
         return Optional.empty();
     }
-    
-    
-    
-    
-    
 
-    
-     public Account updateAccount(Account account){
+    public Account updateAccount(Account account) {
         log.info("Creating Patient");
-        if(account.getId() == null){
+        if (account.getId() == null) {
             log.error("provide patient id for update");
             return new Account();
         }
-        log.info("Update patient with id "+ account.getId());
+        log.info("Update patient with id " + account.getId());
         Account updatedAccount = accountRepository.save(account);
         return updatedAccount;
     }
-    
-     
-     
 
-    
     public void removeAccount(Long accountId) {
         log.info("find patient with id and delete");
         accountRepository.deleteById(accountId);
     }
-    
-    
-    
-    
-    
-    
-    public List<Account> findAllSavedAccounts(){
+
+    public List<Account> findAllSavedAccounts() {
         log.info("find all patients, return Array List or List");
         return (List<Account>) accountRepository.findAll();
     }

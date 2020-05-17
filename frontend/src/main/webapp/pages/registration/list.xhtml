@@ -15,7 +15,56 @@
 
             </ui:define>
 
-           
+            <ui:define name="content">
+
+                <div class="ui-g ui-fluid">
+                    <div class="ui-g-12 ui-lg-6">
+                        <!-- Left Side -->
+
+                        <div class="card">
+                            <h1>Patient list</h1>
+
+                        </div>
+
+                        <div class="card">
+                            <p:dataTable var="pp" value="#{patientBean.patientList}" rows="10"
+                                         paginator="true"
+                                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                         currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                                         rowsPerPageTemplate="5,10,15">
+                                <p:column headerText="Id">
+                                    <h:outputText value="#{pp.id}" />
+                                </p:column>
+
+                                <p:column headerText="birthdate">
+                                    <h:outputText value="#{pp.birthdate}" />
+                                </p:column>
+
+                                <p:column headerText="Brand">
+                                    <h:outputText value="#{car.brand}" />
+                                </p:column>
+
+                                <p:column headerText="Color">
+                                    <h:outputText value="#{car.color}" />
+                                </p:column>
+
+                                <f:facet name="paginatorTopLeft">
+                                    <p:commandButton type="button" icon="pi pi-refresh" />
+                                </f:facet>
+
+                                <f:facet name="paginatorBottomRight">
+                                    <p:commandButton type="button" icon="pi pi-cloud-upload" />
+                                </f:facet>
+
+                            </p:dataTable>
+
+
+                        </div> 
+
+                    </div>
+                </div>
+
+            </ui:define>
 
 
         </ui:composition>

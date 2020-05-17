@@ -1,21 +1,14 @@
 package io.project.app.unicorn;
 
-
-import io.project.app.api.requests.LoginRequest;
-import io.project.app.dto.AccountDTO;
-import io.project.app.dto.PatientDTO;
+import io.project.app.patient.api.response.PatientApiResponse;
+import io.project.app.patientcare.models.Patient;
 import io.project.app.util.GsonConverter;
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.PropertyResourceBundle;
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
-import javax.inject.Named;
-import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
@@ -44,9 +37,9 @@ public class PatientClient implements Serializable {
     }
 
     @SuppressWarnings("unchecked")
-    public PatientDTO Registration(PatientDTO model) {
+    public Patient registration(Patient model) {
         LOG.info("Start!!!!");
-        PatientDTO returnedModel = new PatientDTO();
+        Patient returnedModel = new Patient();
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
             LOG.info("PatientDTO Registration ");
             HttpPost request = new HttpPost("http://localhost:5550/api/v2/join/creation");
@@ -60,7 +53,7 @@ public class PatientClient implements Serializable {
             try (CloseableHttpResponse httpResponse = httpClient.execute(request)) {
                 LOG.info("User Registration status code " + httpResponse.getStatusLine().getStatusCode());
                 if (httpResponse.getStatusLine().getStatusCode() == 200) {
-                    returnedModel = GsonConverter.fromJson(EntityUtils.toString(httpResponse.getEntity()), PatientDTO.class);
+                    returnedModel = GsonConverter.fromJson(EntityUtils.toString(httpResponse.getEntity()), Patient.class);
                 }
             }
             long elapsedTime = System.currentTimeMillis() - startTime;
@@ -71,6 +64,26 @@ public class PatientClient implements Serializable {
         return returnedModel;
     }
 
+    
+    public PatientApiResponse getPatients() {
+        PatientApiResponse model = new PatientApiResponse();
+        long startTime = System.currentTimeMillis();
+        try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
+            HttpGet request = new HttpGet("http://localhost:5550/api/v2/join/creation/patient");
+            request.addHeader("content-type", "application/json;charset=UTF-8");
+            request.addHeader("charset", "UTF-8");          
+            CloseableHttpResponse response = httpClient.execute(request);
+           
+            try (CloseableHttpResponse httpResponse = httpClient.execute(request)) {
+                model = GsonConverter.fromJson(EntityUtils.toString(httpResponse.getEntity()), PatientApiResponse.class);
+            }
+            long elapsedTime = System.currentTimeMillis() - startTime;
+            
+        } catch (IOException e) {
+            
+        }
+        return model;
+    }
 
     public PropertyResourceBundle getBundle() {
         FacesContext context = FacesContext.getCurrentInstance();

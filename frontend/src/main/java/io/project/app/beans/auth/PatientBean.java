@@ -5,10 +5,12 @@
  */
 package io.project.app.beans.auth;
 
-import io.project.app.dto.PatientDTO;
+import io.project.app.patient.enums.Gender;
+import io.project.app.patient.enums.Language;
+import io.project.app.patientcare.models.Patient;
 import io.project.app.unicorn.PatientClient;
-import io.project.app.usercontext.SessonController;
 import java.io.Serializable;
+import java.util.List;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
@@ -24,18 +26,23 @@ public class PatientBean implements Serializable {
     @Inject
     private PatientClient patientClient;
 
-    private PatientDTO patient = new PatientDTO();
-
-//    @Inject
-//    private SessonController sessonController;
+    private Patient patient = new Patient(); // sa im  backendi nujn modelna
 
     public PatientBean() {
+    }
+
+    public Gender[] getGenders() {
+        return Gender.values();
+    }
+
+    public Language[] getLanguageList() {
+        return Language.values();
     }
 
     public String doRegister() {
         System.out.println("Start Register");
 
-        PatientDTO patientRegistration = patientClient.Registration(patient);
+        Patient patientRegistration = patientClient.registration(patient);
         if (patientRegistration.getId() != null) {
 //            sessonController.setPatient(patientRegistration);
             return "profile";
@@ -43,11 +50,15 @@ public class PatientBean implements Serializable {
         return "error";
     }
 
-    public PatientDTO getPatient() {
+    public List<Patient> getPatientList() {
+        return patientClient.getPatients().getPatientList();
+    }
+
+    public Patient getPatient() {
         return patient;
     }
 
-    public void setPatient(PatientDTO patient) {
+    public void setPatient(Patient patient) {
         this.patient = patient;
     }
 

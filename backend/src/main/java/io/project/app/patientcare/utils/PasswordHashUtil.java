@@ -3,8 +3,7 @@ package io.project.app.patientcare.utils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-
-public class PasswordHashUtil{
+public class PasswordHashUtil {
 
     public static String hashPassword(String text) {
         return toHexString(md5(text));
@@ -60,7 +59,7 @@ public class PasswordHashUtil{
             md.update(text.getBytes());
             return md.digest();
         } catch (NoSuchAlgorithmException e) {
-           // LOG.error("Cannot find MD5 algorithm", e);
+            // LOG.error("Cannot find MD5 algorithm", e);
             throw new RuntimeException("Cannot find MD5 algorithm");
         }
     }

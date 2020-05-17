@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.primefaces</groupId>
-    <artifactId>webfrontend</artifactId>
+    <artifactId>frontend</artifactId>
     <version>1.1</version>
     <packaging>war</packaging>
 
-    <name>webfrontend</name>
+    <name>frontend</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -43,6 +43,11 @@
             <artifactId>gson</artifactId>
             <version>2.8.2</version>
             <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>io.project.app</groupId>
+            <artifactId>patientcore</artifactId>
+            <version>1.0</version>
         </dependency>
         <dependency>
             <groupId>javax</groupId>
@@ -83,7 +88,7 @@
     </repositories>
 
     <build>
-        <finalName>webfrontend</finalName>
+        <finalName>frontend</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

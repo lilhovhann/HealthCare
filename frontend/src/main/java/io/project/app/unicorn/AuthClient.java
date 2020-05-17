@@ -2,7 +2,8 @@ package io.project.app.unicorn;
 
 
 import io.project.app.api.requests.LoginRequest;
-import io.project.app.dto.AccountDTO;
+
+import io.project.app.patientcare.models.Account;
 import io.project.app.util.GsonConverter;
 import java.io.IOException;
 import java.io.Serializable;
@@ -42,9 +43,9 @@ public class AuthClient implements Serializable {
     }
 
     @SuppressWarnings("unchecked")
-    public AccountDTO userRegistration(AccountDTO model) {
+    public Account userRegistration(Account model) {
         LOG.info("Start!!!!");
-        AccountDTO returnedModel = new AccountDTO();
+        Account returnedModel = new Account();
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
             LOG.info("User Registration ");
             HttpPost request = new HttpPost("http://localhost:5550/api/v2/join/registration");
@@ -58,7 +59,7 @@ public class AuthClient implements Serializable {
             try (CloseableHttpResponse httpResponse = httpClient.execute(request)) {
                 LOG.info("User Registration status code " + httpResponse.getStatusLine().getStatusCode());
                 if (httpResponse.getStatusLine().getStatusCode() == 200) {
-                    returnedModel = GsonConverter.fromJson(EntityUtils.toString(httpResponse.getEntity()), AccountDTO.class);
+                    returnedModel = GsonConverter.fromJson(EntityUtils.toString(httpResponse.getEntity()), Account.class);
                 }
             }
             long elapsedTime = System.currentTimeMillis() - startTime;
@@ -70,9 +71,9 @@ public class AuthClient implements Serializable {
     }
 
     @SuppressWarnings("unchecked")
-    public AccountDTO userLogin(LoginRequest model) {
+    public Account userLogin(LoginRequest model) {
         LOG.info("User login: called ");
-        AccountDTO returnedModel = new AccountDTO();
+        Account returnedModel = new Account();
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
             HttpPost request = new HttpPost("http://localhost:5550/api/v2/join/login");
             String toJson = GsonConverter.toJson(model);
@@ -86,7 +87,7 @@ public class AuthClient implements Serializable {
             try (CloseableHttpResponse httpResponse = httpClient.execute(request)) {
                 LOG.info("User login: httpResponse.getStatusLine().getStatusCode() " + httpResponse.getStatusLine().getStatusCode());
                 if (httpResponse.getStatusLine().getStatusCode() == 200) {
-                    returnedModel = GsonConverter.fromJson(EntityUtils.toString(httpResponse.getEntity()), AccountDTO.class);
+                    returnedModel = GsonConverter.fromJson(EntityUtils.toString(httpResponse.getEntity()), Account.class);
                 }
             }
             long elapsedTime = System.currentTimeMillis() - startTime;
@@ -100,10 +101,10 @@ public class AuthClient implements Serializable {
     
     
 
-    public List<AccountDTO> getUserByAccountType(String accountType) {
+    public List<Account> getUserByAccountType(String accountType) {
         LOG.info("Find user by accountType " + accountType);
 //        AccountDTO model = new AccountDTO();
-        List<AccountDTO> newmodel =  new ArrayList<AccountDTO>();;
+        List<Account> newmodel =  new ArrayList<Account>();;
         long startTime = System.currentTimeMillis();
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
             HttpGet request = new HttpGet("http://localhost:5550/api/v2/join/find/type" + accountType);
