@@ -49,17 +49,20 @@ public class Patient implements Serializable {
     private String language;
 
     private String phone;
-    
-    private String email;
 
-    private Address address = new Address();
+    private String email;
     
+    private String viber; //exir jamanakakic!!!
+    
+
+    private Address address = new Address(); //lav tox mna
+    //mek toxov
+
     private String status; //enum
-    
-    ConsentProvision provision = new ConsentProvision(); 
-    
+
+    private ConsentProvision provision = new ConsentProvision(); //sranq el address nman sarqi
+
 //    Attachment photo = new Attachment();
-    
     private ContactParty contactParty = new ContactParty();
 
     private HumanName practitionerName = new HumanName();

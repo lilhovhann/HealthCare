@@ -17,8 +17,6 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
-
-
 public class ConsentProvision {
     
     private String type; 

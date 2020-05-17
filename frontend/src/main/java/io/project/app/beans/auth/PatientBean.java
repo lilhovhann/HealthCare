@@ -28,6 +28,7 @@ public class PatientBean implements Serializable {
     @Inject
     private PatientClient patientClient;
 
+    //ajste new a exac!
     private Patient patient = new Patient(); // sa im  backendi nujn modelna
     
 
@@ -39,6 +40,8 @@ public class PatientBean implements Serializable {
     private FacesContext context;
 
     private ExternalContext externalContext;
+    
+    // form1 ham create ham update hamara
 
     @PostConstruct // work after constructor
     public void init() {
@@ -49,7 +52,12 @@ public class PatientBean implements Serializable {
         if (patientId != null) {
             //load patient from backend, for update
             //id ov load kani, klcni patient mech, vor@ frontic set get es anum
+            
+            //backendic gtnuma
             patient = patientClient.getOnePatient(patientId).getPatient();
+            
+            //lcnuma patienti mech
+            // ete create es anum, apa patientd datarka skzbic
         }
 
     }
