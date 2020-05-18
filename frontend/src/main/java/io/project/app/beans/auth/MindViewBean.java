@@ -19,9 +19,9 @@ public class MindViewBean implements Serializable {
     public MindViewBean() {
         root = new DefaultMindmapNode("PATIENT", "fhir model", "FFCC00", false);
          
-        MindmapNode ids = new DefaultMindmapNode("ids", "IP ids", "6e9ebf", true);
-        MindmapNode active = new DefaultMindmapNode("active", "active", "6e9ebf", true);
-        MindmapNode name = new DefaultMindmapNode("name", "Malicious Software", "6e9ebf", true);
+        MindmapNode ids = new DefaultMindmapNode("ids", "id of patient", "6e9ebf", true);
+        MindmapNode active = new DefaultMindmapNode("active", "status of patient", "6e9ebf", true);
+        MindmapNode name = new DefaultMindmapNode("name", "name details of patient", "6e9ebf", true);
         MindmapNode contact = new DefaultMindmapNode("contact", "IP ids", "6e9ebf", true);
         MindmapNode gender = new DefaultMindmapNode("gender", "IP ids", "6e9ebf", true);
         MindmapNode birthdate = new DefaultMindmapNode("birthdate", "IP ids", "6e9ebf", true);
@@ -62,28 +62,56 @@ public class MindViewBean implements Serializable {
     public void onNodeSelect(SelectEvent<MindmapNode> event) {
         MindmapNode node = event.getObject();
          
-        //populate if not already loaded
         if(node.getChildren().isEmpty()) {
             Object label = node.getLabel();
  
-            if(label.equals("GOOGLE")) {
-               
+            if(label.equals("name")) {
+                  node.addNode(new DefaultMindmapNode("use", "use", "82c542", true));
+                  node.addNode(new DefaultMindmapNode("text", "text", "82c542", true));
+                  node.addNode(new DefaultMindmapNode("family", "family", "82c542", true));
+                  
+            }
+            else if(label.equals("gender")) {
+               node.addNode(new DefaultMindmapNode("male", "male", "82c542", true));
+               node.addNode(new DefaultMindmapNode("female", "female", "82c542", true));
+               node.addNode(new DefaultMindmapNode("other", "other", "82c542", true));
+               node.addNode(new DefaultMindmapNode("unknown", "unknown", "82c542", true));
+            }
             
-                    node.addNode(new DefaultMindmapNode("GOOGLE: ", "THE BEST SEARCH ENGINE", "82c542", true));// ete trua, apa double click karas anes
-                    
-               
+             else if(label.equals("address")) {
+               node.addNode(new DefaultMindmapNode("country", "country", "82c542", true));
+               node.addNode(new DefaultMindmapNode("city", "city", "82c542", true));
+               node.addNode(new DefaultMindmapNode("address box", "address box", "82c542", true));
+               node.addNode(new DefaultMindmapNode("postal code", "postal code", "82c542", true));
             }
-            else if(label.equals("IPs")) {
-               // for(int i = 0; i < 18; i++) {
-                    //node.addNode(new DefaultMindmapNode("1.1.1."  + i, "IP Number: 1.1.1." + i, "fce24f", false));
-               // } 
+            
+            else if(label.equals("contactParty")) {
+               node.addNode(new DefaultMindmapNode("name", "name", "82c542", true));
+               node.addNode(new DefaultMindmapNode("gender", "gender", "82c542", true));
+               node.addNode(new DefaultMindmapNode("address", "address", "82c542", true));
+               node.addNode(new DefaultMindmapNode("relationship with patient", "relationship with patient", "82c542", true));
             }
-            else if(label.equals("Malware")) {
-                for(int i = 0; i < 18; i++) {
-                    String random = UUID.randomUUID().toString();
-                    node.addNode(new DefaultMindmapNode("Malware-"  + random, "Malicious Software: " + random, "3399ff", false));
-                }
+            
+            else if(label.equals("language")) {
+               node.addNode(new DefaultMindmapNode("armenian", "armenian", "82c542", true));
+               node.addNode(new DefaultMindmapNode("russian", "russian", "82c542", true));
+               node.addNode(new DefaultMindmapNode("english", "english", "82c542", true));
+              
             }
+            
+            else if(label.equals("contact")) {
+               node.addNode(new DefaultMindmapNode("phone", "phone", "82c542", true));
+               node.addNode(new DefaultMindmapNode("email", "email", "82c542", true));
+               node.addNode(new DefaultMindmapNode("viber", "viber", "82c542", true));
+              
+            }
+            
+             else if(label.equals("deseaseBoolean")) {
+               node.addNode(new DefaultMindmapNode("desease Date", "date", "82c542", true));
+              
+              
+            }
+            
         }   
     }
      
