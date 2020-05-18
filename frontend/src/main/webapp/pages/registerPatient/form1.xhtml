@@ -109,7 +109,10 @@
                                     <p:inputText value="#{patientBean.patient.contactParty.name}" placeholder="name"/>
                                     <p:inputText value="#{patientBean.patient.contactParty.address}" placeholder="address"/>
                                     <p:inputText value="#{patientBean.patient.contactParty.phone}" placeholder="phone"/>
-                                    <p:inputText value="#{patientBean.patient.contactParty.relationship}" placeholder="relationship with patient"/>
+                                    <p:selectOneMenu value="#{patientBean.patient.contactParty.relationship}" style="margin-bottom:10px;">
+                                        <f:selectItems value="#{patientBean.consentRelationshipList}" var="list" itemLabel="#{list.key}" itemValue="#{list.value}"/>
+                                    </p:selectOneMenu>
+        
                                 </p:panelGrid>
                             </div>
 

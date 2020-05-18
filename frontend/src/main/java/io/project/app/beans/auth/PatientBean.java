@@ -1,6 +1,7 @@
 package io.project.app.beans.auth;
 
 import io.project.app.patient.enums.AddressUse;
+import io.project.app.patient.enums.ConsentRelationship;
 import io.project.app.patient.enums.ConsentStatus;
 import io.project.app.patient.enums.Gender;
 import io.project.app.patient.enums.HumanNameUse;
@@ -87,6 +88,10 @@ public class PatientBean implements Serializable {
     
     public ProvisionType[] getProvisionTypeList(){
         return ProvisionType.values();
+    }
+    
+    public ConsentRelationship[] getConsentRelationshipList(){
+        return ConsentRelationship.values();
     }
 
     public String doRegister() {
