@@ -12,6 +12,9 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import org.primefaces.model.file.UploadedFile;
+
+
 /**
  *
  * @author lilith
@@ -33,12 +36,13 @@ public class Attachment implements Serializable{
 //  "title" : "<string>", // Label to display in place of the data
 //  "creation" : "<dateTime>" // Date attachment was first created
     
+    private UploadedFile file;
     
-    private String url;
-    
-    private String size;
-    
-    private String title;
+//        private String url;
+//        
+//        private String size;
+//        
+//        private String title;
 
    
     

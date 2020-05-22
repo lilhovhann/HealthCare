@@ -1,7 +1,6 @@
 package io.project.app.beans.auth;
 
 import java.io.Serializable;
-import java.util.UUID;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import org.primefaces.event.SelectEvent;
@@ -19,34 +18,32 @@ public class MindViewBean implements Serializable {
     public MindViewBean() {
         root = new DefaultMindmapNode("PATIENT", "fhir model", "FFCC00", false);
 
-//        MindmapNode ids = new DefaultMindmapNode("ids", "id of patient", "6e9ebf", true);
-        MindmapNode active = new DefaultMindmapNode("active", "status of patient", "6e9ebf", true);
-        MindmapNode name = new DefaultMindmapNode("name", "name details of patient", "6e9ebf", true);
-        MindmapNode contact = new DefaultMindmapNode("contact", "IP ids", "6e9ebf", true);
-        MindmapNode gender = new DefaultMindmapNode("gender", "IP ids", "6e9ebf", true);
-        MindmapNode birthdate = new DefaultMindmapNode("birthdate", "IP ids", "6e9ebf", true);
-        MindmapNode deseaseBoolean = new DefaultMindmapNode("deseaseBoolean", "IP ids", "6e9ebf", true);
-        MindmapNode address = new DefaultMindmapNode("address", "IP ids", "6e9ebf", true);
-        MindmapNode attachment = new DefaultMindmapNode("attachment", "IP ids", "6e9ebf", true);
-        MindmapNode contactParty = new DefaultMindmapNode("contactParty", "IP ids", "6e9ebf", true);
-        MindmapNode language = new DefaultMindmapNode("language", "IP ids", "6e9ebf", true);
-        MindmapNode consent = new DefaultMindmapNode("consent", "IP ids", "d581de", true);
-        MindmapNode practitioner = new DefaultMindmapNode("practitioner", "IP ids", "6e9ebf", true);
+        MindmapNode status = new DefaultMindmapNode("Status", "", "5DA493", true);
+        MindmapNode id = new DefaultMindmapNode("ID", "", "A6E7FF", true);
+        MindmapNode Name = new DefaultMindmapNode("Name", "", "FF8866", true);
+        MindmapNode Contacts = new DefaultMindmapNode("Contacts", "", "50BFE6", true);
+        MindmapNode Gender = new DefaultMindmapNode("Gender", "", "FF6037", true);
+        MindmapNode Birthdate = new DefaultMindmapNode("Birthdate", "", "6e9ebf", true);
+        MindmapNode DeseasedStatus = new DefaultMindmapNode("Desease Status", "", "BFAFB2", true);
+        MindmapNode Address = new DefaultMindmapNode("Address", "", "FF878D", true);
+        MindmapNode ContactParty = new DefaultMindmapNode("Contact Party", "", "FFCFF1", true);
+        MindmapNode Language = new DefaultMindmapNode("Language", "", "AF6E4D", true);
+        MindmapNode Consent = new DefaultMindmapNode("Consent", "", "d581de", true);
+        MindmapNode Practitioner = new DefaultMindmapNode("Practitioner", "", "6EAEA1", true);
 
-        root.addNode(consent);
-//        root.addNode(ids);
-        root.addNode(active);
-        root.addNode(name);
-        root.addNode(contact);
-        root.addNode(gender);
-        root.addNode(birthdate);
-        root.addNode(deseaseBoolean);
-        root.addNode(address);
-        root.addNode(attachment);
-        root.addNode(contactParty);
-        root.addNode(language);
+        root.addNode(Consent);
+        root.addNode(status);
+        root.addNode(Name);
+        root.addNode(Contacts);
+        root.addNode(Gender);
+        root.addNode(Birthdate);
+        root.addNode(DeseasedStatus);
+        root.addNode(Address);
+        root.addNode(id);
+        root.addNode(ContactParty);
+        root.addNode(Language);
 
-        root.addNode(practitioner);
+        root.addNode(Practitioner);
 
     }
 
@@ -68,48 +65,48 @@ public class MindViewBean implements Serializable {
         if (node.getChildren().isEmpty()) {
             Object label = node.getLabel();
 
-            if (label.equals("name")) {
-                node.addNode(new DefaultMindmapNode("use", "use", "82c542", true));
-                node.addNode(new DefaultMindmapNode("text", "text", "82c542", true));
-                node.addNode(new DefaultMindmapNode("family", "family", "82c542", true));
-
-            } else if (label.equals("gender")) {
-                node.addNode(new DefaultMindmapNode("male", "male", "82c542", true));
-                node.addNode(new DefaultMindmapNode("female", "female", "82c542", true));
-                node.addNode(new DefaultMindmapNode("other", "other", "82c542", true));
-                node.addNode(new DefaultMindmapNode("unknown", "unknown", "82c542", true));
-            } else if (label.equals("address")) {
-                node.addNode(new DefaultMindmapNode("country", "country", "82c542", true));
-                node.addNode(new DefaultMindmapNode("city", "city", "82c542", true));
-                node.addNode(new DefaultMindmapNode("address box", "address box", "82c542", true));
-                node.addNode(new DefaultMindmapNode("postal code", "postal code", "82c542", true));
-            } else if (label.equals("contactParty")) {
-                node.addNode(new DefaultMindmapNode("name", "name", "82c542", true));
-                node.addNode(new DefaultMindmapNode("gender", "gender", "82c542", true));
-                node.addNode(new DefaultMindmapNode("address", "address", "82c542", true));
-                node.addNode(new DefaultMindmapNode("relationship with patient", "relationship with patient", "82c542", true));
-            } else if (label.equals("language")) {
-                node.addNode(new DefaultMindmapNode("armenian", "armenian", "82c542", true));
-                node.addNode(new DefaultMindmapNode("russian", "russian", "82c542", true));
-                node.addNode(new DefaultMindmapNode("english", "english", "82c542", true));
-
-            } else if (label.equals("contact")) {
-                node.addNode(new DefaultMindmapNode("phone", "phone", "82c542", true));
-                node.addNode(new DefaultMindmapNode("email", "email", "82c542", true));
-                node.addNode(new DefaultMindmapNode("viber", "viber", "82c542", true));
-
-            } else if (label.equals("deseaseBoolean")) {
-                node.addNode(new DefaultMindmapNode("desease Date", "date", "82c542", true));
-
-            } else if (label.equals("consent")) {
-                node.addNode(new DefaultMindmapNode("status", "status", "82c542", true));
-                node.addNode(new DefaultMindmapNode("provision type", "provision type", "82c542", true));
-                node.addNode(new DefaultMindmapNode("period", "period", "82c542", true));
-
-            } else if (label.equals("practitioner")) {
-                node.addNode(new DefaultMindmapNode("name", "name", "82c542", true));
-                node.addNode(new DefaultMindmapNode("surname", "surname", "82c542", true));
-                node.addNode(new DefaultMindmapNode("role", "role", "82c542", true));
+            if (label.equals("Name")) {
+                node.addNode(new DefaultMindmapNode("Use", "use", "82c542", true));
+                node.addNode(new DefaultMindmapNode("Name", "text", "82c542", true));
+                node.addNode(new DefaultMindmapNode("Surname", "family", "82c542", true));
+            } 
+            else if (label.equals("status")) {
+                node.addNode(new DefaultMindmapNode("Active", "", "82c542", true));
+                node.addNode(new DefaultMindmapNode("Passive", "", "82c542", true));
+               
+            } else if (label.equals("Gender")) {
+                node.addNode(new DefaultMindmapNode("Male", "male", "82c542", true));
+                node.addNode(new DefaultMindmapNode("Female", "female", "82c542", true));
+                node.addNode(new DefaultMindmapNode("Other", "other", "82c542", true));
+                node.addNode(new DefaultMindmapNode("Unknown", "unknown", "82c542", true));
+            } else if (label.equals("Address")) {
+                node.addNode(new DefaultMindmapNode("Country", "country", "82c542", true));
+                node.addNode(new DefaultMindmapNode("City", "city", "82c542", true));
+                node.addNode(new DefaultMindmapNode("Address box", "address box", "82c542", true));
+                node.addNode(new DefaultMindmapNode("Postal code", "postal code", "82c542", true));
+            } else if (label.equals("ContactParty")) {
+                node.addNode(new DefaultMindmapNode("Name", "name", "82c542", true));
+                node.addNode(new DefaultMindmapNode("Gender", "gender", "82c542", true));
+                node.addNode(new DefaultMindmapNode("Address", "address", "82c542", true));
+                node.addNode(new DefaultMindmapNode("Relationship with patient", "relationship with patient", "82c542", true));
+            } else if (label.equals("Language")) {
+                node.addNode(new DefaultMindmapNode("Armenian", "armenian", "82c542", true));
+                node.addNode(new DefaultMindmapNode("Russian", "russian", "82c542", true));
+                node.addNode(new DefaultMindmapNode("English", "english", "82c542", true));
+            } else if (label.equals("Contacts")) {
+                node.addNode(new DefaultMindmapNode("Phone", "phone", "82c542", true));
+                node.addNode(new DefaultMindmapNode("Email", "email", "82c542", true));
+                node.addNode(new DefaultMindmapNode("Viber", "viber", "82c542", true));
+            } else if (label.equals("DeseasedStatus")) {
+                node.addNode(new DefaultMindmapNode("Desease Date", "date", "82c542", true));
+            } else if (label.equals("Consent")) {
+                node.addNode(new DefaultMindmapNode("Status", "status", "82c542", true));
+                node.addNode(new DefaultMindmapNode("Provision type", "provision type", "82c542", true));
+                node.addNode(new DefaultMindmapNode("Period", "period", "82c542", true));
+            } else if (label.equals("Practitioner")) {
+                node.addNode(new DefaultMindmapNode("Name", "name", "82c542", true));
+                node.addNode(new DefaultMindmapNode("Surname", "surname", "82c542", true));
+                node.addNode(new DefaultMindmapNode("Role", "role", "82c542", true));
 
             }
 

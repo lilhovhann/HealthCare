@@ -1,5 +1,6 @@
 package io.project.app.patientcare.patient.submodels;
 
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -17,7 +18,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class ConsentProvision {
+public class ConsentProvision implements Serializable{
     
     private String type; 
     

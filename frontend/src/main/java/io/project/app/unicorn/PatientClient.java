@@ -1,5 +1,6 @@
 package io.project.app.unicorn;
 
+import io.project.app.api.requests.FileRequest;
 import io.project.app.patient.api.response.PatientApiResponse;
 import io.project.app.patientcare.models.Patient;
 import io.project.app.util.GsonConverter;
@@ -13,6 +14,7 @@ import javax.inject.Named;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
@@ -63,6 +65,32 @@ public class PatientClient implements Serializable {
             LOG.error("Exception caught.", e);
         }
         return returnedModel;
+    }
+    
+     public String saveFile(FileRequest fileDTO) {
+        String fileId = null;
+        try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
+            LOG.info("Upload file started ");
+            HttpPost request = new HttpPost("http://localhost:5550/api/v2/patients/creation");
+
+            String toJson = GsonConverter.toJson(fileDTO);
+            StringEntity params = new StringEntity(toJson, "UTF-8");
+            request.addHeader("content-type", "application/json;charset=UTF-8");
+            request.addHeader("charset", "UTF-8");
+            request.setEntity(params);
+            long startTime = System.currentTimeMillis();
+            try (CloseableHttpResponse httpResponse = httpClient.execute(request)) {
+                LOG.info("Upload file started  status code " + httpResponse.getStatusLine().getStatusCode());
+                if (httpResponse.getStatusLine().getStatusCode() == 200) {
+                    fileId = GsonConverter.fromJson(EntityUtils.toString(httpResponse.getEntity()), String.class);
+                }
+            }
+            long elapsedTime = System.currentTimeMillis() - startTime;
+            LOG.info("Upload file started  request/response time in milliseconds: " + elapsedTime);
+        } catch (IOException e) {
+            LOG.error("Exception caught.", e);
+        }
+        return fileId;
     }
 
     

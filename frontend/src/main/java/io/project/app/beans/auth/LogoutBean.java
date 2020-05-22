@@ -5,8 +5,6 @@ import javax.enterprise.context.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 
@@ -29,10 +27,10 @@ public class LogoutBean implements Serializable {
         context = FacesContext.getCurrentInstance();
         externalContext = context.getExternalContext();
         externalContext.getSessionMap().remove("sessonController");
-        ///sexternalContext.getApplicationMap().remove("sessonController");
         externalContext.getSessionMap().clear();
         HttpSession session = (HttpSession) externalContext.getSession(true);
         session.invalidate();
+        
         
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
         ec.invalidateSession();

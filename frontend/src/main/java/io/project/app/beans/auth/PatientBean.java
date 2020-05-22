@@ -18,6 +18,7 @@ import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 
+
 /**
  *
  * @author lilith
@@ -29,10 +30,8 @@ public class PatientBean implements Serializable {
     @Inject
     private PatientClient patientClient;
 
-    //ajste new a exac!
-    private Patient patient = new Patient(); // sa im  backendi nujn modelna
+    private Patient patient = new Patient(); 
     
-
     private String patientId;
 
     public PatientBean() {
@@ -41,8 +40,6 @@ public class PatientBean implements Serializable {
     private FacesContext context;
 
     private ExternalContext externalContext;
-    
-    // form1 ham create ham update hamara
 
     @PostConstruct // work after constructor
     public void init() {
@@ -51,18 +48,11 @@ public class PatientBean implements Serializable {
         patientId = this.getRequestParameter("patientId");
 
         if (patientId != null) {
-            //load patient from backend, for update
-            //id ov load kani, klcni patient mech, vor@ frontic set get es anum
-            
-            //backendic gtnuma
             patient = patientClient.getOnePatient(patientId).getPatient();
-            
-            //lcnuma patienti mech
-            // ete create es anum, apa patientd datarka skzbic
         }
-
     }
 
+    
    
     public Gender[] getGenders() {
         return Gender.values();
@@ -76,11 +66,9 @@ public class PatientBean implements Serializable {
         return HumanNameUse.values();
     }
 
-
     public AddressUse[] getAddressUseList() {
         return AddressUse.values();
     }
-    
     
     public ConsentStatus[] getConsentStatuseList(){
         return ConsentStatus.values();

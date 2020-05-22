@@ -1,6 +1,7 @@
 package io.project.app.patientcare.patient.submodels;
 
 
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -17,7 +18,7 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 
-public class HumanName{
+public class HumanName implements Serializable{
     
     private String use;
     

@@ -1,5 +1,6 @@
 package io.project.app.patientcare.patient.submodels;
 
+import java.io.Serializable;
 import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,7 +19,7 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 
-public class ConsentPeriod {
+public class ConsentPeriod implements Serializable{
     
     private Date startDate;
     

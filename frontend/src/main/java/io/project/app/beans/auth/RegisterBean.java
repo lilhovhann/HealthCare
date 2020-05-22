@@ -7,7 +7,7 @@ package io.project.app.beans.auth;
 
 import io.project.app.patientcare.models.Account;
 import io.project.app.unicorn.AuthClient;
-import io.project.app.usercontext.SessonController;
+import io.project.app.usercontext.SessionController;
 import java.io.Serializable;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
@@ -27,7 +27,7 @@ public class RegisterBean implements Serializable {
     private Account account = new Account();
     
     @Inject
-    private SessonController sessonController;
+    private SessionController sessonController;
 
     /**
      * Creates a new instance of RegisterBean

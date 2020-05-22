@@ -2,6 +2,7 @@ package io.project.app.patientcare.models;
 
 import io.project.app.patient.enums.ConsentStatus;
 import io.project.app.patientcare.patient.submodels.Address;
+import io.project.app.patientcare.patient.submodels.Attachment;
 import io.project.app.patientcare.patient.submodels.ConsentProvision;
 import io.project.app.patientcare.patient.submodels.ContactParty;
 import io.project.app.patientcare.patient.submodels.HumanName;
@@ -52,17 +53,17 @@ public class Patient implements Serializable {
 
     private String email;
     
-    private String viber; //exir jamanakakic!!!
+    private String viber; 
     
 
-    private Address address = new Address(); //lav tox mna
-    //mek toxov
+    private Address address = new Address(); 
 
-    private String status; //enum
+    private String status;
 
-    private ConsentProvision provision = new ConsentProvision(); //sranq el address nman sarqi
+    private ConsentProvision provision = new ConsentProvision();
 
-//    Attachment photo = new Attachment();
+    private Attachment photo = new Attachment();
+    
     private ContactParty contactParty = new ContactParty();
 
     private HumanName practitionerName = new HumanName();
