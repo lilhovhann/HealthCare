@@ -81,6 +81,12 @@
 	  <artifactId>patientcore</artifactId>
 	  <version>${project.version}</version>
 	 </dependency>
+	 <dependency>
+	  <groupId>io.project.app</groupId>
+	  <artifactId>frontend</artifactId>
+	  <version>1.0</version>
+	  <type>war</type>
+	 </dependency>
 	</dependencies>
 
 	<dependencyManagement>

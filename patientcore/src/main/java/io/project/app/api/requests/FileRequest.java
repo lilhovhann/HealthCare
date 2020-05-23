@@ -1,5 +1,6 @@
 package io.project.app.api.requests;
 
+
 import java.io.Serializable;
 import java.util.Date;
 import lombok.AllArgsConstructor;
@@ -8,20 +9,22 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-/**
- *
- * @author armen
- */
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
-@AllArgsConstructor
+
+/**
+ *
+ * @author lilith
+ */
+
 public class FileRequest implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
-    private String id;    
+
+    private String id;
 
     private String userId;
     
@@ -34,4 +37,6 @@ public class FileRequest implements Serializable {
     private Date uploadDate;
     
     private String fileContent;
+    
+
 }
