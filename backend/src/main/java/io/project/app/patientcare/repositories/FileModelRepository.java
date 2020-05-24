@@ -1,7 +1,7 @@
 package io.project.app.patientcare.repositories;
 
 
-import io.project.app.patientcare.models.FileModel;
+import io.project.app.models.FileModel;
 import java.util.Optional;
 
 import org.springframework.data.mongodb.repository.MongoRepository;

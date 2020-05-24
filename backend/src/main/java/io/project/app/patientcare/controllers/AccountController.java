@@ -1,7 +1,7 @@
 package io.project.app.patientcare.controllers;
 
-import io.project.app.patientcare.models.Account;
-import io.project.app.patientcare.models.Login;
+import io.project.app.models.Account;
+import io.project.app.models.Login;
 
 import io.project.app.patientcare.services.AccountService;
 import java.util.List;

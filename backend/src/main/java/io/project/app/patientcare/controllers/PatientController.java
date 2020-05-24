@@ -1,7 +1,7 @@
 package io.project.app.patientcare.controllers;
 
-import io.project.app.patient.api.response.PatientApiResponse;
-import io.project.app.patientcare.models.Patient;
+import io.project.app.api.response.PatientApiResponse;
+import io.project.app.models.Patient;
 
 import io.project.app.patientcare.services.PatientService;
 import java.util.List;

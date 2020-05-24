@@ -1,7 +1,7 @@
 package io.project.app.patientcare.controllers;
 
-import io.project.app.api.responses.ApiResponseMessage;
-import io.project.app.patientcare.models.FileModel;
+import io.project.app.api.patientcare.responses.ApiResponseMessage;
+import io.project.app.models.FileModel;
 import io.project.app.api.requests.FileRequest;
 import io.project.app.patientcare.services.FileService;
 import io.project.app.patientcare.services.FileStorageService;

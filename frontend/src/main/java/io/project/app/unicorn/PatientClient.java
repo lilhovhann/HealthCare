@@ -1,8 +1,8 @@
 package io.project.app.unicorn;
 
 import io.project.app.api.requests.FileRequest;
-import io.project.app.patient.api.response.PatientApiResponse;
-import io.project.app.patientcare.models.Patient;
+import io.project.app.api.response.PatientApiResponse;
+import io.project.app.models.Patient;
 import io.project.app.util.GsonConverter;
 import java.io.IOException;
 import java.io.Serializable;

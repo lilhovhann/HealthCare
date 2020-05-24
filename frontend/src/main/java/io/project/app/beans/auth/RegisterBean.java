@@ -5,7 +5,7 @@
  */
 package io.project.app.beans.auth;
 
-import io.project.app.patientcare.models.Account;
+import io.project.app.models.Account;
 import io.project.app.unicorn.AuthClient;
 import io.project.app.usercontext.SessionController;
 import java.io.Serializable;

@@ -1,9 +1,9 @@
 package io.project.app.patientcare.services;
 
-import io.project.app.patientcare.models.Account;
+import io.project.app.models.Account;
 import io.project.app.patientcare.repositories.AccountRepository;
 import io.project.app.patientcare.utils.CommonConstants;
-import io.project.app.patientcare.models.Login;
+import io.project.app.models.Login;
 import io.project.app.patientcare.utils.PasswordHashUtil;
 import java.util.Date;
 import java.util.List;

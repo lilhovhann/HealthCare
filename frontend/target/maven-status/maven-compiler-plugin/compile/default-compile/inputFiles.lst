@@ -6,7 +6,6 @@
 /home/lilith/HealthCare/frontend/src/main/java/io/project/app/beans/auth/LogoutBean.java
 /home/lilith/HealthCare/frontend/src/main/java/io/project/app/beans/auth/LoginBean.java
 /home/lilith/HealthCare/frontend/src/main/java/io/project/app/util/CommonConstants.java
-/home/lilith/HealthCare/frontend/src/main/java/io/project/app/api/requests/FileRequest.java
 /home/lilith/HealthCare/frontend/src/main/java/io/project/app/beans/auth/FileUploadBean.java
 /home/lilith/HealthCare/frontend/src/main/java/io/project/app/beans/auth/MindViewBean.java
 /home/lilith/HealthCare/frontend/src/main/java/org/primefaces/icarus/component/menu/IcarusMenuRenderer.java

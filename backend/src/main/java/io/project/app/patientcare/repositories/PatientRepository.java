@@ -1,6 +1,6 @@
 package io.project.app.patientcare.repositories;
 
-import io.project.app.patientcare.models.Patient;
+import io.project.app.models.Patient;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 

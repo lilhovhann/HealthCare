@@ -1,13 +1,13 @@
 package io.project.app.beans.auth;
 
-import io.project.app.patient.enums.AddressUse;
-import io.project.app.patient.enums.ConsentRelationship;
-import io.project.app.patient.enums.ConsentStatus;
-import io.project.app.patient.enums.Gender;
-import io.project.app.patient.enums.HumanNameUse;
-import io.project.app.patient.enums.Language;
-import io.project.app.patient.enums.ProvisionType;
-import io.project.app.patientcare.models.Patient;
+import io.project.app.models.enums.AddressUse;
+import io.project.app.models.enums.ConsentRelationship;
+import io.project.app.models.enums.ConsentStatus;
+import io.project.app.models.enums.Gender;
+import io.project.app.models.enums.HumanNameUse;
+import io.project.app.models.enums.Language;
+import io.project.app.models.enums.ProvisionType;
+import io.project.app.models.Patient;
 import io.project.app.unicorn.PatientClient;
 import java.io.Serializable;
 import java.util.List;

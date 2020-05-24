@@ -1,6 +1,6 @@
 package io.project.app.patientcare.services;
 
-import io.project.app.patientcare.models.FileModel;
+import io.project.app.models.FileModel;
 import io.project.app.api.requests.FileRequest;
 import io.project.app.patientcare.repositories.FileModelRepository;
 import java.io.IOException;

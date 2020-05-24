@@ -1,6 +1,6 @@
 package io.project.app.patientcare.services;
 
-import io.project.app.patientcare.models.Patient;
+import io.project.app.models.Patient;
 import io.project.app.patientcare.repositories.PatientRepository;
 import java.util.List;
 import java.util.Optional;

@@ -3,7 +3,7 @@ package io.project.app.unicorn;
 
 import io.project.app.api.requests.LoginRequest;
 
-import io.project.app.patientcare.models.Account;
+import io.project.app.models.Account;
 import io.project.app.util.GsonConverter;
 import java.io.IOException;
 import java.io.Serializable;

@@ -1,7 +1,7 @@
 package io.project.app.usercontext;
 
-import io.project.app.patientcare.models.Account;
-import io.project.app.patientcare.models.Patient;
+import io.project.app.models.Account;
+import io.project.app.models.Patient;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
