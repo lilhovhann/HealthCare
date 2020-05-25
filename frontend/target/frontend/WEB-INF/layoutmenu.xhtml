@@ -12,8 +12,8 @@
 
     <h:form id="menuformleft">           
         <pi:menu  rendered="#{sessonController.account.id !=  null}">
-
-            <p:menuitem id="im_dashboard" value="Dashboard" icon="fa fa-home" outcome="/pages/dashboard"/> 
+            <p:menuitem id="mindmap" value="Mind Map" icon="fa fa-map" outcome="/pages/mindMap"/> 
+            
             <p:menuitem id="lim_dashboard" value="Profile" icon="fa fa-user" outcome="/pages/profile"/> 
 
             <p:submenu id="lxim_default1" label="Registration" icon="fa fa-book">
@@ -21,7 +21,7 @@
                 <p:menuitem id="listOfPatients" value="List of Patients" icon="fa fa-pencil fa-fw" outcome="/pages/registration/list" />
             </p:submenu>
 
-            <p:menuitem id="mindmap" value="Mind Map" icon="fa fa-map" outcome="/pages/mindMap"/> 
+            
 
         </pi:menu> 
         
