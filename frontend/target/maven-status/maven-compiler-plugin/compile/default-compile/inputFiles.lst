@@ -11,8 +11,10 @@
 /home/lilith/HealthCare/frontend/src/main/java/org/primefaces/icarus/component/menu/IcarusMenuRenderer.java
 /home/lilith/HealthCare/frontend/src/main/java/io/project/app/api/requests/LoginRequest.java
 /home/lilith/HealthCare/frontend/src/main/java/io/project/app/beans/auth/PatientBean.java
+/home/lilith/HealthCare/frontend/src/main/java/io/project/app/beans/auth/PreviewImage.java
 /home/lilith/HealthCare/frontend/src/main/java/io/project/app/api/requests/PasswordUpdateRequest.java
 /home/lilith/HealthCare/frontend/src/main/java/io/project/app/unicorn/PatientClient.java
 /home/lilith/HealthCare/frontend/src/main/java/org/primefaces/icarus/filter/CharacterEncodingFilter.java
 /home/lilith/HealthCare/frontend/src/main/java/org/primefaces/icarus/view/GuestPreferences.java
 /home/lilith/HealthCare/frontend/src/main/java/io/project/app/usercontext/SessionController.java
+/home/lilith/HealthCare/frontend/src/main/java/io/project/app/util/FacesUtil.java

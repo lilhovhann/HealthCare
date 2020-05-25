@@ -53,44 +53,47 @@ public class FileUploadBean implements Serializable {
         
     }
     
-//    public String doAction() throws IOException {
-//        if (uploadedFile != null) {
-//            
-//            long size = uploadedFile.getSize();
-//            
-//            String content = uploadedFile.getContentType();
-//            
-//            InputStream stream = uploadedFile.getInputStream();
-//            
-//            byte[] contentBytes = new byte[(int) size];
-//            stream.read(contentBytes);
-//            String base64String = Base64.encodeBase64String(contentBytes);
-//            fileDTO.setFileContent(base64String);
-//            fileDTO.setFileName(uploadedFile.getSubmittedFileName());
-//            fileDTO.setFileSize(size);
-//            fileDTO.setUserId(sessionController.getPatient().getId());
-//            fileDTO.setContentType(uploadedFile.getContentType());
-//            //System.out.println("ICO " + uploadedFile.getContentType());
-//
-//            if (!content.equalsIgnoreCase("image/jpeg") && !content.equalsIgnoreCase("image/pjpeg")
-//                    && !content.equalsIgnoreCase("image/jpg") && !content.equalsIgnoreCase("image/gif")
-//                    && !content.equalsIgnoreCase("image/x-png") && !content.equalsIgnoreCase("image/png")
-//                    && !content.equalsIgnoreCase("image/x-icon")) {
-//                try {
-//                    
-//                    return null;
-//                } catch (Exception e) {
-//                }
-//            }
-//            String saveFile = patientClient.saveFile(fileDTO);
-//            if(saveFile != null){
-//                sessionController.setUserAvatarId(saveFile);
-//            }
-//            LOG.info("Saved file id");
-//        }
-//        return null;
-//        
-//    }
+    public String doAction() throws IOException {
+        if (uploadedFile != null) {
+            
+            long size = uploadedFile.getSize();
+            
+            String content = uploadedFile.getContentType();
+            
+            InputStream stream = uploadedFile.getInputStream();
+            
+            byte[] contentBytes = new byte[(int) size];
+            stream.read(contentBytes);
+            String base64String = Base64.encodeBase64String(contentBytes);
+            fileDTO.setFileContent(base64String);
+            fileDTO.setFileName(uploadedFile.getSubmittedFileName());
+            fileDTO.setFileSize(size);
+            fileDTO.setUserId(sessionController.getAccount().getId());//logged user id, patient is not logged
+            //logged always account model, event it can be patient!!!
+            
+            fileDTO.setContentType(uploadedFile.getContentType());
+            //System.out.println("ICO " + uploadedFile.getContentType());
+
+            if (!content.equalsIgnoreCase("image/jpeg") && !content.equalsIgnoreCase("image/pjpeg")
+                    && !content.equalsIgnoreCase("image/jpg") && !content.equalsIgnoreCase("image/gif")
+                    && !content.equalsIgnoreCase("image/x-png") && !content.equalsIgnoreCase("image/png")
+                    && !content.equalsIgnoreCase("image/x-icon")) {
+                try {
+                    
+                    return null;
+                } catch (Exception e) {
+                }
+            }
+            String saveFile = patientClient.saveFile(fileDTO);
+            if(saveFile != null){
+                LOG.info("Received file id from backend");
+                sessionController.setUserAvatarId(saveFile);
+            }
+            
+        }
+        return null;
+        
+    }
     
     public void addMessage(FacesMessage message) {
         FacesContext.getCurrentInstance().addMessage(null, message);

@@ -24,13 +24,14 @@
             <p:menuitem id="mindmap" value="Mind Map" icon="fa fa-map" outcome="/pages/mindMap"/> 
 
             <p:submenu id="sys" label="Settings" icon="fa fa-cog fa-fw">
-                <p:menuitem icon="fa fa-sign-out" id="logout" value="Log out" ajax="true" action="#{logoutBean.doLogout}"/>
+              
+                <p:menuitem icon="fa fa-sign-out" id="logout" value="Log out" ajax="false" immediate="true" action="#{logoutBean.doLogout}"/>
             </p:submenu>
 
 
 
         </pi:menu> 
-
+  <h:commandLink action="#{logoutBean.doLogout}"  value="nromal Log out"  immediate="true"  />
 
     </h:form>
 </ui:composition>

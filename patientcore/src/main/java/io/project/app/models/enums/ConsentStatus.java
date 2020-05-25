@@ -6,12 +6,9 @@ package io.project.app.models.enums;
  */
 public enum ConsentStatus {
 
-    draft("draft", "draft"),
-    proposed("proposed", "proposed"),
     active("active", "active"),
-    rejected("rejected", "rejected"),
     inactive("inactive", "inactive");
-   
+
     private final String key;
     private final String value;
 

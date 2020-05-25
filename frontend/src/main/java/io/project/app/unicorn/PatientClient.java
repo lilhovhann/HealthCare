@@ -21,7 +21,6 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
 
-
 @Named
 @ApplicationScoped
 public class PatientClient implements Serializable {
@@ -66,12 +65,12 @@ public class PatientClient implements Serializable {
         }
         return returnedModel;
     }
-    
-     public String saveFile(FileRequest fileDTO) {
+
+    public String saveFile(FileRequest fileDTO) {
         String fileId = null;
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
             LOG.info("Upload file started ");
-            HttpPost request = new HttpPost("http://localhost:5550/api/v2/patients/creation");
+            HttpPut request = new HttpPut("http://localhost:5550/api/v2/file"); /// bug here
 
             String toJson = GsonConverter.toJson(fileDTO);
             StringEntity params = new StringEntity(toJson, "UTF-8");
@@ -93,47 +92,69 @@ public class PatientClient implements Serializable {
         return fileId;
     }
 
-    
     public PatientApiResponse getPatients() {
         PatientApiResponse model = new PatientApiResponse();
         long startTime = System.currentTimeMillis();
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
             HttpGet request = new HttpGet("http://localhost:5550/api/v2/patients/find/all/list");
             request.addHeader("content-type", "application/json;charset=UTF-8");
-            request.addHeader("charset", "UTF-8");          
+            request.addHeader("charset", "UTF-8");
             CloseableHttpResponse response = httpClient.execute(request);
-           
+
             try (CloseableHttpResponse httpResponse = httpClient.execute(request)) {
                 model = GsonConverter.fromJson(EntityUtils.toString(httpResponse.getEntity()), PatientApiResponse.class);
             }
             long elapsedTime = System.currentTimeMillis() - startTime;
-            
+
         } catch (IOException e) {
-            
-        }
-        return model;
-    }
-    
-     public PatientApiResponse getOnePatient(String patientId) {
-        PatientApiResponse model = new PatientApiResponse();
-        long startTime = System.currentTimeMillis();
-        try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
-            HttpGet request = new HttpGet("http://localhost:5550/api/v2/patients/find/one?patientId="+patientId);
-            request.addHeader("content-type", "application/json;charset=UTF-8");
-            request.addHeader("charset", "UTF-8");          
-            CloseableHttpResponse response = httpClient.execute(request);
-           
-            try (CloseableHttpResponse httpResponse = httpClient.execute(request)) {
-                model = GsonConverter.fromJson(EntityUtils.toString(httpResponse.getEntity()), PatientApiResponse.class);
-            }
-            long elapsedTime = System.currentTimeMillis() - startTime;
-            
-        } catch (IOException e) {
-            
+
         }
         return model;
     }
 
+    public PatientApiResponse getOnePatient(String patientId) {
+        PatientApiResponse model = new PatientApiResponse();
+        long startTime = System.currentTimeMillis();
+        try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
+            HttpGet request = new HttpGet("http://localhost:5550/api/v2/patients/find/one?patientId=" + patientId);
+            request.addHeader("content-type", "application/json;charset=UTF-8");
+            request.addHeader("charset", "UTF-8");
+            CloseableHttpResponse response = httpClient.execute(request);
+
+            try (CloseableHttpResponse httpResponse = httpClient.execute(request)) {
+                model = GsonConverter.fromJson(EntityUtils.toString(httpResponse.getEntity()), PatientApiResponse.class);
+            }
+            long elapsedTime = System.currentTimeMillis() - startTime;
+
+        } catch (IOException e) {
+
+        }
+        return model;
+    }
+
+    public FileRequest getFileById(String id) {
+        FileRequest fileDTO = new FileRequest();
+        try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
+            LOG.info("getFileById file started ");
+            HttpGet request = new HttpGet("http://localhost:5550/api/v2/file?id="+id);
+
+            request.addHeader("content-type", "application/json;charset=UTF-8");
+            request.addHeader("charset", "UTF-8");
+
+            long startTime = System.currentTimeMillis();
+            try (CloseableHttpResponse httpResponse = httpClient.execute(request)) {
+                LOG.info("Get file  status code " + httpResponse.getStatusLine().getStatusCode());
+                if (httpResponse.getStatusLine().getStatusCode() == 200) {
+                    fileDTO = GsonConverter.fromJson(EntityUtils.toString(httpResponse.getEntity()), FileRequest.class);
+                }
+            }
+            long elapsedTime = System.currentTimeMillis() - startTime;
+            LOG.info("Get File started  request/response time in milliseconds: " + elapsedTime);
+        } catch (IOException e) {
+            LOG.error("Exception caught.", e);
+        }
+        return fileDTO;
+    }
 
     public PropertyResourceBundle getBundle() {
         FacesContext context = FacesContext.getCurrentInstance();

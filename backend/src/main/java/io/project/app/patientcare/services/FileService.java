@@ -43,6 +43,7 @@ public class FileService {
    }
    
    public FileRequest findFile(String id) throws IOException{
+       log.info("Start find file");
        FileRequest fileDTO = new FileRequest();
        Optional<FileModel> userFile = fileModelRepository.findById(id);
        if(userFile.isPresent()){
@@ -65,6 +66,8 @@ public class FileService {
    public Optional<FileModel> findByUserId(String id){
         return fileModelRepository.findByUserId(id);
    }
+   
+  
    
     @Transactional(transactionManager = "transactionManager", readOnly = false)
     public Optional<FileModel> saveFileMetadata(

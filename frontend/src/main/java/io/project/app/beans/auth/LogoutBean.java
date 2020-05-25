@@ -1,6 +1,7 @@
 package io.project.app.beans.auth;
 
 import java.io.Serializable;
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -9,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 
 @Named
-@SessionScoped
+@RequestScoped
 public class LogoutBean implements Serializable {
 
     private static final Logger LOGGER = Logger.getLogger(LogoutBean.class);
@@ -29,8 +30,7 @@ public class LogoutBean implements Serializable {
         externalContext.getSessionMap().remove("sessonController");
         externalContext.getSessionMap().clear();
         HttpSession session = (HttpSession) externalContext.getSession(true);
-        session.invalidate();
-        
+        session.invalidate();       
         
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
         ec.invalidateSession();
