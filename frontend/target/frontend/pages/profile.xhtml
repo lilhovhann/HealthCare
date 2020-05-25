@@ -21,28 +21,25 @@
                     <div class="ui-g-12 ui-lg-12">
 
                         <h:form id="updateprofile" enctype="multipart/form-data" rendered="#{sessonController.account.id != null}">
+
+
                             <div class="card">
+                                <br/>  
+                                <h:inputFile id="file"  value="#{fileUploadBean.uploadedFile}" />  
+                                <br/>  
+                                <br/>
+                                <p:commandButton style="width: 30%;" type="submit" ajax="false" value="Upload Photo" action="#{fileUploadBean.doAction()}"  />
+                            </div>
 
 
+                            <div class="card">
                                 <p:graphicImage url="/PreviewImage?fileId=#{sessonController.userAvatarId}" rendered="#{sessonController.userAvatarId != null}"
                                                 width="120px" height="120px"/>
-                                
-                                
-                              
-                             
-                                
                                 <br/>
-                                <h:inputFile id="file"  value="#{fileUploadBean.uploadedFile}"/>  
-                                <br/>  <br/>
-
-                                <p:commandButton type="submit" ajax="false" value="Upload Photo" action="#{fileUploadBean.doAction()}"  />
                             </div>
                             <div class="card">
-                                
-                                
-                                
-                                <h1>My Profile </h1>
-                                <h:graphicImage name="images/profile.png" library="icarus-layout" style="border: 0 none;"/>
+
+
                                 <br/><br/>
                                 Firstname:  #{sessonController.account.firstname}
                                 <br/>
@@ -51,8 +48,8 @@
                                 <br/>
                                 Email:  #{sessonController.account.email}
                                 <br/>
-                                
-                                
+
+
 
 
                             </div>

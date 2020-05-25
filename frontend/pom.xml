@@ -50,11 +50,7 @@
             <artifactId>primefaces</artifactId>
             <version>8.0</version>
         </dependency>
-        <!--        <dependency>
-            <groupId>org.primefaces.extensions</groupId>
-            <artifactId>primefaces-extensions</artifactId>
-            <version>7.0.3</version>
-        </dependency>-->
+       
         <dependency> 
             <groupId>org.primefaces.themes</groupId>  
             <artifactId>all-themes</artifactId>  

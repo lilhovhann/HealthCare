@@ -1,13 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:p="http://primefaces.org/ui"    
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:c="http://java.sun.com/jsp/jstl/core"     
-      xmlns:jsf="http://xmlns.jcp.org/jsf"         
-      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"   
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:pi="http://primefaces.org/icarus">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"                 
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <div id="top-bar-wrapper">
         <div id="top-bar">
@@ -19,12 +14,13 @@
             </div>
             <div class="top-bar-profile">
                 <div class="profile-name">
-                    
+
                     <span>#{sessonController.account.firstname}</span>                    
                 </div>
 
                 <a href="#" id="profile-image">
-                    <h:graphicImage name="images/profile.png" library="icarus-layout" style="border: 0 none;"/>
+                    <p:graphicImage url="/PreviewImage?fileId=#{sessonController.userAvatarId}" rendered="#{sessonController.userAvatarId != null}"
+                                                width="66px" height="66px"/>
                 </a>
                 <ul class="top-submenu animated flipInX">
 
@@ -39,10 +35,15 @@
                         <a href="#" >
                             <i class="top-submenu-icon fa fa-fw fa-envelope"></i>
                             <span>Messages</span>
+
                             <span class="top-submenu-badge">5</span>
                         </a>
                     </li>
-                   
+
+                    
+                    <li>
+                        <p:commandLink action="#{logoutBean.doLogout}"  value="Log Out"  immediate="true"  />
+                    </li>
 
                 </ul>
 
